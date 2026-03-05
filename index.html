@@ -3,23 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>朱冠宇 | 多模态大模型算法</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>朱冠宇 | Academic Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --primary: #0f172a;
-        --primary-light: #1e293b;
-        --accent: #059669;
-        --accent-light: #10b981;
-        --text: #334155;
-        --text-light: #64748b;
-        --bg: #f8fafc;
-        --card: #ffffff;
-        --border: #e2e8f0;
-        --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --bg: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --link: #1d4ed8;
+        --container: 1060px;
+        --sidebar: 280px;
       }
 
       * {
@@ -33,927 +32,529 @@
       }
 
       body {
-        font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: "Source Sans 3", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
         background: var(--bg);
         color: var(--text);
-        line-height: 1.6;
+        line-height: 1.65;
         -webkit-font-smoothing: antialiased;
       }
 
-      .page {
-        max-width: 1400px;
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        width: min(var(--container), calc(100% - 32px));
         margin: 0 auto;
+      }
+
+      .site-header {
+        border-bottom: 1px solid var(--border);
+        background: #ffffff;
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 62px;
+        gap: 16px;
+      }
+
+      .site-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .site-name:hover {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      .menu-toggle {
+        display: none;
+        border: 1px solid var(--border);
+        background: #ffffff;
+        color: var(--text);
+        font: inherit;
+        font-size: 0.9rem;
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+
+      .top-nav {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .top-nav a {
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      .top-nav a:hover,
+      .top-nav a.active {
+        color: var(--link);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .layout {
         display: grid;
-        grid-template-columns: 320px 1fr;
-        gap: 2rem;
-        padding: 2rem;
+        grid-template-columns: var(--sidebar) minmax(0, 1fr);
+        gap: 40px;
+        padding: 28px 0 56px;
       }
 
       .sidebar {
-        position: sticky;
-        top: 2rem;
-        height: fit-content;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+        padding-right: 20px;
+        border-right: 1px solid var(--border);
       }
 
-      .profile-card {
-        background: var(--card);
-        border-radius: 20px;
-        padding: 2rem;
-        box-shadow: var(--shadow);
-        text-align: center;
-        border: 1px solid var(--border);
+      .sidebar-inner {
+        position: sticky;
+        top: 18px;
       }
 
       .avatar {
-        width: 120px;
-        height: 120px;
-        margin: 0 auto 1.5rem;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 3px solid var(--accent-light);
-        box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.1);
-      }
-
-      .avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      h1 {
-        font-size: 1.75rem;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 0.5rem;
-        letter-spacing: -0.02em;
-      }
-
-      .tagline {
-        font-size: 0.9rem;
-        color: var(--text-light);
-        margin-bottom: 1rem;
-        line-height: 1.5;
-      }
-
-      .status-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-        color: var(--accent);
-        border-radius: 9999px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-        border: 1px solid #a7f3d0;
-      }
-
-      .status-badge::before {
-        content: '';
-        width: 8px;
-        height: 8px;
-        background: var(--accent);
-        border-radius: 50%;
-        animation: pulse 2s infinite;
-      }
-
-      @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-      }
-
-      .contact-micro {
-        text-align: center;
-        font-size: 0.8rem;
-        color: var(--text-light);
-        margin-top: 0.5rem;
-      }
-
-      .contact-micro a {
-        color: var(--text-light);
-        text-decoration: none;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.2s, color 0.2s;
-      }
-
-      .contact-micro a:hover {
-        border-bottom-color: var(--accent);
-        color: var(--accent);
-      }
-
-      .nav-card {
-        background: var(--card);
-        border-radius: 16px;
-        padding: 1rem;
-        box-shadow: var(--shadow);
+        width: 180px;
+        max-width: 100%;
+        height: auto;
+        display: block;
         border: 1px solid var(--border);
       }
 
-      .nav-list {
+      .profile-name {
+        margin-top: 14px;
+        font-size: 2rem;
+        line-height: 1.12;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+
+      .profile-meta {
+        margin-top: 10px;
+        display: grid;
+        gap: 4px;
+        font-size: 0.9rem;
+        color: var(--muted);
         list-style: none;
       }
 
-      .nav-item {
-        margin-bottom: 0.25rem;
+      .profile-links {
+        margin-top: 14px;
+        display: grid;
+        gap: 5px;
       }
 
-      .nav-link {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 0.875rem 1rem;
-        color: var(--text);
-        text-decoration: none;
-        border-radius: 10px;
+      .profile-links a {
+        width: fit-content;
         font-size: 0.9rem;
-        font-weight: 500;
-        transition: all 0.2s;
-        position: relative;
-      }
-
-      .nav-link:hover, .nav-link.active {
-        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-        color: var(--accent);
-      }
-
-      .nav-link::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 3px;
-        height: 0;
-        background: var(--accent);
-        border-radius: 0 2px 2px 0;
-        transition: height 0.2s;
-      }
-
-      .nav-link:hover::before, .nav-link.active::before {
-        height: 60%;
       }
 
       .content {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+        min-width: 0;
       }
 
       .section {
-        background: var(--card);
-        border-radius: 20px;
-        padding: 2rem;
-        box-shadow: var(--shadow);
-        border: 1px solid var(--border);
-        scroll-margin-top: 2rem;
+        scroll-margin-top: 72px;
+      }
+
+      .section + .section {
+        margin-top: 42px;
       }
 
       .section-title {
-        font-size: 1.5rem;
+        font-size: 1.42rem;
+        line-height: 1.25;
         font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid var(--border);
+        margin-bottom: 14px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid var(--border);
       }
 
-      .section-title::before {
-        content: '';
-        width: 4px;
-        height: 24px;
-        background: var(--accent);
-        border-radius: 2px;
+      .about p + p {
+        margin-top: 12px;
       }
 
-      .intro-list {
+      .edu-list,
+      .pub-list,
+      .project-list,
+      .award-list {
         list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
       }
 
-      .intro-list li {
-        position: relative;
-        padding-left: 1.5rem;
+      .edu-item,
+      .project-item,
+      .award-item,
+      .contact-item {
+        padding: 9px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .edu-item:last-child,
+      .project-item:last-child,
+      .award-item:last-child,
+      .contact-item:last-child {
+        border-bottom: none;
+      }
+
+      .edu-head,
+      .project-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+        align-items: start;
+      }
+
+      .entry-title {
+        font-size: 1rem;
+        font-weight: 600;
         color: var(--text);
-        line-height: 1.8;
       }
 
-      .intro-list li::before {
-        content: '▸';
-        position: absolute;
-        left: 0;
-        color: var(--accent);
-        font-weight: 700;
-      }
-
-      /* 教育背景 - 简化版 */
-      .edu-simple {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.25rem;
-        background: var(--bg);
-        border-radius: 12px;
-        border: 1px solid var(--border);
-      }
-
-      .edu-info h3 {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 0.25rem;
-      }
-
-      .edu-info p {
+      .entry-sub {
+        margin-top: 3px;
         font-size: 0.9rem;
-        color: var(--text-light);
+        color: var(--muted);
       }
 
-      .edu-date {
-        font-size: 0.9rem;
-        color: var(--text-light);
-        font-weight: 500;
-      }
-
-      /* 论文成果 - 论文列表 */
-      .pub-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
+      .entry-time {
+        white-space: nowrap;
+        font-size: 0.86rem;
+        color: var(--muted);
       }
 
       .pub-item {
-        padding: 1.25rem;
-        background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        transition: all 0.3s;
-        position: relative;
-        overflow: hidden;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--border);
       }
 
-      .pub-item:hover {
-        transform: translateX(4px);
-        box-shadow: var(--shadow-lg);
-        border-color: #a7f3d0;
-      }
-
-      .pub-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 0.75rem;
-        flex-wrap: wrap;
-        gap: 0.5rem;
+      .pub-item:last-child {
+        border-bottom: none;
       }
 
       .pub-title {
         font-size: 1rem;
         font-weight: 700;
-        color: var(--primary);
-        line-height: 1.5;
-        flex: 1;
+        line-height: 1.45;
+        color: var(--text);
       }
 
-      .pub-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 0.75rem;
-        align-items: center;
-      }
-
-      .venue-badge {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.35rem 0.75rem;
-        border-radius: 6px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.02em;
-      }
-
-      .venue-a {
-        background: #dbeafe;
-        color: #1e40af;
-        border: 1px solid #93c5fd;
-      }
-
-      .venue-q1 {
-        background: #fce7f3;
-        color: #be185d;
-        border: 1px solid #fbcfe8;
-      }
-
-      .venue-q2 {
-        background: #f3e8ff;
-        color: #7c3aed;
-        border: 1px solid #d8b4fe;
-      }
-
-      .status-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.25rem;
-        padding: 0.35rem 0.75rem;
-        background: #fef3c7;
-        color: #d97706;
-        border: 1px solid #fde68a;
-        border-radius: 6px;
-        font-size: 0.75rem;
-        font-weight: 700;
-      }
-
-      .status-tag::before {
-        content: '⏳';
-        font-size: 0.8rem;
-      }
-
-      .author-tag {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.35rem 0.75rem;
-        background: #ecfdf5;
-        color: #047857;
-        border: 1px solid #a7f3d0;
-        border-radius: 6px;
-        font-size: 0.75rem;
-        font-weight: 700;
-      }
-
-      .co-first-tag {
-        background: #dbeafe;
-        color: #1e40af;
-        border-color: #93c5fd;
+      .pub-authors {
+        margin-top: 4px;
+        font-size: 0.9rem;
+        color: var(--muted);
       }
 
       .pub-meta {
-        font-size: 0.9rem;
-        color: var(--text-light);
-        line-height: 1.6;
+        margin-top: 3px;
+        font-size: 0.84rem;
+        color: var(--muted);
       }
 
-      .pub-meta a {
-        color: var(--accent);
-        text-decoration: none;
-        font-weight: 600;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.2s;
+      .pub-desc {
+        margin-top: 5px;
+        font-size: 0.92rem;
       }
 
-      .pub-meta a:hover {
-        border-bottom-color: var(--accent);
-      }
-
-      /* 科研经历 - 项目详情 */
-      .project-item {
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        transition: all 0.3s;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .project-item:hover {
-        transform: translateX(4px);
-        box-shadow: var(--shadow-lg);
-        border-color: #a7f3d0;
-      }
-
-      .project-item::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background: var(--accent);
-        opacity: 0;
-        transition: opacity 0.3s;
-      }
-
-      .project-item:hover::before {
-        opacity: 1;
-      }
-
-      .project-item:last-child {
-        margin-bottom: 0;
-      }
-
-      .project-header {
+      .pub-links {
+        margin-top: 5px;
         display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 1rem;
+        gap: 10px;
         flex-wrap: wrap;
-        gap: 0.5rem;
       }
 
-      .project-title {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 0.5rem;
+      .pub-links a {
+        font-size: 0.84rem;
       }
 
-      .project-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .tag {
-        padding: 0.25rem 0.75rem;
-        background: rgba(5, 150, 105, 0.1);
-        color: var(--accent);
-        border-radius: 6px;
-        font-size: 0.75rem;
-        font-weight: 600;
-      }
-
-      .project-sub {
-        font-size: 0.9rem;
-        color: var(--text-light);
-        margin-top: 0.25rem;
-      }
-
-      .project-sub a {
-        color: var(--accent);
-        text-decoration: none;
-        font-weight: 600;
-        border-bottom: 1px solid transparent;
-        transition: border-color 0.2s;
-      }
-
-      .project-sub a:hover {
-        border-bottom-color: var(--accent);
-      }
-
-      .project-date {
-        font-size: 0.85rem;
-        color: var(--text-light);
-        font-weight: 500;
-        white-space: nowrap;
-      }
-
-      .project-content ul {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 1rem;
-      }
-
-      .project-content li {
-        position: relative;
-        padding-left: 1.25rem;
-        font-size: 0.9rem;
-        color: var(--text);
-        line-height: 1.7;
-      }
-
-      .project-content li::before {
-        content: '•';
-        position: absolute;
-        left: 0;
-        color: var(--accent-light);
-        font-size: 1.2rem;
-        line-height: 1.2;
-      }
-
-      .highlight-stat {
-        color: var(--accent);
-        font-weight: 700;
-      }
-
-      /* 获奖情况 */
-      .award-list {
-        list-style: none;
+      .project-points {
+        margin-top: 8px;
+        padding-left: 18px;
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
+        gap: 4px;
       }
 
-      .award-item {
-        padding: 0.875rem 1rem;
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-weight: 400;
-        color: var(--text);
+      .project-points li {
+        font-size: 0.92rem;
       }
 
-      /* 技能 */
-      .skills-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+      .contact-list {
+        list-style: none;
+        max-width: 540px;
       }
 
-      .skill-category {
-        padding: 1.25rem;
-        background: var(--bg);
-        border-radius: 12px;
-        border: 1px solid var(--border);
-      }
-
-      .skill-title {
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 0.75rem;
-        font-size: 0.95rem;
-      }
-
-      .skill-content {
-        font-size: 0.9rem;
-        color: var(--text);
-        line-height: 1.6;
-      }
-
-      /* 联系方式 */
-      .contact-section {
-        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-        color: white;
-        text-align: center;
-      }
-
-      .contact-section .section-title {
-        color: white;
-        border-bottom-color: rgba(255,255,255,0.2);
-      }
-
-      .contact-section .section-title::before {
-        background: var(--accent-light);
-      }
-
-      .contact-info {
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-        opacity: 0.9;
-      }
-
-      .contact-actions {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.875rem 1.5rem;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.2s;
-        border: none;
-        cursor: pointer;
-      }
-
-      .btn-primary {
-        background: var(--accent);
-        color: white;
-      }
-
-      .btn-primary:hover {
-        background: var(--accent-light);
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px -5px rgba(5, 150, 105, 0.4);
-      }
-
-      .btn-secondary {
-        background: rgba(255,255,255,0.1);
-        color: white;
-        border: 1px solid rgba(255,255,255,0.3);
-      }
-
-      .btn-secondary:hover {
-        background: rgba(255,255,255,0.2);
-      }
-
-      /* 响应式 */
-      @media (max-width: 1024px) {
-        .page {
-          grid-template-columns: 280px 1fr;
+      @media (max-width: 860px) {
+        .menu-toggle {
+          display: inline-block;
         }
-      }
 
-      @media (max-width: 768px) {
-        .page {
+        .top-nav {
+          display: none;
+          width: 100%;
+          padding: 8px 0 10px;
+          border-top: 1px solid var(--border);
+          margin-top: -2px;
+        }
+
+        .top-nav.open {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px 14px;
+        }
+
+        .header-inner {
+          flex-wrap: wrap;
+          padding: 10px 0;
+          min-height: auto;
+        }
+
+        .layout {
           grid-template-columns: 1fr;
-          padding: 1rem;
+          gap: 24px;
         }
 
         .sidebar {
-          position: relative;
-          top: 0;
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+          padding-right: 0;
+          padding-bottom: 16px;
         }
 
-        .section {
-          padding: 1.5rem;
+        .sidebar-inner {
+          position: static;
         }
 
-        .pub-header, .project-header {
-          flex-direction: column;
-        }
-
-        .contact-micro {
-          margin-top: 0.25rem;
+        .avatar {
+          width: 150px;
         }
       }
 
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
+      @media (max-width: 560px) {
+        .container {
+          width: calc(100% - 24px);
+        }
 
-      ::-webkit-scrollbar-track {
-        background: var(--bg);
-      }
+        .profile-name {
+          font-size: 1.78rem;
+        }
 
-      ::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 4px;
-      }
+        .section-title {
+          font-size: 1.26rem;
+        }
 
-      ::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
+        .edu-head,
+        .project-head {
+          grid-template-columns: 1fr;
+          gap: 2px;
+        }
+
+        .top-nav.open {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="page">
-      <aside class="sidebar">
-        <div class="profile-card">
-          <div class="avatar">
-            <img src="assets/avatar.jpg" alt="朱冠宇头像" />
-          </div>
-          <h1>朱冠宇</h1>
-          <p class="tagline">多模态大模型算法方向 · LLM / CV / 强化学习</p>
-          <div class="status-badge">华南农业大学 · 本科在读</div>
-          
-          <div class="contact-micro">
-            <a href="mailto:xiaoguanbx@gmail.com">Email</a> · <a href="#" aria-label="GitHub">GitHub</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="site-name" href="#about">朱冠宇 · Academic Homepage</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="top-nav">菜单</button>
+        <nav class="top-nav" id="top-nav" aria-label="主导航">
+          <a class="nav-link active" href="#about">About</a>
+          <a class="nav-link" href="#education">Education</a>
+          <a class="nav-link" href="#publications">Publications</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#awards">Awards</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container layout">
+      <aside class="sidebar" aria-label="个人信息">
+        <div class="sidebar-inner">
+          <img class="avatar" src="assets/avatar.jpg" alt="朱冠宇头像" />
+          <h1 class="profile-name">朱冠宇</h1>
+          <ul class="profile-meta">
+            <li>华南农业大学 · 电子工程学院</li>
+            <li>广州，中国</li>
+          </ul>
+          <div class="profile-links">
+            <a href="mailto:xiaoguanbx@gmail.com">Email</a>
+            <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer" aria-label="Scholar">Scholar</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
           </div>
         </div>
-
-        <nav class="nav-card">
-          <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link active" href="#home">个人简介</a></li>
-            <li class="nav-item"><a class="nav-link" href="#education">教育背景</a></li>
-            <li class="nav-item"><a class="nav-link" href="#publications">论文成果</a></li>
-            <li class="nav-item"><a class="nav-link" href="#research">科研经历</a></li>
-            <li class="nav-item"><a class="nav-link" href="#awards">获奖情况</a></li>
-            <li class="nav-item"><a class="nav-link" href="#skills">技能专长</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">联系方式</a></li>
-          </ul>
-        </nav>
       </aside>
 
-      <main class="content">
-        <section id="home" class="section">
-          <h2 class="section-title">个人简介</h2>
-          <ul class="intro-list">
-            <li>华南农业大学电子科学与技术本科在读，<strong>国家奖学金获得者</strong>。</li>
-            <li>研究方向聚焦于多模态大语言模型（MLLM）、自动竞价（Auto-Bidding）、物理推理（Physical Reasoning）与强化学习对齐（RLHF/GRPO）。</li>
-            <li>在投 CCF-A 类会议论文 2 篇（KDD, ICML）、中科院一区论文 1 篇（ESWA）、中科院二区期刊 1 篇。</li>
+      <div class="content">
+        <section id="about" class="section about" data-section>
+          <h2 class="section-title">About</h2>
+          <p>
+            我目前就读于华南农业大学电子科学与技术专业，研究聚焦多模态大语言模型（MLLM）、自动竞价（Auto-Bidding）、物理推理（Physical
+            Reasoning）以及强化学习对齐（RLHF/GRPO）。
+          </p>
+          <p>
+            目前在投 CCF-A 类会议论文 2 篇（KDD、ICML），并持续推进 ESWA 与 Smart Agricultural Technology 方向的研究工作，关注模型在真实场景中的推理能力、可靠性与可解释性。
+          </p>
+        </section>
+
+        <section id="education" class="section" data-section>
+          <h2 class="section-title">Education</h2>
+          <ul class="edu-list">
+            <li class="edu-item">
+              <div class="edu-head">
+                <div>
+                  <p class="entry-title">华南农业大学 · 电子工程学院 · 电子科学与技术</p>
+                  <p class="entry-sub">本科在读</p>
+                </div>
+                <time class="entry-time">2023.09 - 至今</time>
+              </div>
+            </li>
           </ul>
         </section>
 
-        <section id="education" class="section">
-          <h2 class="section-title">教育背景</h2>
-          <div class="edu-simple">
-            <div class="edu-info">
-              <h3>华南农业大学 · 电子工程学院 · 电子科学与技术</h3>
-              <p>本科在读</p>
-            </div>
-            <div class="edu-date">2023.09 - 至今</div>
-          </div>
+        <section id="publications" class="section" data-section>
+          <h2 class="section-title">Publications</h2>
+          <ul class="pub-list">
+            <li class="pub-item">
+              <p class="pub-title">On the Role of Language Representations in Auto-Bidding: Findings and Implications</p>
+              <p class="pub-meta">KDD 2026 (CCF-A) · under review · 第一作者</p>
+              <p class="pub-desc">研究语言表征在自动竞价系统中的作用机制，提出基于 LLM 的竞价策略优化框架。</p>
+            </li>
+
+            <li class="pub-item">
+              <p class="pub-title">
+                <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">
+                  PhysicsMind: Sim and Real Mechanics Benchmarking for Physical Reasoning and Prediction in Foundational VLMs and World
+                  Models
+                </a>
+              </p>
+              <p class="pub-meta">ICML 2026 (CCF-A) · under review · 共同第一作者</p>
+              <p class="pub-desc">北京大学（远程科研）合作，围绕物理推理与预测任务构建 Sim/Real 评测基准。</p>
+              <div class="pub-links">
+                <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">arXiv</a>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <p class="pub-title">Graph-Guided Attention Analysis: MATH-VANE for White-Box Novelty and Creativity Detection in LLMs</p>
+              <p class="pub-meta">ESWA (中科院一区) · under review · 共同第一作者</p>
+              <p class="pub-desc">提出图引导注意力分析的白盒检测方法，用于评估大语言模型的新颖性与创造性。</p>
+            </li>
+
+            <li class="pub-item">
+              <p class="pub-title">Lychee-Bench: A Process-Level Vision Language Benchmark for Trustworthy Lychee Orchard Diagnosis</p>
+              <p class="pub-meta">Smart Agricultural Technology (中科院二区) · under review · 第一作者</p>
+              <p class="pub-desc">构建农业多模态过程级推理基准数据集，用于可信诊断任务评测。</p>
+            </li>
+          </ul>
         </section>
 
-        <section id="publications" class="section">
-          <h2 class="section-title">论文成果</h2>
-          <div class="pub-list">
-            
-            <!-- 论文1: Auto-Bidding -->
-            <div class="pub-item">
-              <div class="pub-header">
-                <div class="pub-title">On the Role of Language Representations in Auto-Bidding: Findings and Implications</div>
-              </div>
-              <div class="pub-badges">
-                <span class="venue-badge venue-a">KDD 2026 (CCF-A)</span>
-                <span class="status-tag">Under Review</span>
-                <span class="author-tag">第一作者</span>
-              </div>
-              <div class="pub-meta">
-                香港城市大学（远程科研）· 研究语言表征在自动竞价系统中的作用机制，提出基于 LLM 的竞价策略优化框架。
-              </div>
-            </div>
-
-            <!-- 论文2: PhysicsMind -->
-            <div class="pub-item">
-              <div class="pub-header">
-                <div class="pub-title">PhysicsMind: Sim and Real Mechanics Benchmarking for Physical Reasoning and Prediction in Foundational VLMs and World Models</div>
-              </div>
-              <div class="pub-badges">
-                <span class="venue-badge venue-a">ICML 2026 (CCF-A)</span>
-                <span class="status-tag">Under Review</span>
-                <span class="author-tag co-first-tag">共同第一作者</span>
-              </div>
-              <div class="pub-meta">
-                北京大学（远程科研）· 导师：仉尚航 · 
-                <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">arXiv:2601.16007</a>
-              </div>
-            </div>
-
-            <!-- 论文3: MATH-VANE -->
-            <div class="pub-item">
-              <div class="pub-header">
-                <div class="pub-title">Graph-Guided Attention Analysis: MATH-VANE for White-Box Novelty and Creativity Detection in LLMs</div>
-              </div>
-              <div class="pub-badges">
-                <span class="venue-badge venue-q1">ESWA (中科院一区)</span>
-                <span class="status-tag">Under Review</span>
-                <span class="author-tag co-first-tag">共同第一作者</span>
-              </div>
-              <div class="pub-meta">
-                中国移动合作项目 · 提出基于图引导注意力分析的白盒检测方法，用于评估大语言模型的新颖性与创造性。
-              </div>
-            </div>
-
-            <!-- 论文4: Lychee-Bench -->
-            <div class="pub-item">
-              <div class="pub-header">
-                <div class="pub-title">Lychee-Bench: A Process-Level Vision Language Benchmark for Trustworthy Lychee Orchard Diagnosis</div>
-              </div>
-              <div class="pub-badges">
-                <span class="venue-badge venue-q2">Smart Agricultural Technology (中科院二区)</span>
-                <span class="status-tag">Under Review</span>
-                <span class="author-tag">第一作者</span>
-              </div>
-              <div class="pub-meta">
-                华南农业大学 · 导师：谢家兴 · 构建农业多模态过程级推理基准数据集
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <section id="research" class="section">
-          <h2 class="section-title">科研经历</h2>
-
-          <div class="project-item">
-            <div class="project-header">
-              <div>
-                <div class="project-title">PhysicsMind 物理推理评测项目</div>
-                <div class="project-tags">
-                  <span class="tag">多模态</span>
-                  <span class="tag">物理推理</span>
-                  <span class="tag">Sim-to-Real</span>
+        <section id="projects" class="section" data-section>
+          <h2 class="section-title">Projects</h2>
+          <ul class="project-list">
+            <li class="project-item">
+              <div class="project-head">
+                <div>
+                  <p class="entry-title">PhysicsMind 物理推理评测项目</p>
+                  <p class="entry-sub">多模态 · 物理推理 · Sim-to-Real · 北京大学（远程科研）</p>
                 </div>
-                <div class="project-sub">
-                  合作单位：北京大学（远程科研）· 导师：仉尚航
-                </div>
+                <time class="entry-time">2025.09 - 2025.12</time>
               </div>
-              <div class="project-date">2025.09 - 2025.12</div>
-            </div>
-            <div class="project-content">
-              <ul>
-                <li>数据工程：编写数据处理与评测指标代码，搭建评测流程并完成对比与误差分析。</li>
-                <li>评测构建：统一 benchmark 覆盖质心、杠杆平衡、牛顿第一定律三类场景，并构建真实桌面实验与 2D 仿真配对数据。</li>
-                <li>实验结果：多模态/视频生成模型在物理理解上准确率约 25%–85%，Real/Sim 迁移下降 25–35 个百分点。</li>
+              <ul class="project-points">
+                <li>搭建数据处理与评测流程，完成对比实验与误差分析。</li>
+                <li>构建真实桌面实验与 2D 仿真配对数据，并统一 benchmark 场景。</li>
               </ul>
-            </div>
-          </div>
+            </li>
 
-          <div class="project-item">
-            <div class="project-header">
-              <div>
-                <div class="project-title">Lychee-Bench / Lychee-Mind 农业多模态推理</div>
-                <div class="project-tags">
-                  <span class="tag">多模态</span>
-                  <span class="tag">CoT 推理</span>
-                  <span class="tag">GRPO 对齐</span>
+            <li class="project-item">
+              <div class="project-head">
+                <div>
+                  <p class="entry-title">Lychee-Bench / Lychee-Mind 农业多模态推理</p>
+                  <p class="entry-sub">多模态 · CoT 推理 · GRPO 对齐 · 华南农业大学</p>
                 </div>
-                <div class="project-sub">
-                  华南农业大学 · 导师：谢家兴
-                </div>
+                <time class="entry-time">2025.05 - 2025.11</time>
               </div>
-              <div class="project-date">2025.05 - 2025.11</div>
-            </div>
-            <div class="project-content">
-              <ul>
-                <li>构建 6,553 张田间图像与 29,756 条 CoT-QA 样本，用于过程级推理监督。</li>
-                <li>基于 Qwen2.5-VL-7B 进行 SFT + GRPO 两阶段训练，对齐推理过程并抑制幻觉。</li>
-                <li>Lychee-Mind 在 Lychee-Bench 上总体准确率 80.67%，SFT+GRPO 相比仅 SFT 再提升 3.27%。</li>
+              <ul class="project-points">
+                <li>构建 6,553 张田间图像与 29,756 条 CoT-QA 样本用于过程级推理监督。</li>
+                <li>基于 Qwen2.5-VL-7B 进行 SFT + GRPO 两阶段训练并提升准确率。</li>
               </ul>
-            </div>
-          </div>
+            </li>
 
-          <div class="project-item">
-            <div class="project-header">
-              <div>
-                <div class="project-title">MATH-VANE 数学推理白盒检测</div>
-                <div class="project-tags">
-                  <span class="tag">LLM</span>
-                  <span class="tag">数学推理</span>
-                  <span class="tag">可解释性</span>
+            <li class="project-item">
+              <div class="project-head">
+                <div>
+                  <p class="entry-title">MATH-VANE 数学推理白盒检测</p>
+                  <p class="entry-sub">LLM · 数学推理 · 可解释性 · 中国移动合作项目</p>
                 </div>
-                <div class="project-sub">
-                  与中国移动合作项目 · ESWA (Expert Systems with Applications, 中科院一区) · Under Review · 共同第一作者
-                </div>
+                <time class="entry-time">2026.01 - 2026.03</time>
               </div>
-              <div class="project-date">2026.01 - 2026.03</div>
-            </div>
-            <div class="project-content">
-              <ul>
-                <li>针对大语言模型数学推理中“创造性解”与“幻觉内容”难以区分的问题，提出白盒可解释框架 MATH-VANE。</li>
-                <li>构建问题特定语义图（节点为数学实体、边为逻辑关系），并设计实体聚焦-关系流-阶段聚合三层层次化注意力分析机制，缓解传统困惑度指标的“解耦信号瓶颈”。</li>
-                <li>在 DeepSeekMath、Qwen2.5-Math 等 5 个 SOTA 推理模型与 CreativeMath、AMC、AIME 等数据集上验证，Macro-F1 达 56.43%，较 CLAWS 提升 12-13 个百分点。</li>
-                <li>显著提升对有效但新颖推理路径的识别能力，为高风险数学推理场景提供可解释性诊断工具。</li>
+              <ul class="project-points">
+                <li>提出白盒可解释框架，区分数学推理中的有效创新路径与幻觉内容。</li>
+                <li>在多个 SOTA 模型与数据集上验证并获得 Macro-F1 提升。</li>
               </ul>
-            </div>
-          </div>
+            </li>
 
-          <div class="project-item">
-            <div class="project-header">
-              <div>
-                <div class="project-title">SemState 语义状态增强决策</div>
-                <div class="project-tags">
-                  <span class="tag">LLM</span>
-                  <span class="tag">强化学习</span>
-                  <span class="tag">Decision Transformer</span>
+            <li class="project-item">
+              <div class="project-head">
+                <div>
+                  <p class="entry-title">SemState 语义状态增强决策</p>
+                  <p class="entry-sub">LLM · 强化学习 · Decision Transformer · 香港城市大学（远程科研）</p>
                 </div>
-                <div class="project-sub">
-                  香港城市大学（远程科研）
-                </div>
+                <time class="entry-time">2025.10 - 2026.02</time>
               </div>
-              <div class="project-date">2025.10 - 2026.02</div>
-            </div>
-            <div class="project-content">
-              <ul>
+              <ul class="project-points">
                 <li>构建 Task/History/Strategy 文本并预计算 embedding，融合数值状态与 LLM 表征。</li>
                 <li>实现 LLM embedding 与数值状态融合注意力模块并与 Decision Transformer 集成。</li>
                 <li>同设置下 SemState 相比 Decision Transformer 提升 70.4%，相较最佳已有方法提升 4.8%。</li>
               </ul>
-            </div>
-          </div>
+            </li>
 
-          <div class="project-item">
-            <div class="project-header">
-              <div>
-                <div class="project-title">基于 YOLOv8 的金属缺陷识别方法</div>
-                <div class="project-tags">
-                  <span class="tag">CV</span>
-                  <span class="tag">YOLO</span>
-                  <span class="tag">专利</span>
+            <li class="project-item">
+              <div class="project-head">
+                <div>
+                  <p class="entry-title">基于 YOLOv8 的金属缺陷识别方法</p>
+                  <p class="entry-sub">CV · YOLO · 专利 · 学生第一发明人</p>
                 </div>
-                <div class="project-sub">学生第一发明人 · 专利实质审查中</div>
+                <time class="entry-time">2024.11 - 2025.04</time>
               </div>
-              <div class="project-date">2024.11 - 2025.04</div>
-            </div>
-            <div class="project-content">
-              <ul>
+              <ul class="project-points">
                 <li>引入 BiFPN、GCNECA、TransformerSE/MultiScaleLSTMSimAM 等模块。</li>
                 <li>mAP50 92.3%（+5.8%），小缺陷召回率 +12.5%。</li>
               </ul>
-            </div>
-          </div>
+            </li>
 
-          <div class="project-item" style="margin-bottom: 0;">
-            <div class="project-header">
-              <div>
-                <div class="project-title">智能柚园机器人</div>
-                <div class="project-tags">
-                  <span class="tag">CV</span>
-                  <span class="tag">YOLOv8s</span>
+            <li class="project-item">
+              <div class="project-head">
+                <div>
+                  <p class="entry-title">智能柚园机器人</p>
+                  <p class="entry-sub">CV · YOLOv8s · 算法负责人</p>
                 </div>
-                <div class="project-sub">算法负责人 · 增强 YOLOv8s：DBB、RCS-OSA、LSKA 检测头注意力</div>
+                <time class="entry-time">2024.05 - 2025.05</time>
               </div>
-              <div class="project-date">2024.05 - 2025.05</div>
-            </div>
-          </div>
+              <ul class="project-points">
+                <li>增强 YOLOv8s：DBB、RCS-OSA、LSKA 检测头注意力。</li>
+              </ul>
+            </li>
+          </ul>
         </section>
 
-        <section id="awards" class="section">
-          <h2 class="section-title">获奖情况</h2>
+        <section id="awards" class="section" data-section>
+          <h2 class="section-title">Awards</h2>
           <ul class="award-list">
             <li class="award-item">国家奖学金（2025）· Top 1%</li>
             <li class="award-item">全国大学生集成电路创新创业大赛 · 全国二等奖</li>
@@ -963,58 +564,66 @@
           </ul>
         </section>
 
-        <section id="skills" class="section">
-          <h2 class="section-title">技能专长</h2>
-          <div class="skills-grid">
-            <div class="skill-category">
-              <div class="skill-title">训练与对齐</div>
-              <div class="skill-content">SFT、LoRA/QLoRA、PPO/DPO/GRPO、CoT 推理</div>
-            </div>
-            <div class="skill-category">
-              <div class="skill-title">工程与框架</div>
-              <div class="skill-content">Hugging Face、LlamaFactory、Swift；CLIP、BLIP、Qwen-VL；YOLOv5/v8</div>
-            </div>
-          </div>
+        <section id="contact" class="section" data-section>
+          <h2 class="section-title">Contact</h2>
+          <ul class="contact-list">
+            <li class="contact-item">Email: <a href="mailto:xiaoguanbx@gmail.com">xiaoguanbx@gmail.com</a></li>
+            <li class="contact-item">
+              Scholar: <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a>
+            </li>
+          </ul>
         </section>
-
-        <section id="contact" class="section contact-section">
-          <h2 class="section-title">联系方式</h2>
-          <p class="contact-info">邮箱：xiaoguanbx@gmail.com</p>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:xiaoguanbx@gmail.com">发送邮件</a>
-          </div>
-        </section>
-      </main>
-    </div>
+      </div>
+    </main>
 
     <script>
-      // 导航高亮与平滑滚动
-      const sections = document.querySelectorAll('section');
-      const navLinks = document.querySelectorAll('.nav-link');
-      
-      window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          if (scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-          }
-        });
+      const menuToggle = document.querySelector('.menu-toggle');
+      const topNav = document.querySelector('.top-nav');
+      const navLinks = Array.from(document.querySelectorAll('.top-nav .nav-link'));
+      const sections = Array.from(document.querySelectorAll('[data-section]'));
 
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-          }
+      if (menuToggle && topNav) {
+        menuToggle.addEventListener('click', () => {
+          const open = topNav.classList.toggle('open');
+          menuToggle.setAttribute('aria-expanded', String(open));
         });
-      });
+      }
 
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
+      const setActive = (id) => {
+        navLinks.forEach((link) => {
+          const active = link.getAttribute('href') === `#${id}`;
+          link.classList.toggle('active', active);
+        });
+      };
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setActive(entry.target.id);
+              }
+            });
+          },
+          {
+            rootMargin: '-32% 0px -56% 0px',
+            threshold: 0,
+          }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+      }
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          const target = document.querySelector(link.getAttribute('href'));
           if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+          if (topNav && topNav.classList.contains('open')) {
+            topNav.classList.remove('open');
+            menuToggle?.setAttribute('aria-expanded', 'false');
           }
         });
       });
