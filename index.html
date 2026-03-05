@@ -4,212 +4,1054 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>朱冠宇 | 多模态大模型算法</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary: #0f172a;
+        --primary-light: #1e293b;
+        --accent: #059669;
+        --accent-light: #10b981;
+        --text: #334155;
+        --text-light: #64748b;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --border: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .page {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 2rem;
+        padding: 2rem;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 2rem;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .profile-card {
+        background: var(--card);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        text-align: center;
+        border: 1px solid var(--border);
+      }
+
+      .avatar {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 1.5rem;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid var(--accent-light);
+        box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.1);
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .tagline {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+        color: var(--accent);
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        border: 1px solid #a7f3d0;
+      }
+
+      .status-badge::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+
+      .social-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+
+      .social-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--text);
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+
+      .social-btn:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      .nav-card {
+        background: var(--card);
+        border-radius: 16px;
+        padding: 1rem;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+      }
+
+      .nav-list {
+        list-style: none;
+      }
+
+      .nav-item {
+        margin-bottom: 0.25rem;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.875rem 1rem;
+        color: var(--text);
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.2s;
+        position: relative;
+      }
+
+      .nav-link:hover, .nav-link.active {
+        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+        color: var(--accent);
+      }
+
+      .nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 0;
+        background: var(--accent);
+        border-radius: 0 2px 2px 0;
+        transition: height 0.2s;
+      }
+
+      .nav-link:hover::before, .nav-link.active::before {
+        height: 60%;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .section {
+        background: var(--card);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        scroll-margin-top: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .section-title::before {
+        content: '';
+        width: 4px;
+        height: 24px;
+        background: var(--accent);
+        border-radius: 2px;
+      }
+
+      .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .badge {
+        padding: 0.5rem 1rem;
+        background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+        color: #0d9488;
+        border: 1px solid #99f6e4;
+        border-radius: 9999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .intro-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .intro-list li {
+        position: relative;
+        padding-left: 1.5rem;
+        color: var(--text);
+        line-height: 1.8;
+      }
+
+      .intro-list li::before {
+        content: '▸';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* 教育背景 - 简化版 */
+      .edu-simple {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem;
+        background: var(--bg);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+
+      .edu-info h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .edu-info p {
+        font-size: 0.9rem;
+        color: var(--text-light);
+      }
+
+      .edu-date {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        font-weight: 500;
+      }
+
+      /* 论文成果 - 论文列表 */
+      .pub-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .pub-item {
+        padding: 1.25rem;
+        background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pub-item:hover {
+        transform: translateX(4px);
+        box-shadow: var(--shadow-lg);
+        border-color: #a7f3d0;
+      }
+
+      .pub-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .pub-title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1.5;
+        flex: 1;
+      }
+
+      .pub-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+        align-items: center;
+      }
+
+      .venue-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.35rem 0.75rem;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+
+      .venue-a {
+        background: #dbeafe;
+        color: #1e40af;
+        border: 1px solid #93c5fd;
+      }
+
+      .venue-q1 {
+        background: #fce7f3;
+        color: #be185d;
+        border: 1px solid #fbcfe8;
+      }
+
+      .venue-q2 {
+        background: #f3e8ff;
+        color: #7c3aed;
+        border: 1px solid #d8b4fe;
+      }
+
+      .status-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.35rem 0.75rem;
+        background: #fef3c7;
+        color: #d97706;
+        border: 1px solid #fde68a;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .status-tag::before {
+        content: '⏳';
+        font-size: 0.8rem;
+      }
+
+      .author-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.35rem 0.75rem;
+        background: #ecfdf5;
+        color: #047857;
+        border: 1px solid #a7f3d0;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .co-first-tag {
+        background: #dbeafe;
+        color: #1e40af;
+        border-color: #93c5fd;
+      }
+
+      .pub-meta {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      .pub-meta a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+      }
+
+      .pub-meta a:hover {
+        border-bottom-color: var(--accent);
+      }
+
+      /* 科研经历 - 项目详情 */
+      .project-item {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-item:hover {
+        transform: translateX(4px);
+        box-shadow: var(--shadow-lg);
+        border-color: #a7f3d0;
+      }
+
+      .project-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--accent);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .project-item:hover::before {
+        opacity: 1;
+      }
+
+      .project-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .project-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .tag {
+        padding: 0.25rem 0.75rem;
+        background: rgba(5, 150, 105, 0.1);
+        color: var(--accent);
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .project-sub {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        margin-top: 0.25rem;
+      }
+
+      .project-sub a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+      }
+
+      .project-sub a:hover {
+        border-bottom-color: var(--accent);
+      }
+
+      .project-date {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .project-content ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .project-content li {
+        position: relative;
+        padding-left: 1.25rem;
+        font-size: 0.9rem;
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      .project-content li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--accent-light);
+        font-size: 1.2rem;
+        line-height: 1.2;
+      }
+
+      .highlight-stat {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* 获奖情况 */
+      .award-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .award-item {
+        padding: 0.875rem 1rem;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 400;
+        color: var(--text);
+      }
+
+      /* 技能 */
+      .skills-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .skill-category {
+        padding: 1.25rem;
+        background: var(--bg);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+
+      .skill-title {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+      }
+
+      .skill-content {
+        font-size: 0.9rem;
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      /* 联系方式 */
+      .contact-section {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        color: white;
+        text-align: center;
+      }
+
+      .contact-section .section-title {
+        color: white;
+        border-bottom-color: rgba(255,255,255,0.2);
+      }
+
+      .contact-section .section-title::before {
+        background: var(--accent-light);
+      }
+
+      .contact-info {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+      }
+
+      .contact-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.875rem 1.5rem;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-light);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -5px rgba(5, 150, 105, 0.4);
+      }
+
+      .btn-secondary {
+        background: rgba(255,255,255,0.1);
+        color: white;
+        border: 1px solid rgba(255,255,255,0.3);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255,255,255,0.2);
+      }
+
+      /* 响应式 */
+      @media (max-width: 1024px) {
+        .page {
+          grid-template-columns: 280px 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page {
+          grid-template-columns: 1fr;
+          padding: 1rem;
+        }
+
+        .sidebar {
+          position: relative;
+          top: 0;
+        }
+
+        .section {
+          padding: 1.5rem;
+        }
+
+        .pub-header, .project-header {
+          flex-direction: column;
+        }
+
+        .social-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .social-btn span {
+          display: none;
+        }
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+    </style>
   </head>
   <body>
     <div class="page">
       <aside class="sidebar">
-        <div class="panel profile">
+        <div class="profile-card">
           <div class="avatar">
             <img src="assets/avatar.jpg" alt="朱冠宇头像" />
           </div>
           <h1>朱冠宇</h1>
           <p class="tagline">多模态大模型算法方向 · LLM / CV / 强化学习</p>
-          <div class="socials">
-            <a class="social-link" href="mailto:xiaoguanbx@gmail.com" aria-label="Email">Mail</a>
-            <a class="social-link" href="tel:13566236489" aria-label="Phone">Tel</a>
-            <a class="social-link" href="#" aria-label="WeChat">WX</a>
-            <a class="social-link" href="#" aria-label="GitHub">GH</a>
+          <div class="status-badge">华南农业大学 · 本科在读</div>
+          
+          <div class="social-grid">
+            <a class="social-btn" href="mailto:xiaoguanbx@gmail.com" aria-label="Email">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>Mail</span>
+            </a>
+            <a class="social-btn" href="tel:13566236489" aria-label="Phone">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Tel</span>
+            </a>
+            <a class="social-btn" href="#" aria-label="WeChat">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              <span>WX</span>
+            </a>
+            <a class="social-btn" href="#" aria-label="GitHub">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              <span>GH</span>
+            </a>
           </div>
         </div>
 
-        <nav class="panel nav">
-          <a href="#home">主页</a>
-          <a href="#education">教育背景</a>
-          <a href="#research">科研经历</a>
-          <a href="#projects">重点项目</a>
-          <a href="#awards">获奖与技能</a>
-          <a href="#contact">联系方式</a>
+        <nav class="nav-card">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link active" href="#home">个人简介</a></li>
+            <li class="nav-item"><a class="nav-link" href="#education">教育背景</a></li>
+            <li class="nav-item"><a class="nav-link" href="#publications">论文成果</a></li>
+            <li class="nav-item"><a class="nav-link" href="#research">科研经历</a></li>
+            <li class="nav-item"><a class="nav-link" href="#awards">获奖情况</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">技能专长</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">联系方式</a></li>
+          </ul>
         </nav>
       </aside>
 
       <main class="content">
-        <section id="home" class="panel hero">
-          <div class="hero-text">
-            <ul>
-              <li>华南农业大学电子科学与技术本科在读。</li>
-              <li>研究方向：多模态、LLM、强化学习、CV；关注推理、对齐与评测。</li>
-              <li>代表工作：PhysicsMind、Lychee-Bench/Lychee-Mind、SemState。</li>
-            </ul>
+        <section id="home" class="section">
+          <h2 class="section-title">个人简介</h2>
+          <div class="hero-badges">
+            <span class="badge">LLM 对齐</span>
+            <span class="badge">多模态推理</span>
+            <span class="badge">强化学习</span>
+            <span class="badge">计算机视觉</span>
+          </div>
+          <ul class="intro-list">
+            <li>华南农业大学电子科学与技术本科在读，<strong>国家奖学金获得者</strong>。</li>
+            <li>研究方向聚焦于多模态大语言模型（MLLM）、自动竞价（Auto-Bidding）、物理推理（Physical Reasoning）与强化学习对齐（RLHF/GRPO）。</li>
+            <li>在投 CCF-A 类会议论文 2 篇（KDD, ICML）、中国移动相关项目 1 项、中科院二区期刊 1 篇。</li>
+          </ul>
+        </section>
+
+        <section id="education" class="section">
+          <h2 class="section-title">教育背景</h2>
+          <div class="edu-simple">
+            <div class="edu-info">
+              <h3>华南农业大学 · 电子工程学院 · 电子科学与技术</h3>
+              <p>本科在读</p>
+            </div>
+            <div class="edu-date">2023.09 - 至今</div>
           </div>
         </section>
 
-        <section id="education" class="panel resume">
-          <h2>教育背景</h2>
-          <div class="resume-item">
-            <div class="resume-head">
-              <div>
-                <div class="resume-title">华南农业大学 · 电子工程学院 · 电子科学与技术 · 本科</div>
+        <section id="publications" class="section">
+          <h2 class="section-title">论文成果</h2>
+          <div class="pub-list">
+            
+            <!-- 论文1: Auto-Bidding -->
+            <div class="pub-item">
+              <div class="pub-header">
+                <div class="pub-title">On the Role of Language Representations in Auto-Bidding: Findings and Implications</div>
               </div>
-              <div class="resume-date">2023.09 - 至今</div>
+              <div class="pub-badges">
+                <span class="venue-badge venue-a">KDD 2026 (CCF-A)</span>
+                <span class="status-tag">Under Review</span>
+                <span class="author-tag">第一作者</span>
+              </div>
+              <div class="pub-meta">
+                研究语言表征在自动竞价系统中的作用机制，提出基于 LLM 的竞价策略优化框架。
+              </div>
+            </div>
+
+            <!-- 论文2: PhysicsMind -->
+            <div class="pub-item">
+              <div class="pub-header">
+                <div class="pub-title">PhysicsMind: Sim and Real Mechanics Benchmarking for Physical Reasoning and Prediction in Foundational VLMs and World Models</div>
+              </div>
+              <div class="pub-badges">
+                <span class="venue-badge venue-a">ICML 2026 (CCF-A)</span>
+                <span class="status-tag">Under Review</span>
+                <span class="author-tag co-first-tag">共同第一作者</span>
+              </div>
+              <div class="pub-meta">
+                北京大学（远程科研）· 导师：仉尚航 · 
+                <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">arXiv:2601.16007</a>
+              </div>
+            </div>
+
+            <!-- 论文3: MATH-VANE -->
+            <div class="pub-item">
+              <div class="pub-header">
+                <div class="pub-title">Graph-Guided Attention Analysis: MATH-VANE for White-Box Novelty and Creativity Detection in LLMs</div>
+              </div>
+              <div class="pub-badges">
+                <span class="venue-badge venue-q1">中国移动</span>
+                <span class="status-tag">Under Review</span>
+                <span class="author-tag co-first-tag">共同第一作者</span>
+              </div>
+              <div class="pub-meta">
+                提出基于图引导注意力分析的白盒检测方法，用于评估大语言模型的新颖性与创造性。
+              </div>
+            </div>
+
+            <!-- 论文4: Lychee-Bench -->
+            <div class="pub-item">
+              <div class="pub-header">
+                <div class="pub-title">Lychee-Bench: A Process-Level Vision Language Benchmark for Trustworthy Lychee Orchard Diagnosis</div>
+              </div>
+              <div class="pub-badges">
+                <span class="venue-badge venue-q2">Smart Agricultural Technology (中科院二区)</span>
+                <span class="status-tag">Under Review</span>
+                <span class="author-tag">第一作者</span>
+              </div>
+              <div class="pub-meta">
+                华南农业大学 · 导师：谢家兴 · 构建农业多模态过程级推理基准数据集
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section id="research" class="section">
+          <h2 class="section-title">科研经历</h2>
+
+          <div class="project-item">
+            <div class="project-header">
+              <div>
+                <div class="project-title">PhysicsMind 物理推理评测项目</div>
+                <div class="project-tags">
+                  <span class="tag">多模态</span>
+                  <span class="tag">物理推理</span>
+                  <span class="tag">Sim-to-Real</span>
+                </div>
+                <div class="project-sub">
+                  合作单位：北京大学（远程科研）· 导师：仉尚航
+                </div>
+              </div>
+              <div class="project-date">2025.09 - 2025.12</div>
+            </div>
+            <div class="project-content">
+              <ul>
+                <li>数据工程：编写数据处理与评测指标代码，搭建评测流程并完成对比与误差分析。</li>
+                <li>评测构建：统一 benchmark 覆盖质心、杠杆平衡、牛顿第一定律三类场景，并构建真实桌面实验与 2D 仿真配对数据。</li>
+                <li>实验结果：多模态/视频生成模型在物理理解上准确率约 25%–85%，Real/Sim 迁移下降 25–35 个百分点。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-header">
+              <div>
+                <div class="project-title">Lychee-Bench / Lychee-Mind 农业多模态推理</div>
+                <div class="project-tags">
+                  <span class="tag">多模态</span>
+                  <span class="tag">CoT 推理</span>
+                  <span class="tag">GRPO 对齐</span>
+                </div>
+                <div class="project-sub">
+                  华南农业大学 · 导师：谢家兴
+                </div>
+              </div>
+              <div class="project-date">2025.05 - 2025.11</div>
+            </div>
+            <div class="project-content">
+              <ul>
+                <li>构建 6,553 张田间图像与 29,756 条 CoT-QA 样本，用于过程级推理监督。</li>
+                <li>基于 Qwen2.5-VL-7B 进行 SFT + GRPO 两阶段训练，对齐推理过程并抑制幻觉。</li>
+                <li>Lychee-Mind 在 Lychee-Bench 上总体准确率 80.67%，SFT+GRPO 相比仅 SFT 再提升 3.27%。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-header">
+              <div>
+                <div class="project-title">SemState 语义状态增强决策</div>
+                <div class="project-tags">
+                  <span class="tag">LLM</span>
+                  <span class="tag">强化学习</span>
+                  <span class="tag">Decision Transformer</span>
+                </div>
+                <div class="project-sub">
+                  香港城市大学（远程科研）· 导师：X · 计划投稿 ICML 2026
+                </div>
+              </div>
+              <div class="project-date">10月-2月</div>
+            </div>
+            <div class="project-content">
+              <ul>
+                <li>构建 Task/History/Strategy 文本并预计算 embedding，融合数值状态与 LLM 表征。</li>
+                <li>实现 LLM embedding 与数值状态融合注意力模块并与 Decision Transformer 集成。</li>
+                <li>同设置下 SemState 相比 Decision Transformer 提升 70.4%，相较最佳已有方法提升 4.8%。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-header">
+              <div>
+                <div class="project-title">基于 YOLOv8 的金属缺陷识别方法</div>
+                <div class="project-tags">
+                  <span class="tag">CV</span>
+                  <span class="tag">YOLO</span>
+                  <span class="tag">专利</span>
+                </div>
+                <div class="project-sub">学生第一发明人 · 专利实质审查中</div>
+              </div>
+              <div class="project-date">2024.11 - 2025.04</div>
+            </div>
+            <div class="project-content">
+              <ul>
+                <li>引入 BiFPN、GCNECA、TransformerSE/MultiScaleLSTMSimAM 等模块。</li>
+                <li>mAP50 92.3%（+5.8%），小缺陷召回率 +12.5%。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-item" style="margin-bottom: 0;">
+            <div class="project-header">
+              <div>
+                <div class="project-title">智能柚园机器人</div>
+                <div class="project-tags">
+                  <span class="tag">CV</span>
+                  <span class="tag">YOLOv8s</span>
+                </div>
+                <div class="project-sub">算法负责人 · 增强 YOLOv8s：DBB、RCS-OSA、LSKA 检测头注意力</div>
+              </div>
+              <div class="project-date">2024.05 - 2025.05</div>
+            </div>
+            <div class="project-content">
+              <ul>
+                <li>柚园数据集 mAP50 提升 4.7%。</li>
+              </ul>
             </div>
           </div>
         </section>
 
-        <section id="research" class="panel resume">
-          <h2>科研经历</h2>
+        <section id="awards" class="section">
+          <h2 class="section-title">获奖情况</h2>
+          <ul class="award-list">
+            <li class="award-item">国家奖学金（2025）· Top 1%</li>
+            <li class="award-item">全国大学生集成电路创新创业大赛 · 全国二等奖</li>
+            <li class="award-item">蓝桥杯二等奖</li>
+            <li class="award-item">全国大学生数学建模竞赛（省二等奖）</li>
+            <li class="award-item">优秀学生干部（2025）</li>
+            <li class="award-item">学风建设先进个人（2024、2025）</li>
+          </ul>
+        </section>
 
-          <div class="resume-item">
-            <div class="resume-head">
-              <div>
-                <div class="resume-title">PhysicsMind | 第二作者</div>
-                <div class="resume-tags">
-                  <span class="chip">多模态</span>
-                  <span class="chip">物理推理</span>
-                  <span class="chip">Sim-to-Real</span>
-                </div>
-                <div class="resume-sub">
-                  合作单位：北京大学（远程科研）· 导师：仉尚航 ·
-                  <a class="resume-link" href="https://arxiv.org/html/2601.16007v1" target="_blank" rel="noreferrer">论文链接</a>
-                </div>
-              </div>
-              <div class="resume-date">2025.09 - 2025.12</div>
+        <section id="skills" class="section">
+          <h2 class="section-title">技能专长</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <div class="skill-title">训练与对齐</div>
+              <div class="skill-content">SFT、LoRA/QLoRA、PPO/DPO/GRPO、CoT 推理</div>
             </div>
-            <ul>
-              <li>数据工程：编写数据处理与评测指标代码，搭建评测流程并完成对比与误差分析。</li>
-              <li>评测构建：统一 benchmark 覆盖质心、杠杆平衡、牛顿第一定律三类场景，并构建真实桌面实验与 2D 仿真配对数据。</li>
-              <li>实验结果：多模态/视频生成模型在物理理解上准确率约 25%–85%，Real/Sim 迁移下降 25–35 个百分点。</li>
-            </ul>
-          </div>
-
-          <div class="resume-item">
-            <div class="resume-head">
-              <div>
-                <div class="resume-title">Lychee-Bench / Lychee-Mind | 第一作者</div>
-                <div class="resume-tags">
-                  <span class="chip">多模态</span>
-                  <span class="chip">CoT 推理</span>
-                  <span class="chip">GRPO 对齐</span>
-                </div>
-                <div class="resume-sub">华南农业大学 · 导师：谢家兴 · Smart Agricultural Technology 在投（中科院 2 区）</div>
-              </div>
-              <div class="resume-date">2025.05 - 2025.11</div>
+            <div class="skill-category">
+              <div class="skill-title">工程与框架</div>
+              <div class="skill-content">Hugging Face、LlamaFactory、Swift；CLIP、BLIP、Qwen-VL；YOLOv5/v8</div>
             </div>
-            <ul>
-              <li>构建 6,553 张田间图像与 29,756 条 CoT-QA 样本，用于过程级推理监督。</li>
-              <li>基于 Qwen2.5-VL-7B 进行 SFT + GRPO 两阶段训练，对齐推理过程并抑制幻觉。</li>
-              <li>Lychee-Mind 在 Lychee-Bench 上总体准确率 80.67%，SFT+GRPO 相比仅 SFT 再提升 3.27%。</li>
-            </ul>
-          </div>
-
-          <div class="resume-item">
-            <div class="resume-head">
-              <div>
-                <div class="resume-title">SemState | 第一作者</div>
-                <div class="resume-tags">
-                  <span class="chip">LLM</span>
-                  <span class="chip">强化学习</span>
-                  <span class="chip">Decision Transformer</span>
-                </div>
-                <div class="resume-sub">香港城市大学（远程科研）· 计划投稿 ICML 2026 · 负责基线复现/实验设计/主要写作</div>
-              </div>
-              <div class="resume-date">2025.10 - 至今</div>
-            </div>
-            <ul>
-              <li>构建 Task/History/Strategy 文本并预计算 embedding，融合数值状态与 LLM 表征。</li>
-              <li>实现 LLM embedding 与数值状态融合注意力模块并与 Decision Transformer 集成。</li>
-              <li>同设置下 SemState 相比 Decision Transformer 提升 70.4%，相较最佳已有方法提升 4.8%。</li>
-            </ul>
-          </div>
-
-          <div class="resume-item">
-            <div class="resume-head">
-              <div>
-                <div class="resume-title">基于 YOLOv8 的金属缺陷识别方法 | 学生第一发明人</div>
-                <div class="resume-tags">
-                  <span class="chip">CV</span>
-                  <span class="chip">YOLO</span>
-                  <span class="chip">专利</span>
-                </div>
-                <div class="resume-sub">专利实质审查中</div>
-              </div>
-              <div class="resume-date">2024.11 - 2025.04</div>
-            </div>
-            <ul>
-              <li>引入 BiFPN、GCNECA、TransformerSE/MultiScaleLSTMSimAM 等模块。</li>
-              <li>mAP50 92.3%（+5.8%），小缺陷召回率 +12.5%。</li>
-            </ul>
-          </div>
-
-          <div class="resume-item">
-            <div class="resume-head">
-              <div>
-                <div class="resume-title">智能柚园机器人 | 算法负责人</div>
-                <div class="resume-tags">
-                  <span class="chip">CV</span>
-                  <span class="chip">YOLOv8s</span>
-                </div>
-                <div class="resume-sub">增强 YOLOv8s：DBB、RCS-OSA、LSKA 检测头注意力</div>
-              </div>
-              <div class="resume-date">2024.05 - 2025.05</div>
-            </div>
-            <ul>
-              <li>柚园数据集 mAP50 提升 4.7%。</li>
-            </ul>
           </div>
         </section>
 
-        <section id="projects" class="section">
-          <div class="section-header">
-            <h2>重点项目</h2>
-            <span class="section-sub">多模态与强化学习代表作</span>
-          </div>
-          <div class="card-grid">
-            <article class="panel card">
-              <div class="card-icon">PM</div>
-              <h3>PhysicsMind</h3>
-              <div class="card-meta">第二作者 · 物理推理 benchmark</div>
-            </article>
-            <article class="panel card">
-              <div class="card-icon">LM</div>
-              <h3>Lychee-Mind</h3>
-              <div class="card-meta">第一作者 · 80.67% 准确率</div>
-            </article>
-            <article class="panel card">
-              <div class="card-icon">SS</div>
-              <h3>SemState</h3>
-              <div class="card-meta">第一作者 · +70.4% 提升</div>
-            </article>
-          </div>
-        </section>
-
-        <section id="awards" class="panel resume split">
-          <div class="split-col">
-            <h2>获奖情况</h2>
-            <ul>
-              <li>国家奖学金（2025，Top 1%）、全国大学生集成电路创新创业大赛（全国二等奖）。</li>
-              <li>蓝桥杯二等奖、全国大学生数学建模竞赛（省二等奖）。</li>
-              <li>优秀学生干部（2025）、学风建设先进个人（2024、2025）。</li>
-            </ul>
-          </div>
-          <div class="split-col">
-            <h2>技能专长</h2>
-            <ul>
-              <li>训练与对齐：SFT、LoRA/QLoRA、PPO/DPO/GRPO、CoT 推理。</li>
-              <li>工程与框架：Hugging Face、LlamaFactory、Swift；CLIP、BLIP、Qwen-VL；YOLOv5/v8。</li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="contact" class="panel contact">
-          <h2>联系方式</h2>
-          <p>邮箱：xiaoguanbx@gmail.com ｜ 电话：135-6623-6489 ｜ 微信：Xiaoguanbx</p>
+        <section id="contact" class="section contact-section">
+          <h2 class="section-title">联系方式</h2>
+          <p class="contact-info">邮箱：xiaoguanbx@gmail.com</p>
           <div class="contact-actions">
-            <a class="cta" href="mailto:xiaoguanbx@gmail.com">发送邮件</a>
-            <a class="ghost" href="tel:13566236489">拨打电话</a>
+            <a class="btn btn-primary" href="mailto:xiaoguanbx@gmail.com">发送邮件</a>
           </div>
         </section>
       </main>
     </div>
+
+    <script>
+      // 导航高亮与平滑滚动
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').slice(1) === current) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
