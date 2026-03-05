@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朱冠宇 - 简历（多模态大模型算法方向）</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", Arial, sans-serif; line-height: 1.35; color: #333; max-width: 860px; margin: 20px auto; padding: 0 16px; }
+        h1 { font-size: 22px; margin-bottom: 5px; border-bottom: 2px solid #2c3e50; padding-bottom: 5px; }
+        .contact { font-size: 14px; color: #333; margin-bottom: 10px; font-weight: 500; display: grid; grid-template-columns: repeat(3, max-content); column-gap: 16px; row-gap: 2px; align-items: baseline; }
+        .contact .contact-item { white-space: nowrap; }
+        h2 { font-size: 17px; color: #2c3e50; margin-top: 10px; margin-bottom: 6px; border-bottom: 2px solid #3498db; padding-bottom: 3px; }
+        .section { margin-bottom: 8px; }
+        .item { margin-bottom: 6px; }
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+        .item-header-compact { justify-content: flex-start; gap: 8px; }
+        .item-title { font-weight: bold; font-size: 13.5px; }
+        .item-date { color: #666; font-size: 12.5px; }
+        ul { margin-left: 16px; margin-top: 4px; }
+        li { margin-bottom: 3px; font-size: 12.5px; }
+        .tag {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            margin-right: 5px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .link {
+            display: inline-block;
+            max-width: 260px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: bottom;
+        }
+        @media print {
+            body { margin: 0; }
+            .tag {
+                background: #3498db !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>朱冠宇</h1>
+    <div class="contact">
+        <span class="contact-item"><strong>电话：</strong>135-6623-6489</span>
+        <span class="contact-item"><strong>邮箱：</strong>xiaoguanbx@gmail.com</span>
+        <span class="contact-item"><strong>微信：</strong>Xiaoguanbx</span>
+    </div>
+
+    <div class="section">
+        <h2>教育背景</h2>
+        <div class="item">
+            <div class="item-header item-header-compact">
+                <span class="item-title">华南农业大学 (双一流) | 电子工程学院 | 电子科学与技术 | 本科</span>
+                <span class="item-date">2023.09 - 至今</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>科研经历</h2>
+
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">
+                    <span class="tag">多模态</span><span class="tag">物理推理</span><span class="tag">Sim-to-Real</span>
+                    PhysicsMind | 第二作者
+                </span>
+                <span class="item-date">2025.09 - 2025.12</span>
+            </div>
+            <ul>
+                <li><strong>合作单位：</strong><strong>北京大学</strong>（远程科研）| 导师：<strong>仉尚航</strong> | <strong>论文链接：</strong><a class="link" href="https://arxiv.org/html/2601.16007v1" target="_blank">https://arxiv.org/html/2601.16007v1</a></li>
+                <li><strong>数据工程：</strong>编写数据处理与评测指标代码，搭建评测流程，复现基线并完成对比与误差分析。</li>
+                <li><strong>评测构建：</strong>构建<strong>统一 benchmark</strong>，覆盖质心、杠杆平衡、牛顿第一定律三类经典力学场景，同时配套<strong>真实桌面实验与 2D 仿真配对数据</strong>；设计<strong>"物理一致性"评估指标</strong>，包括质心分割 IoU 与质心偏差、杠杆终态正确率与轨迹误差、惯性轨迹与速度加速度一致性等。</li>
+                <li><strong>实验与结果：</strong>系统评测多种主流多模态模型与视频生成模型，发现现有模型在物理理解上存在显著碎片化，<strong>总体准确率约 25%–85%</strong>，部分模型在 <strong>Real/Sim 迁移</strong>时<strong>下降 25–35 个百分点</strong>。</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">
+                    <span class="tag">多模态</span><span class="tag">CoT推理</span><span class="tag">GRPO对齐</span>
+                    Lychee-Bench / Lychee-Mind | 第一作者
+                </span>
+                <span class="item-date">2025.05 - 2025.11</span>
+            </div>
+            <ul>
+                <li><strong>合作单位：</strong>华南农业大学 | 导师：<strong>谢家兴</strong> | <strong>论文状态：</strong><strong>Smart Agricultural Technology 在投（中科院 2 区）</strong></li>
+                <li><strong>数据工程：</strong>采集并整理 <strong>6,553</strong> 张田间图像，构建 <strong>29,756</strong> 条"Question–Thinking–Answer"结构化 <strong>CoT-QA</strong> 样本，用于过程级推理监督。</li>
+                <li><strong>训练实现：</strong>基于 <strong>Qwen2.5-VL-7B</strong> 进行 <strong>SFT + GRPO</strong> 两阶段训练，对齐推理过程并抑制幻觉。</li>
+                <li><strong>评测与结果：</strong>构建 <strong>Lychee-Bench</strong> 评测基准，将果园诊断拆分为 <strong>12</strong> 个细粒度任务；Lychee-Mind 在基准上取得 <strong>80.67%</strong> 总体准确率，消融显示仅 SFT 从 <strong>67.50%</strong> 提升至 <strong>77.40%</strong>，SFT+GRPO 进一步至 <strong>80.67%</strong>。</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">
+                    <span class="tag">LLM</span><span class="tag">强化学习</span><span class="tag">Decision Transformer</span>
+                    SemState | 第一作者
+                </span>
+                <span class="item-date">2025.10 - 至今</span>
+            </div>
+            <ul>
+                <li><strong>合作单位：</strong>香港城市大学（远程科研）| <strong>论文状态：</strong><strong>Targeting ICML 2026</strong> | <strong>个人贡献：</strong>基线复现/实验设计/主要写作</li>
+                <li><strong>特征构建：</strong>按轨迹计算 prev_state/prev_action，基于 CPA/历史/当前状态生成 <strong>Task/History/Strategy</strong> 文本，并用 LLM 编码预计算三类 embedding，生成训练数据。</li>
+                <li><strong>算法实现：</strong>自行实现 <strong>LLM Embedding 与数值状态融合的注意力模块</strong>，并完成与 <strong>Decision Transformer</strong> 的集成与调参。</li>
+                <li><strong>实验与结果：</strong>复现 <strong>BCQ/IQL/CQL/TD3+BC/GAS/GAVE</strong> 等基线并完成对比与消融，在同一设置下 SemState 相比 <strong>Decision Transformer</strong> <strong>提升 70.4%</strong>，相比最佳已有方法<strong>提升 4.8%</strong>，并取得<strong>最低 CPA 违约率</strong>。</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">
+                    <span class="tag">CV</span><span class="tag">YOLO</span>
+                    基于 YOLOv8 的金属缺陷识别方法 | 学生第一发明人
+                </span>
+                <span class="item-date">2024.11 - 2025.04</span>
+            </div>
+            <ul>
+                <li><strong>模型实现：</strong><strong>专利实质审查中</strong>；改进 YOLOv8：引入 <strong>BiFPN</strong> 加权融合、<strong>GCNECA</strong>、<strong>TransformerSE</strong>/<strong>MultiScaleLSTMSimAM</strong> 注意力模块。</li>
+                <li><strong>实验与结果：</strong><strong>mAP50 92.3%</strong>（+5.8%），小缺陷召回率<strong>+12.5%</strong>。</li>
+            </ul>
+        </div>
+
+        <div class="item">
+            <div class="item-header">
+                <span class="item-title">
+                    <span class="tag">CV</span>
+                    智能柚园机器人 | 算法负责人
+                </span>
+                <span class="item-date">2024.05 - 2025.05</span>
+            </div>
+            <ul>
+                <li><strong>模型实现：</strong>增强 <strong>YOLOv8s</strong>：<strong>DBB</strong> 重参数化、<strong>RCS-OSA</strong> 主干单元、<strong>LSKA</strong> 检测头注意力。</li>
+                <li><strong>实验与结果：</strong>柚园数据集 <strong>mAP50 +4.7%</strong>。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>获奖情况</h2>
+        <ul>
+            <li><strong>国家级：</strong>国家奖学金 (2025, Top 1%)、全国大学生集成电路创新创业大赛 (全国二等奖)</li>
+            <li><strong>省级：</strong>蓝桥杯 二等奖、全国大学生数学建模竞赛 (省二等奖)</li>
+            <li><strong>校级：</strong>优秀学生干部 (2025)、学风建设先进个人 (2024、2025)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>技能专长</h2>
+        <ul>
+            <li><strong>训练与对齐：</strong>熟悉 SFT、LoRA/QLoRA 微调、强化学习对齐 (PPO/DPO/GRPO)、CoT 推理。</li>
+            <li><strong>工程与框架：</strong>熟练使用 Hugging Face、LlamaFactory、Swift 等进行训练与微调，了解 CLIP、BLIP、Qwen-VL 等多模态模型与 Transformer、DeepSeek、Qwen 等 LLM 架构，了解 YOLOv5/v8 等 CV 模型。</li>
+        </ul>
+    </div>
+
+</body>
+</html>
