@@ -3,625 +3,355 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>朱冠宇 | Academic Homepage</title>
+    <title>朱冠宇 | Academic Homepage & Blog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        --bg: #ffffff;
-        --text: #1f2937;
-        --muted: #6b7280;
-        --border: #e5e7eb;
-        --link: #1d4ed8;
-        --container: 1060px;
-        --sidebar: 280px;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: "Source Sans 3", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.65;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      a {
-        color: var(--link);
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      .container {
-        width: min(var(--container), calc(100% - 32px));
-        margin: 0 auto;
-      }
-
-      .site-header {
-        border-bottom: 1px solid var(--border);
-        background: #ffffff;
-      }
-
-      .header-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-height: 62px;
-        gap: 16px;
-      }
-
-      .site-name {
-        font-size: 1rem;
-        font-weight: 700;
-        color: var(--text);
-        text-decoration: none;
-      }
-
-      .site-name:hover {
-        color: var(--link);
-        text-decoration: none;
-      }
-
-      .menu-toggle {
-        display: none;
-        border: 1px solid var(--border);
-        background: #ffffff;
-        color: var(--text);
-        font: inherit;
-        font-size: 0.9rem;
-        padding: 6px 10px;
-        cursor: pointer;
-      }
-
-      .top-nav {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        flex-wrap: wrap;
-      }
-
-      .top-nav a {
-        color: var(--muted);
-        font-size: 0.92rem;
-        font-weight: 500;
-        text-decoration: none;
-      }
-
-      .top-nav a:hover,
-      .top-nav a.active {
-        color: var(--link);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .layout {
-        display: grid;
-        grid-template-columns: var(--sidebar) minmax(0, 1fr);
-        gap: 40px;
-        padding: 28px 0 56px;
-      }
-
-      .sidebar {
-        padding-right: 20px;
-        border-right: 1px solid var(--border);
-      }
-
-      .sidebar-inner {
-        position: sticky;
-        top: 18px;
-      }
-
-      .avatar {
-        width: 180px;
-        max-width: 100%;
-        height: auto;
-        display: block;
-        border: 1px solid var(--border);
-      }
-
-      .profile-name {
-        margin-top: 14px;
-        font-size: 2rem;
-        line-height: 1.12;
-        font-weight: 700;
-        letter-spacing: 0.01em;
-      }
-
-      .profile-meta {
-        margin-top: 10px;
-        display: grid;
-        gap: 4px;
-        font-size: 0.9rem;
-        color: var(--muted);
-        list-style: none;
-      }
-
-      .profile-links {
-        margin-top: 14px;
-        display: grid;
-        gap: 5px;
-      }
-
-      .profile-links a {
-        width: fit-content;
-        font-size: 0.9rem;
-      }
-
-      .content {
-        min-width: 0;
-      }
-
-      .section {
-        scroll-margin-top: 72px;
-      }
-
-      .section + .section {
-        margin-top: 42px;
-      }
-
-      .section-title {
-        font-size: 1.42rem;
-        line-height: 1.25;
-        font-weight: 700;
-        margin-bottom: 14px;
-        padding-bottom: 7px;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .about p + p {
-        margin-top: 12px;
-      }
-
-      .edu-list,
-      .pub-list,
-      .project-list,
-      .award-list {
-        list-style: none;
-      }
-
-      .edu-item,
-      .project-item,
-      .award-item,
-      .contact-item {
-        padding: 9px 0;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .edu-item:last-child,
-      .project-item:last-child,
-      .award-item:last-child,
-      .contact-item:last-child {
-        border-bottom: none;
-      }
-
-      .edu-head,
-      .project-head {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 10px;
-        align-items: start;
-      }
-
-      .entry-title {
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--text);
-      }
-
-      .entry-sub {
-        margin-top: 3px;
-        font-size: 0.9rem;
-        color: var(--muted);
-      }
-
-      .entry-time {
-        white-space: nowrap;
-        font-size: 0.86rem;
-        color: var(--muted);
-      }
-
-      .pub-item {
-        padding: 11px 0;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .pub-item:last-child {
-        border-bottom: none;
-      }
-
-      .pub-title {
-        font-size: 1rem;
-        font-weight: 700;
-        line-height: 1.45;
-        color: var(--text);
-      }
-
-      .pub-authors {
-        margin-top: 4px;
-        font-size: 0.9rem;
-        color: var(--muted);
-      }
-
-      .pub-meta {
-        margin-top: 3px;
-        font-size: 0.84rem;
-        color: var(--muted);
-      }
-
-      .pub-desc {
-        margin-top: 5px;
-        font-size: 0.92rem;
-      }
-
-      .pub-links {
-        margin-top: 5px;
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .pub-links a {
-        font-size: 0.84rem;
-      }
-
-      .project-points {
-        margin-top: 8px;
-        padding-left: 18px;
-        display: grid;
-        gap: 4px;
-      }
-
-      .project-points li {
-        font-size: 0.92rem;
-      }
-
-      .contact-list {
-        list-style: none;
-        max-width: 540px;
-      }
-
-      @media (max-width: 860px) {
-        .menu-toggle {
-          display: inline-block;
-        }
-
-        .top-nav {
-          display: none;
-          width: 100%;
-          padding: 8px 0 10px;
-          border-top: 1px solid var(--border);
-          margin-top: -2px;
-        }
-
-        .top-nav.open {
-          display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 8px 14px;
-        }
-
-        .header-inner {
-          flex-wrap: wrap;
-          padding: 10px 0;
-          min-height: auto;
-        }
-
-        .layout {
-          grid-template-columns: 1fr;
-          gap: 24px;
-        }
-
-        .sidebar {
-          border-right: none;
-          border-bottom: 1px solid var(--border);
-          padding-right: 0;
-          padding-bottom: 16px;
-        }
-
-        .sidebar-inner {
-          position: static;
-        }
-
-        .avatar {
-          width: 150px;
-        }
-      }
-
-      @media (max-width: 560px) {
-        .container {
-          width: calc(100% - 24px);
-        }
-
-        .profile-name {
-          font-size: 1.78rem;
-        }
-
-        .section-title {
-          font-size: 1.26rem;
-        }
-
-        .edu-head,
-        .project-head {
-          grid-template-columns: 1fr;
-          gap: 2px;
-        }
-
-        .top-nav.open {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="site-name" href="#about">朱冠宇 · Academic Homepage</a>
+        <div class="nav-brand">
+          <img src="assets/avatar.jpg" alt="朱冠宇" class="avatar-small" onerror="this.style.display='none'" />
+          <a class="site-name" href="#" onclick="showPage('intro'); return false;">朱冠宇</a>
+        </div>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="top-nav">菜单</button>
         <nav class="top-nav" id="top-nav" aria-label="主导航">
-          <a class="nav-link active" href="#about">About</a>
-          <a class="nav-link" href="#education">Education</a>
-          <a class="nav-link" href="#publications">Publications</a>
-          <a class="nav-link" href="#projects">Projects</a>
-          <a class="nav-link" href="#awards">Awards</a>
-          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link active" data-page="intro" href="#" onclick="showPage('intro', this); return false;">首页</a>
+          <a class="nav-link" data-page="home" href="#" onclick="showPage('home', this); return false;">主页</a>
+          <a class="nav-link" data-page="blog" href="#" onclick="showPage('blog', this); return false;">博客分享</a>
         </nav>
       </div>
     </header>
 
-    <main class="container layout">
-      <aside class="sidebar" aria-label="个人信息">
-        <div class="sidebar-inner">
-          <img class="avatar" src="assets/avatar.jpg" alt="朱冠宇头像" />
-          <h1 class="profile-name">朱冠宇</h1>
-          <ul class="profile-meta">
-            <li>华南农业大学 · 电子工程学院</li>
-            <li>广州，中国</li>
-          </ul>
-          <div class="profile-links">
-            <a href="mailto:xiaoguanbx@gmail.com">Email</a>
-            <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer" aria-label="Scholar">Scholar</a>
+    <main>
+      <!-- 首屏首页 -->
+      <section id="intro-page" class="page-section active">
+        <div class="intro-shell">
+          <div class="intro-card">
+            <h1 class="intro-line">我沉迷于思想的爆破与重建</h1>
+            <div class="intro-img-wrap">
+              <img
+                class="intro-img"
+                src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=80"
+                alt="抽象几何体背景"
+              />
+            </div>
           </div>
         </div>
-      </aside>
+      </section>
 
-      <div class="content">
-        <section id="about" class="section about" data-section>
-          <h2 class="section-title">About</h2>
-          <p>
-            我目前就读于华南农业大学电子科学与技术专业，研究主要关注多模态大语言模型在复杂真实场景中的推理、决策与对齐问题。目前，我正在学习并探索 Multi-Agent 框架 的应用实践，也期待与更多老师、同学和研究者交流想法、共同进步。
-          </p>
-        </section>
-
-        <section id="education" class="section" data-section>
-          <h2 class="section-title">Education</h2>
-          <ul class="edu-list">
-            <li class="edu-item">
-              <div class="edu-head">
-                <div>
-                  <p class="entry-title">华南农业大学 · 电子工程学院 · 电子科学与技术</p>
-                  <p class="entry-sub">本科在读</p>
+      <!-- 主页部分 -->
+      <section id="home-page" class="page-section">
+        <div class="container home-layout">
+          <aside class="sidebar" aria-label="个人信息">
+            <div class="sidebar-inner">
+              <img class="avatar" src="assets/avatar.jpg" alt="朱冠宇头像" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22%3E%3Crect width=%22180%22 height=%22180%22 fill=%22%23e5e7eb%22/%3E%3Ctext x=%2290%22 y=%2295%22 font-family=%22sans-serif%22 font-size=%2214%22 fill=%22%236b7280%22 text-anchor=%22middle%22%3EPhoto%3C/text%3E%3C/svg%3E'" />
+              <div class="profile-info">
+                <h1 class="profile-name">朱冠宇</h1>
+                <ul class="profile-meta">
+                  <li>华南农业大学 · 电子工程学院</li>
+                  <li>广州，中国</li>
+                </ul>
+                <div class="profile-links">
+                  <a href="mailto:xiaoguanbx@gmail.com">Email</a>
+                  <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a>
+                  <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
                 </div>
-                <time class="entry-time">2023.09 - 至今</time>
               </div>
-            </li>
-          </ul>
-        </section>
+            </div>
+          </aside>
 
-        <section id="publications" class="section" data-section>
-          <h2 class="section-title">Publications</h2>
-          <ul class="pub-list">
-            <li class="pub-item">
-              <p class="pub-title">On the Role of Language Representations in Auto-Bidding: Findings and Implications</p>
-              <p class="pub-meta">KDD 2026 (CCF-A) · under review · 第一作者</p>
-              <p class="pub-desc">研究语言表征在自动竞价系统中的作用机制，提出基于 LLM 的竞价策略优化框架。</p>
-            </li>
-
-            <li class="pub-item">
-              <p class="pub-title">
-                <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">
-                  PhysicsMind: Sim and Real Mechanics Benchmarking for Physical Reasoning and Prediction in Foundational VLMs and World
-                  Models
-                </a>
+          <div class="content">
+            <section id="about" class="section about">
+              <h2 class="section-title">About</h2>
+              <p>
+                我目前就读于华南农业大学电子科学与技术专业，研究主要关注多模态大语言模型在复杂真实场景中的推理、决策与对齐问题。目前，我正在学习并探索 Multi-Agent 框架的应用实践，也期待与更多老师、同学和研究者交流想法、共同进步。
               </p>
-              <p class="pub-meta">ICML 2026 (CCF-A) · under review · 共同第一作者</p>
-              <p class="pub-desc">北京大学（远程科研）合作，围绕物理推理与预测任务构建 Sim/Real 评测基准。</p>
-              <div class="pub-links">
-                <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">arXiv</a>
-              </div>
-            </li>
+            </section>
 
-            <li class="pub-item">
-              <p class="pub-title">Graph-Guided Attention Analysis: MATH-VANE for White-Box Novelty and Creativity Detection in LLMs</p>
-              <p class="pub-meta">ESWA (中科院一区) · under review · 共同第一作者</p>
-              <p class="pub-desc">提出图引导注意力分析的白盒检测方法，用于评估大语言模型的新颖性与创造性。</p>
-            </li>
-
-            <li class="pub-item">
-              <p class="pub-title">Lychee-Bench: A Process-Level Vision Language Benchmark for Trustworthy Lychee Orchard Diagnosis</p>
-              <p class="pub-meta">Smart Agricultural Technology (中科院二区) · under review · 第一作者</p>
-              <p class="pub-desc">构建农业多模态过程级推理基准数据集，用于可信诊断任务评测。</p>
-            </li>
-          </ul>
-        </section>
-
-        <section id="projects" class="section" data-section>
-          <h2 class="section-title">Projects</h2>
-          <ul class="project-list">
-            <li class="project-item">
-              <div class="project-head">
-                <div>
-                  <p class="entry-title">PhysicsMind 物理推理评测项目</p>
-                  <p class="entry-sub">多模态 · 物理推理 · Sim-to-Real · 北京大学（远程科研）</p>
-                </div>
-                <time class="entry-time">2025.09 - 2025.12</time>
-              </div>
-              <ul class="project-points">
-                <li>搭建数据处理与评测流程，完成对比实验与误差分析。</li>
-                <li>构建真实桌面实验与 2D 仿真配对数据，并统一 benchmark 场景。</li>
+            <section id="education" class="section">
+              <h2 class="section-title">Education</h2>
+              <ul class="edu-list">
+                <li class="edu-item">
+                  <div class="edu-head">
+                    <div>
+                      <p class="entry-title">华南农业大学 · 电子工程学院 · 电子科学与技术</p>
+                      <p class="entry-sub">本科在读</p>
+                    </div>
+                    <time class="entry-time">2023.09 - 至今</time>
+                  </div>
+                </li>
               </ul>
-            </li>
+            </section>
 
-            <li class="project-item">
-              <div class="project-head">
-                <div>
-                  <p class="entry-title">Lychee-Bench / Lychee-Mind 农业多模态推理</p>
-                  <p class="entry-sub">多模态 · CoT 推理 · GRPO 对齐 · 华南农业大学</p>
-                </div>
-                <time class="entry-time">2025.05 - 2025.11</time>
-              </div>
-              <ul class="project-points">
-                <li>构建 6,553 张田间图像与 29,756 条 CoT-QA 样本用于过程级推理监督。</li>
-                <li>基于 Qwen2.5-VL-7B 进行 SFT + GRPO 两阶段训练并提升准确率。</li>
+            <section id="publications" class="section">
+              <h2 class="section-title">Publications</h2>
+              <ul class="pub-list">
+                <li class="pub-item">
+                  <p class="pub-title">On the Role of Language Representations in Auto-Bidding: Findings and Implications</p>
+                  <p class="pub-meta">KDD 2026 (CCF-A) · under review · 第一作者</p>
+                  <p class="pub-desc">研究语言表征在自动竞价系统中的作用机制，提出基于 LLM 的竞价策略优化框架。</p>
+                </li>
+
+                <li class="pub-item">
+                  <p class="pub-title">
+                    <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">
+                      PhysicsMind: Sim and Real Mechanics Benchmarking for Physical Reasoning and Prediction in Foundational VLMs and World Models
+                    </a>
+                  </p>
+                  <p class="pub-meta">ICML 2026 (CCF-A) · under review · 共同第一作者</p>
+                  <p class="pub-desc">北京大学（远程科研）合作，围绕物理推理与预测任务构建 Sim/Real 评测基准。</p>
+                  <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">arXiv</a>
+                  </div>
+                </li>
+
+                <li class="pub-item">
+                  <p class="pub-title">Graph-Guided Attention Analysis: MATH-VANE for White-Box Novelty and Creativity Detection in LLMs</p>
+                  <p class="pub-meta">ESWA (中科院一区) · under review · 共同第一作者</p>
+                  <p class="pub-desc">提出图引导注意力分析的白盒检测方法，用于评估大语言模型的新颖性与创造性。</p>
+                </li>
+
+                <li class="pub-item">
+                  <p class="pub-title">Lychee-Bench: A Process-Level Vision Language Benchmark for Trustworthy Lychee Orchard Diagnosis</p>
+                  <p class="pub-meta">Smart Agricultural Technology (中科院二区) · under review · 第一作者</p>
+                  <p class="pub-desc">构建农业多模态过程级推理基准数据集，用于可信诊断任务评测。</p>
+                </li>
               </ul>
-            </li>
+            </section>
 
-            <li class="project-item">
-              <div class="project-head">
-                <div>
-                  <p class="entry-title">MATH-VANE 数学推理白盒检测</p>
-                  <p class="entry-sub">LLM · 数学推理 · 可解释性 · 中国移动合作项目</p>
-                </div>
-                <time class="entry-time">2026.01 - 2026.03</time>
-              </div>
-              <ul class="project-points">
-                <li>提出白盒可解释框架，区分数学推理中的有效创新路径与幻觉内容。</li>
-                <li>在多个 SOTA 模型与数据集上验证并获得 Macro-F1 提升。</li>
+            <section id="projects" class="section">
+              <h2 class="section-title">Projects</h2>
+              <ul class="project-list">
+                <li class="project-item">
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title">PhysicsMind 物理推理评测项目</p>
+                      <p class="entry-sub">多模态 · 物理推理 · Sim-to-Real · 北京大学（远程科研）</p>
+                    </div>
+                    <time class="entry-time">2025.09 - 2025.12</time>
+                  </div>
+                  <ul class="project-points">
+                    <li>搭建数据处理与评测流程，完成对比实验与误差分析。</li>
+                    <li>构建真实桌面实验与 2D 仿真配对数据，并统一 benchmark 场景。</li>
+                  </ul>
+                </li>
+
+                <li class="project-item">
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title">Lychee-Bench / Lychee-Mind 农业多模态推理</p>
+                      <p class="entry-sub">多模态 · CoT 推理 · GRPO 对齐 · 华南农业大学</p>
+                    </div>
+                    <time class="entry-time">2025.05 - 2025.11</time>
+                  </div>
+                  <ul class="project-points">
+                    <li>构建 6,553 张田间图像与 29,756 条 CoT-QA 样本用于过程级推理监督。</li>
+                    <li>基于 Qwen2.5-VL-7B 进行 SFT + GRPO 两阶段训练并提升准确率。</li>
+                  </ul>
+                </li>
+
+                <li class="project-item">
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title">MATH-VANE 数学推理白盒检测</p>
+                      <p class="entry-sub">LLM · 数学推理 · 可解释性 · 中国移动合作项目</p>
+                    </div>
+                    <time class="entry-time">2026.01 - 2026.03</time>
+                  </div>
+                  <ul class="project-points">
+                    <li>提出白盒可解释框架，区分数学推理中的有效创新路径与幻觉内容。</li>
+                    <li>在多个 SOTA 模型与数据集上验证并获得 Macro-F1 提升。</li>
+                  </ul>
+                </li>
+
+                <li class="project-item">
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title">SemState 语义状态增强决策</p>
+                      <p class="entry-sub">LLM · 强化学习 · Decision Transformer · 香港城市大学（远程科研）</p>
+                    </div>
+                    <time class="entry-time">2025.10 - 2026.02</time>
+                  </div>
+                  <ul class="project-points">
+                    <li>构建 Task/History/Strategy 文本并预计算 embedding，融合数值状态与 LLM 表征。</li>
+                    <li>实现 LLM embedding 与数值状态融合注意力模块并与 Decision Transformer 集成。</li>
+                    <li>同设置下 SemState 相比 Decision Transformer 提升 70.4%，相较最佳已有方法提升 4.8%。</li>
+                  </ul>
+                </li>
+
+                <li class="project-item">
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title">基于 YOLOv8 的金属缺陷识别方法</p>
+                      <p class="entry-sub">CV · YOLO · 专利 · 学生第一发明人</p>
+                    </div>
+                    <time class="entry-time">2024.11 - 2025.04</time>
+                  </div>
+                  <ul class="project-points">
+                    <li>引入 BiFPN、GCNECA、TransformerSE/MultiScaleLSTMSimAM 等模块。</li>
+                    <li>mAP50 92.3%（+5.8%），小缺陷召回率 +12.5%。</li>
+                  </ul>
+                </li>
+
+                <li class="project-item">
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title">智能柚园机器人</p>
+                      <p class="entry-sub">CV · YOLOv8s · 算法负责人</p>
+                    </div>
+                    <time class="entry-time">2024.05 - 2025.05</time>
+                  </div>
+                  <ul class="project-points">
+                    <li>增强 YOLOv8s：DBB、RCS-OSA、LSKA 检测头注意力。</li>
+                  </ul>
+                </li>
               </ul>
-            </li>
+            </section>
 
-            <li class="project-item">
-              <div class="project-head">
-                <div>
-                  <p class="entry-title">SemState 语义状态增强决策</p>
-                  <p class="entry-sub">LLM · 强化学习 · Decision Transformer · 香港城市大学（远程科研）</p>
-                </div>
-                <time class="entry-time">2025.10 - 2026.02</time>
-              </div>
-              <ul class="project-points">
-                <li>构建 Task/History/Strategy 文本并预计算 embedding，融合数值状态与 LLM 表征。</li>
-                <li>实现 LLM embedding 与数值状态融合注意力模块并与 Decision Transformer 集成。</li>
-                <li>同设置下 SemState 相比 Decision Transformer 提升 70.4%，相较最佳已有方法提升 4.8%。</li>
+            <section id="awards" class="section">
+              <h2 class="section-title">Awards</h2>
+              <ul class="award-list">
+                <li class="award-item">国家奖学金（2025）· Top 1%</li>
+                <li class="award-item">全国大学生集成电路创新创业大赛 · 全国二等奖</li>
+                <li class="award-item">全国大学生数学建模竞赛（省二等奖）</li>
+                <li class="award-item">优秀学生干部（2025）</li>
+                <li class="award-item">学风建设先进个人（2024、2025）</li>
               </ul>
-            </li>
+            </section>
 
-            <li class="project-item">
-              <div class="project-head">
-                <div>
-                  <p class="entry-title">基于 YOLOv8 的金属缺陷识别方法</p>
-                  <p class="entry-sub">CV · YOLO · 专利 · 学生第一发明人</p>
-                </div>
-                <time class="entry-time">2024.11 - 2025.04</time>
-              </div>
-              <ul class="project-points">
-                <li>引入 BiFPN、GCNECA、TransformerSE/MultiScaleLSTMSimAM 等模块。</li>
-                <li>mAP50 92.3%（+5.8%），小缺陷召回率 +12.5%。</li>
+            <section id="contact" class="section">
+              <h2 class="section-title">Contact</h2>
+              <ul class="contact-list">
+                <li class="contact-item">Email: <a href="mailto:xiaoguanbx@gmail.com">xiaoguanbx@gmail.com</a></li>
+                <li class="contact-item">
+                  Scholar: <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a>
+                </li>
               </ul>
-            </li>
+            </section>
+          </div>
+        </div>
+      </section>
 
-            <li class="project-item">
-              <div class="project-head">
-                <div>
-                  <p class="entry-title">智能柚园机器人</p>
-                  <p class="entry-sub">CV · YOLOv8s · 算法负责人</p>
+      <!-- 博客列表页面 -->
+      <section id="blog-page" class="page-section">
+        <div class="container blog-container" id="blog-list-view">
+          <div class="blog-header">
+            <div class="blog-icon">📝</div>
+            <h1 class="blog-title">技术博客</h1>
+            <div class="blog-stats">
+              <span>3 篇文章</span>
+              <span>·</span>
+              <span>约 6.5k 字</span>
+            </div>
+          </div>
+
+          <div class="blog-cats" role="tablist" aria-label="博客分类">
+            <button class="blog-cat-btn active" type="button" data-category="paper" onclick="switchBlogCategory('paper', this)">
+              论文阅读
+            </button>
+            <button class="blog-cat-btn" type="button" data-category="project" onclick="switchBlogCategory('project', this)">
+              项目分享
+            </button>
+            <button class="blog-cat-btn" type="button" data-category="notes" onclick="switchBlogCategory('notes', this)">
+              经验杂谈
+            </button>
+          </div>
+
+          <section class="blog-panel active" id="blog-panel-paper">
+            <div class="blog-list">
+              <article class="blog-card" onclick="showBlogDetail(1)">
+                <span class="blog-tag">多模态 · 物理推理</span>
+                <div class="blog-card-header">
+                  <img src="assets/avatar.jpg" alt="作者" class="blog-author-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%236b7280%22/%3E%3C/svg%3E'" />
+                  <span class="blog-author-name">朱冠宇</span>
+                  <time class="blog-date">2025/12/31</time>
                 </div>
-                <time class="entry-time">2024.05 - 2025.05</time>
-              </div>
-              <ul class="project-points">
-                <li>增强 YOLOv8s：DBB、RCS-OSA、LSKA 检测头注意力。</li>
-              </ul>
-            </li>
-          </ul>
-        </section>
+                <h2 class="blog-card-title">PhysicsMind 项目复盘：从仿真到现实的物理推理评测</h2>
+                <p class="blog-card-excerpt">
+                  在参与 PhysicsMind 项目的过程中，我们遇到了诸多 Sim-to-Real 的挑战。本文详细记录了如何构建配对数据集、设计评测指标，以及 VLMs 在物理推理任务上的表现分析。
+                </p>
+                <div class="blog-card-footer">
+                  <div class="blog-metrics">
+                    <span class="blog-metric">👁 94</span>
+                    <span class="blog-metric">💬 0</span>
+                    <span class="blog-metric">❤️ 3</span>
+                  </div>
+                  <button class="read-more-btn">阅读更多 →</button>
+                </div>
+              </article>
+            </div>
+          </section>
 
-        <section id="awards" class="section" data-section>
-          <h2 class="section-title">Awards</h2>
-          <ul class="award-list">
-            <li class="award-item">国家奖学金（2025）· Top 1%</li>
-            <li class="award-item">全国大学生集成电路创新创业大赛 · 全国二等奖</li>
-            <li class="award-item">全国大学生数学建模竞赛（省二等奖）</li>
-            <li class="award-item">优秀学生干部（2025）</li>
-            <li class="award-item">学风建设先进个人（2024、2025）</li>
-          </ul>
-        </section>
+          <section class="blog-panel" id="blog-panel-project">
+            <div class="blog-list">
+              <article class="blog-card" onclick="showBlogDetail(2)">
+                <span class="blog-tag">农业 AI · 多模态</span>
+                <div class="blog-card-header">
+                  <img src="assets/avatar.jpg" alt="作者" class="blog-author-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%236b7280%22/%3E%3C/svg%3E'" />
+                  <span class="blog-author-name">朱冠宇</span>
+                  <time class="blog-date">2025/09/07</time>
+                </div>
+                <h2 class="blog-card-title">Lychee-Bench：构建农业领域的过程级多模态推理基准</h2>
+                <p class="blog-card-excerpt">
+                  分享我们在华南农业大学荔枝园采集数据、构建 Lychee-Bench 基准测试集的经验，从田间图像采集到 CoT 样本标注，再到 GRPO 对齐训练。
+                </p>
+                <div class="blog-card-footer">
+                  <div class="blog-metrics">
+                    <span class="blog-metric">👁 34</span>
+                    <span class="blog-metric">💬 0</span>
+                    <span class="blog-metric">❤️ 0</span>
+                  </div>
+                  <button class="read-more-btn">阅读更多 →</button>
+                </div>
+              </article>
+            </div>
+          </section>
 
-        <section id="contact" class="section" data-section>
-          <h2 class="section-title">Contact</h2>
-          <ul class="contact-list">
-            <li class="contact-item">Email: <a href="mailto:xiaoguanbx@gmail.com">xiaoguanbx@gmail.com</a></li>
-            <li class="contact-item">
-              Scholar: <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a>
-            </li>
-          </ul>
-        </section>
-      </div>
+          <section class="blog-panel" id="blog-panel-notes">
+            <div class="blog-list">
+              <article class="blog-card" onclick="showBlogDetail(3)">
+                <span class="blog-tag">科研经验 · 方法论</span>
+                <div class="blog-card-header">
+                  <img src="assets/avatar.jpg" alt="作者" class="blog-author-avatar" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%236b7280%22/%3E%3C/svg%3E'" />
+                  <span class="blog-author-name">朱冠宇</span>
+                  <time class="blog-date">2026/03/08</time>
+                </div>
+                <h2 class="blog-card-title">科研推进的三个节奏：读、做、复盘</h2>
+                <p class="blog-card-excerpt">
+                  结合近两年的项目经历，总结一个可执行的科研节奏：快速读论文找问题、短周期实验拿反馈、系统复盘形成下一轮假设。
+                </p>
+                <div class="blog-card-footer">
+                  <div class="blog-metrics">
+                    <span class="blog-metric">👁 48</span>
+                    <span class="blog-metric">💬 0</span>
+                    <span class="blog-metric">❤️ 2</span>
+                  </div>
+                  <button class="read-more-btn">阅读更多 →</button>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <!-- 博客详情视图（动态内容） -->
+        <div class="container blog-detail" id="blog-detail-view">
+          <a class="back-btn" onclick="backToBlogList()">
+            ← 返回博客列表
+          </a>
+          <article id="blog-content">
+            <!-- 动态插入内容 -->
+          </article>
+        </div>
+      </section>
     </main>
 
-    <script>
-      const menuToggle = document.querySelector('.menu-toggle');
-      const topNav = document.querySelector('.top-nav');
-      const navLinks = Array.from(document.querySelectorAll('.top-nav .nav-link'));
-      const sections = Array.from(document.querySelectorAll('[data-section]'));
-
-      if (menuToggle && topNav) {
-        menuToggle.addEventListener('click', () => {
-          const open = topNav.classList.toggle('open');
-          menuToggle.setAttribute('aria-expanded', String(open));
-        });
-      }
-
-      const setActive = (id) => {
-        navLinks.forEach((link) => {
-          const active = link.getAttribute('href') === `#${id}`;
-          link.classList.toggle('active', active);
-        });
-      };
-
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                setActive(entry.target.id);
-              }
-            });
-          },
-          {
-            rootMargin: '-32% 0px -56% 0px',
-            threshold: 0,
-          }
-        );
-
-        sections.forEach((section) => observer.observe(section));
-      }
-
-      navLinks.forEach((link) => {
-        link.addEventListener('click', (event) => {
-          event.preventDefault();
-          const target = document.querySelector(link.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-          if (topNav && topNav.classList.contains('open')) {
-            topNav.classList.remove('open');
-            menuToggle?.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-    </script>
+    <script src="js/blog-data.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
