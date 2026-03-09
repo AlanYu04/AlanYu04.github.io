@@ -50,7 +50,7 @@ function showPage(pageName, navEl) {
 
 // 显示博客详情
 function showBlogDetail(blogId) {
-  const post = window.blogPosts[blogId];
+  const post = (window.blogPosts || {})[blogId];
   if (!post) return;
   
   document.getElementById('blog-content').innerHTML = post.content;
