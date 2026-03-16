@@ -485,45 +485,6 @@ main {
   gap: 10px;
 }
 
-.blog-cats {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
-}
-
-.blog-cat-btn {
-  border: 1px solid var(--border);
-  background: #ffffff;
-  color: var(--muted);
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.blog-cat-btn:hover {
-  color: var(--text);
-  border-color: #cbd5e1;
-}
-
-.blog-cat-btn.active {
-  background: #111827;
-  color: #f9fafb;
-  border-color: #111827;
-}
-
-.blog-panel {
-  display: none;
-}
-
-.blog-panel.active {
-  display: block;
-}
-
 .blog-list {
   display: flex;
   flex-direction: column;
@@ -621,6 +582,8 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-top: 16px;
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -628,6 +591,7 @@ main {
 
 .blog-metrics {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   font-size: 0.85rem;
   color: #6b7280;
@@ -656,12 +620,6 @@ main {
 .read-more-btn:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.3);
-}
-
-@media (max-width: 760px) {
-  .blog-cats {
-    justify-content: flex-start;
-  }
 }
 
 /* 博客详情页 */

@@ -308,134 +308,39 @@
             <div class="blog-icon">📝</div>
             <h1 class="blog-title" data-i18n="blog.title">技术博客</h1>
             <div class="blog-stats">
-              <span data-i18n="blog.stats.posts">3 篇文章</span>
+              <span data-i18n="blog.stats.posts">1 篇文章</span>
               <span>·</span>
-              <span data-i18n="blog.stats.words">约 6.5k 字</span>
+              <span data-i18n="blog.stats.words">经验分享</span>
             </div>
           </div>
 
-          <div class="blog-cats" role="tablist" aria-label="博客分类" data-i18n-aria-label="blog.categories.aria">
-            <button
-              class="blog-cat-btn active"
-              type="button"
-              data-category="paper"
-              onclick="switchBlogCategory('paper', this)"
-              data-i18n="blog.category.paper"
-            >
-              论文阅读
-            </button>
-            <button
-              class="blog-cat-btn"
-              type="button"
-              data-category="project"
-              onclick="switchBlogCategory('project', this)"
-              data-i18n="blog.category.project"
-            >
-              项目分享
-            </button>
-            <button
-              class="blog-cat-btn"
-              type="button"
-              data-category="notes"
-              onclick="switchBlogCategory('notes', this)"
-              data-i18n="blog.category.notes"
-            >
-              经验杂谈
-            </button>
+          <div class="blog-list">
+            <article class="blog-card" onclick="showBlogDetail(1)">
+              <span class="blog-tag" data-i18n="blog.post1.tag">AI Agent · Workflow · 经验分享</span>
+              <div class="blog-card-header">
+                <img
+                  src="assets/avatar.jpg"
+                  alt="作者"
+                  class="blog-author-avatar"
+                  data-i18n-alt="blog.authorAlt"
+                  onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%236b7280%22/%3E%3C/svg%3E'"
+                />
+                <span class="blog-author-name" data-i18n="blog.authorName">朱冠宇</span>
+                <time class="blog-date">2026/03/16</time>
+              </div>
+              <h2 class="blog-card-title" data-i18n="blog.post1.title">从 Cursor 到 Claude Code 再到 Codex：我的 AI Agent 使用经验</h2>
+              <p class="blog-card-excerpt" data-i18n="blog.post1.excerpt">
+                从 2025 年 10 月开始接触 Cursor，到现在持续使用 Claude Code 和 Codex，我陆续花了近千元 token，也踩过不少坑。这里不讲概念，只分享一些关于上下文管理、skills 设计和代码审查的实际经验。
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-metrics">
+                  <span class="blog-metric" data-i18n="blog.metric.type">随笔分享</span>
+                  <span class="blog-metric" data-i18n="blog.metric.focus">工作流 / Skill / 代码检查</span>
+                </div>
+                <button class="read-more-btn" data-i18n="blog.readMore">阅读更多 →</button>
+              </div>
+            </article>
           </div>
-
-          <section class="blog-panel active" id="blog-panel-paper">
-            <div class="blog-list">
-              <article class="blog-card" onclick="showBlogDetail(1)">
-                <span class="blog-tag" data-i18n="blog.post1.tag">多模态 · 物理推理</span>
-                <div class="blog-card-header">
-                  <img
-                    src="assets/avatar.jpg"
-                    alt="作者"
-                    class="blog-author-avatar"
-                    data-i18n-alt="blog.authorAlt"
-                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%236b7280%22/%3E%3C/svg%3E'"
-                  />
-                  <span class="blog-author-name" data-i18n="blog.authorName">朱冠宇</span>
-                  <time class="blog-date">2025/12/31</time>
-                </div>
-                <h2 class="blog-card-title" data-i18n="blog.post1.title">PhysicsMind 项目复盘：从仿真到现实的物理推理评测</h2>
-                <p class="blog-card-excerpt" data-i18n="blog.post1.excerpt">
-                  在参与 PhysicsMind 项目的过程中，我们遇到了诸多 Sim-to-Real 的挑战。本文详细记录了如何构建配对数据集、设计评测指标，以及 VLMs 在物理推理任务上的表现分析。
-                </p>
-                <div class="blog-card-footer">
-                  <div class="blog-metrics">
-                    <span class="blog-metric">👁 94</span>
-                    <span class="blog-metric">💬 0</span>
-                    <span class="blog-metric">❤️ 3</span>
-                  </div>
-                  <button class="read-more-btn" data-i18n="blog.readMore">阅读更多 →</button>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="blog-panel" id="blog-panel-project">
-            <div class="blog-list">
-              <article class="blog-card" onclick="showBlogDetail(2)">
-                <span class="blog-tag" data-i18n="blog.post2.tag">农业 AI · 多模态</span>
-                <div class="blog-card-header">
-                  <img
-                    src="assets/avatar.jpg"
-                    alt="作者"
-                    class="blog-author-avatar"
-                    data-i18n-alt="blog.authorAlt"
-                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%236b7280%22/%3E%3C/svg%3E'"
-                  />
-                  <span class="blog-author-name" data-i18n="blog.authorName">朱冠宇</span>
-                  <time class="blog-date">2025/09/07</time>
-                </div>
-                <h2 class="blog-card-title" data-i18n="blog.post2.title">Lychee-Bench：构建农业领域的过程级多模态推理基准</h2>
-                <p class="blog-card-excerpt" data-i18n="blog.post2.excerpt">
-                  分享我们在华南农业大学荔枝园采集数据、构建 Lychee-Bench 基准测试集的经验，从田间图像采集到 CoT 样本标注，再到 GRPO 对齐训练。
-                </p>
-                <div class="blog-card-footer">
-                  <div class="blog-metrics">
-                    <span class="blog-metric">👁 34</span>
-                    <span class="blog-metric">💬 0</span>
-                    <span class="blog-metric">❤️ 0</span>
-                  </div>
-                  <button class="read-more-btn" data-i18n="blog.readMore">阅读更多 →</button>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="blog-panel" id="blog-panel-notes">
-            <div class="blog-list">
-              <article class="blog-card" onclick="showBlogDetail(3)">
-                <span class="blog-tag" data-i18n="blog.post3.tag">科研经验 · 方法论</span>
-                <div class="blog-card-header">
-                  <img
-                    src="assets/avatar.jpg"
-                    alt="作者"
-                    class="blog-author-avatar"
-                    data-i18n-alt="blog.authorAlt"
-                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%236b7280%22/%3E%3C/svg%3E'"
-                  />
-                  <span class="blog-author-name" data-i18n="blog.authorName">朱冠宇</span>
-                  <time class="blog-date">2026/03/08</time>
-                </div>
-                <h2 class="blog-card-title" data-i18n="blog.post3.title">科研推进的三个节奏：读、做、复盘</h2>
-                <p class="blog-card-excerpt" data-i18n="blog.post3.excerpt">
-                  结合近两年的项目经历，总结一个可执行的科研节奏：快速读论文找问题、短周期实验拿反馈、系统复盘形成下一轮假设。
-                </p>
-                <div class="blog-card-footer">
-                  <div class="blog-metrics">
-                    <span class="blog-metric">👁 48</span>
-                    <span class="blog-metric">💬 0</span>
-                    <span class="blog-metric">❤️ 2</span>
-                  </div>
-                  <button class="read-more-btn" data-i18n="blog.readMore">阅读更多 →</button>
-                </div>
-              </article>
-            </div>
-          </section>
         </div>
 
         <!-- 博客详情视图（动态内容） -->
@@ -448,9 +353,6 @@
       </section>
     </main>
 
-    <script src="js/blog-posts/post-1.js"></script>
-    <script src="js/blog-posts/post-2.js"></script>
-    <script src="js/blog-posts/post-3.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
