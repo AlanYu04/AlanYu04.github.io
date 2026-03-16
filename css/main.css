@@ -57,9 +57,10 @@ a:hover {
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   min-height: 62px;
   gap: 16px;
+  position: relative;
 }
 
 .site-name {
@@ -107,6 +108,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 24px;
+  margin-left: auto;
 }
 
 .top-nav a {
@@ -134,6 +136,46 @@ a:hover {
   height: 2px;
   background: var(--link);
   border-radius: 2px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 8px;
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #f8fafc;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 7px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--text);
+}
+
+.lang-btn.active {
+  background: #111827;
+  color: #f9fafb;
 }
 
 /* 主内容区域 - 给固定导航栏留出空间 */
@@ -730,7 +772,7 @@ main {
   .top-nav {
     display: none;
     position: absolute;
-    top: 62px;
+    top: calc(100% + 10px);
     left: 0;
     right: 0;
     background: rgba(255, 255, 255, 0.98);
@@ -739,6 +781,7 @@ main {
     flex-direction: column;
     gap: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-left: 0;
   }
 
   .top-nav.open {
@@ -749,6 +792,10 @@ main {
     flex-wrap: wrap;
     padding: 10px 0;
     min-height: auto;
+  }
+
+  .header-actions {
+    margin-left: auto;
   }
 
   .home-layout {
@@ -803,6 +850,19 @@ main {
 @media (max-width: 560px) {
   .container {
     width: calc(100% - 24px);
+  }
+
+  .header-inner {
+    gap: 10px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .lang-btn {
+    padding: 7px 11px;
   }
 
   .profile-name {
