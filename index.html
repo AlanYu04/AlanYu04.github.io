@@ -308,13 +308,39 @@
             <div class="blog-icon">📝</div>
             <h1 class="blog-title" data-i18n="blog.title">技术博客</h1>
             <div class="blog-stats">
-              <span data-i18n="blog.stats.posts">1 篇文章</span>
+              <span data-i18n="blog.stats.posts">2 篇文章</span>
               <span>·</span>
-              <span data-i18n="blog.stats.words">经验分享</span>
+              <span data-i18n="blog.stats.words">经验分享 · 学术观察</span>
             </div>
           </div>
 
           <div class="blog-list">
+            <article class="blog-card" onclick="showBlogDetail(2)">
+              <span class="blog-tag" data-i18n="blog.post2.tag">审稿 · KDD · 学术随笔</span>
+              <div class="blog-card-header">
+                <img
+                  src="assets/avatar.jpg"
+                  alt="作者"
+                  class="blog-author-avatar"
+                  data-i18n-alt="blog.authorAlt"
+                  onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22%3E%3Crect width=%2224%22 height=%2224%22 fill=%22%236b7280%22/%3E%3C/svg%3E'"
+                />
+                <span class="blog-author-name" data-i18n="blog.authorName">朱冠宇</span>
+                <time class="blog-date">2026/03/21</time>
+              </div>
+              <h2 class="blog-card-title" data-i18n="blog.post2.title">第三次审稿之后：我对 AI、投稿和顶会的一些新感受</h2>
+              <p class="blog-card-excerpt" data-i18n="blog.post2.excerpt">
+                这次跟着师兄一起审了三篇 KDD 稿件。比起前两次 ICLR 和 SIGMOD 的经历，这次更强烈地感受到 AI 正在把投稿和审稿一起推向高频、同质又更拥挤的状态。
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-metrics">
+                  <span class="blog-metric" data-i18n="blog.post2.metric.type">审稿观察</span>
+                  <span class="blog-metric" data-i18n="blog.post2.metric.focus">AI / 投稿 / 顶会</span>
+                </div>
+                <button class="read-more-btn" data-i18n="blog.readMore">阅读更多 →</button>
+              </div>
+            </article>
+
             <article class="blog-card" onclick="showBlogDetail(1)">
               <span class="blog-tag" data-i18n="blog.post1.tag">AI Agent · Workflow · 经验分享</span>
               <div class="blog-card-header">
