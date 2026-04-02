@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="meta.title">朱冠宇 | 学术主页与博客</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="nav-brand">
+          <img
+            src="assets/avatar.jpg"
+            alt="朱冠宇"
+            class="avatar-small"
+            data-i18n-alt="brand.avatarAlt"
+            onerror="this.style.display='none'"
+          />
+          <a class="site-name" href="#" onclick="showPage('intro'); return false;" data-i18n="brand.name">朱冠宇</a>
+        </div>
+        <nav class="top-nav" id="top-nav" aria-label="主导航" data-i18n-aria-label="nav.aria">
+          <a
+            class="nav-link active"
+            data-page="intro"
+            href="#"
+            onclick="showPage('intro', this); return false;"
+            data-i18n="nav.intro"
+            >首页</a
+          >
+          <a
+            class="nav-link"
+            data-page="home"
+            href="#"
+            onclick="showPage('home', this); return false;"
+            data-i18n="nav.home"
+            >主页</a
+          >
+          <a
+            class="nav-link"
+            data-page="blog"
+            href="#"
+            onclick="showPage('blog', this); return false;"
+            data-i18n="nav.blog"
+            >博客分享</a
+          >
+        </nav>
+        <div class="header-actions">
+          <div class="lang-switch" role="group" aria-label="语言切换" data-i18n-aria-label="lang.aria">
+            <button class="lang-btn active" type="button" data-lang-switch="zh" aria-pressed="true">中</button>
+            <button class="lang-btn" type="button" data-lang-switch="en" aria-pressed="false">EN</button>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="top-nav" data-i18n="menu.toggle">
+            菜单
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- 封面页 -->
+      <section id="intro-page" class="page-section active">
+        <div class="intro-shell">
+          <div class="scene" id="scene">
+            <div class="intro-tagline">
+              <div class="cat-stage" id="catStage"></div>
+              <h1 data-i18n="intro.line">我沉迷于思想的爆破与重建</h1>
+            </div>
+            <div class="cat-states" id="dots"></div>
+            <div class="cat-state-label" id="label">趴着 · 点击试试</div>
+            <div class="intro-divider"></div>
+            <div class="intro-name">GUANYU ZHU</div>
+            <div class="intro-nav">
+              <a onclick="showPage('home'); return false;">主页</a>
+              <span class="intro-nav-dot">·</span>
+              <a onclick="showPage('blog'); return false;">博客</a>
+              <span class="intro-nav-dot">·</span>
+              <a onclick="showPage('home'); setTimeout(function(){document.getElementById('contact').scrollIntoView({behavior:'smooth'})},300); return false;">联系</a>
+            </div>
+          </div>
+        </div>
+        <div class="intro-hint">点击页面任意位置触发下一个动作</div>
+        <script>
+        // === Kawaii Cat ===
+        const W='#FFFFFF',O='#FFB347',G='#B8B8B8',DG='#8B8B8B',K='#333333',P='#FFB6C1',LP='#FFD1DC';
+        const poses=[
+        {name:'趴着',svg:`<svg viewBox="0 0 100 70"><g style="transform-origin:85px 42px;animation:tailWag 2.5s ease-in-out infinite"><path d="M85,42 Q95,35 92,25 Q90,18 94,12" fill="none" stroke="${K}" stroke-width="5" stroke-linecap="round"/><path d="M85,42 Q95,35 92,25 Q90,18 94,12" fill="none" stroke="${O}" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="92" cy="25" rx="3" ry="2.5" fill="${G}"/><ellipse cx="94" cy="16" rx="2.5" ry="2" fill="${G}"/></g><ellipse cx="50" cy="45" rx="26" ry="12" fill="${W}" stroke="${K}" stroke-width="2"/><ellipse cx="36" cy="40" rx="8" ry="6" fill="${O}" opacity=".8"/><ellipse cx="64" cy="42" rx="7" ry="5" fill="${G}" opacity=".6"/><ellipse cx="74" cy="54" rx="5" ry="4" fill="${W}" stroke="${K}" stroke-width="1.5"/><ellipse cx="28" cy="56" rx="6" ry="4.5" fill="${W}" stroke="${K}" stroke-width="1.5"/><ellipse cx="42" cy="57" rx="6" ry="4.5" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle cx="26" cy="57" r="1.3" fill="${P}"/><circle cx="30" cy="57" r="1.3" fill="${P}"/><circle cx="40" cy="58" r="1.3" fill="${P}"/><circle cx="44" cy="58" r="1.3" fill="${P}"/><path d="M28,32 Q40,40 52,32" fill="none" stroke="${P}" stroke-width="2.8" stroke-linecap="round"/><circle cx="40" cy="37" r="3" fill="${P}"/><ellipse cx="42" cy="22" rx="20" ry="18" fill="${W}" stroke="${K}" stroke-width="2"/><ellipse cx="26" cy="8" rx="8" ry="10" fill="${O}" stroke="${K}" stroke-width="1.5"/><ellipse cx="26" cy="9" rx="5" ry="6" fill="${LP}"/><ellipse cx="58" cy="7" rx="8" ry="10" fill="${G}" stroke="${K}" stroke-width="1.5"/><ellipse cx="58" cy="8" rx="5" ry="6" fill="${LP}"/><line x1="36" y1="8" x2="38" y2="14" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><line x1="42" y1="6" x2="42" y2="13" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><line x1="48" y1="8" x2="46" y2="14" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><ellipse cx="30" cy="24" rx="7" ry="6" fill="${O}" opacity=".7"/><ellipse cx="54" cy="23" rx="7" ry="6" fill="${G}" opacity=".6"/><line x1="28" y1="26" x2="24" y2="30" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><line x1="56" y1="25" x2="60" y2="29" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><g class="eyes-open"><circle cx="34" cy="22" r="7" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle cx="50" cy="21" r="7" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle class="pupil" data-bx="35" data-by="22" cx="35" cy="22" r="4" fill="${K}"/><circle class="pupil" data-bx="51" data-by="21" cx="51" cy="21" r="4" fill="${K}"/><circle class="shine" data-bx="37" data-by="20" cx="37" cy="20" r="2" fill="${W}"/><circle class="shine" data-bx="53" data-by="19" cx="53" cy="19" r="2" fill="${W}"/></g><g class="eyes-sleepy" style="display:none"><path d="M28,22 Q34,27 40,22" fill="none" stroke="${K}" stroke-width="2.5" stroke-linecap="round"/><path d="M44,21 Q50,26 56,21" fill="none" stroke="${K}" stroke-width="2.5" stroke-linecap="round"/></g><ellipse cx="42" cy="28" rx="3" ry="2.5" fill="${P}"/><g class="mouth-normal"><path d="M38,31 Q42,35 46,31" fill="none" stroke="${K}" stroke-width="1.2" stroke-linecap="round"/></g><g class="mouth-yawn" style="display:none"><ellipse cx="42" cy="33" rx="5" ry="6" fill="#9B7653"/><ellipse cx="42" cy="31" rx="3.5" ry="2" fill="${P}" opacity=".3"/></g><line x1="18" y1="26" x2="30" y2="27" stroke="${K}" stroke-width=".7"/><line x1="18" y1="31" x2="30" y2="29" stroke="${K}" stroke-width=".7"/><line x1="54" y1="27" x2="66" y2="26" stroke="${K}" stroke-width=".7"/><line x1="54" y1="29" x2="66" y2="31" stroke="${K}" stroke-width=".7"/></svg>`},
+        {name:'伸懒腰',svg:`<svg viewBox="0 0 115 70"><g style="transform-origin:100px 38px;animation:tailWag 2s ease-in-out infinite"><path d="M100,38 Q112,28 108,16 Q104,8 110,4" fill="none" stroke="${K}" stroke-width="5" stroke-linecap="round"/><path d="M100,38 Q112,28 108,16 Q104,8 110,4" fill="none" stroke="${O}" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="108" cy="16" rx="3" ry="2.5" fill="${G}"/></g><path d="M28,50 Q28,34 55,28 Q76,22 90,36 Q96,40 94,48 Q92,52 86,54 Q60,58 40,56 Q28,52 28,50Z" fill="${W}" stroke="${K}" stroke-width="2"/><path d="M55,28 Q72,22 84,32 Q72,24 56,28Z" fill="${O}" opacity=".7"/><ellipse cx="88" cy="56" rx="7" ry="5" fill="${W}" stroke="${K}" stroke-width="1.5"/><ellipse cx="10" cy="54" rx="8" ry="5" fill="${W}" stroke="${K}" stroke-width="1.5"/><ellipse cx="25" cy="52" rx="7" ry="5" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle cx="8" cy="55" r="1.5" fill="${P}"/><circle cx="12" cy="55" r="1.5" fill="${P}"/><circle cx="23" cy="53" r="1.5" fill="${P}"/><circle cx="27" cy="53" r="1.5" fill="${P}"/><path d="M28,30 Q40,38 52,28" fill="none" stroke="${P}" stroke-width="3" stroke-linecap="round"/><circle cx="40" cy="34" r="3.5" fill="${P}"/><ellipse cx="40" cy="22" rx="19" ry="17" fill="${W}" stroke="${K}" stroke-width="2"/><ellipse cx="25" cy="8" rx="8" ry="10" fill="${O}" stroke="${K}" stroke-width="1.5"/><ellipse cx="25" cy="9" rx="5" ry="6" fill="${LP}"/><ellipse cx="55" cy="7" rx="8" ry="10" fill="${G}" stroke="${K}" stroke-width="1.5"/><ellipse cx="55" cy="8" rx="5" ry="6" fill="${LP}"/><line x1="34" y1="8" x2="36" y2="14" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="6" x2="40" y2="13" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><line x1="46" y1="8" x2="44" y2="14" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><ellipse cx="28" cy="24" rx="7" ry="6" fill="${O}" opacity=".7"/><ellipse cx="52" cy="23" rx="7" ry="6" fill="${G}" opacity=".6"/><circle cx="32" cy="22" r="7" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle cx="48" cy="21" r="7" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle class="pupil" data-bx="33" data-by="22" cx="33" cy="22" r="4" fill="${K}"/><circle class="pupil" data-bx="49" data-by="21" cx="49" cy="21" r="4" fill="${K}"/><circle class="shine" data-bx="35" data-by="20" cx="35" cy="20" r="2" fill="${W}"/><circle class="shine" data-bx="51" data-by="19" cx="51" cy="19" r="2" fill="${W}"/><ellipse cx="40" cy="28" rx="3" ry="2.5" fill="${P}"/><path d="M36,31 Q40,35 44,31" fill="none" stroke="${K}" stroke-width="1.2" stroke-linecap="round"/><line x1="16" y1="26" x2="28" y2="27" stroke="${K}" stroke-width=".7"/><line x1="16" y1="31" x2="28" y2="29" stroke="${K}" stroke-width=".7"/><line x1="52" y1="27" x2="64" y2="26" stroke="${K}" stroke-width=".7"/><line x1="52" y1="29" x2="64" y2="31" stroke="${K}" stroke-width=".7"/></svg>`},
+        {name:'翻肚皮',svg:`<svg viewBox="0 0 100 75"><g style="transform-origin:82px 45px;animation:tailWag 2s ease-in-out infinite"><path d="M82,45 Q92,36 88,26 Q84,18 90,12" fill="none" stroke="${K}" stroke-width="5" stroke-linecap="round"/><path d="M82,45 Q92,36 88,26 Q84,18 90,12" fill="none" stroke="${O}" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="88" cy="26" rx="3" ry="2.5" fill="${G}"/></g><ellipse cx="50" cy="45" rx="28" ry="16" fill="${W}" stroke="${K}" stroke-width="2"/><ellipse cx="55" cy="48" rx="12" ry="8" fill="${O}" opacity=".6"/><ellipse cx="74" cy="32" rx="6" ry="8" fill="${W}" stroke="${K}" stroke-width="1.5" transform="rotate(20,74,32)"/><ellipse cx="86" cy="36" rx="6" ry="8" fill="${W}" stroke="${K}" stroke-width="1.5" transform="rotate(35,86,36)"/><ellipse cx="22" cy="34" rx="6" ry="7" fill="${W}" stroke="${K}" stroke-width="1.5" transform="rotate(-25,22,34)"/><ellipse cx="36" cy="30" rx="6" ry="7" fill="${W}" stroke="${K}" stroke-width="1.5" transform="rotate(-15,36,30)"/><circle cx="74" cy="28" r="1.5" fill="${P}"/><circle cx="86" cy="32" r="1.5" fill="${P}"/><circle cx="20" cy="30" r="1.5" fill="${P}"/><circle cx="34" cy="26" r="1.5" fill="${P}"/><path d="M34,22 Q44,28 54,22" fill="none" stroke="${P}" stroke-width="2.5" stroke-linecap="round"/><circle cx="44" cy="26" r="3" fill="${P}"/><ellipse cx="44" cy="18" rx="17" ry="15" fill="${W}" stroke="${K}" stroke-width="2" transform="rotate(-10,44,18)"/><ellipse cx="32" cy="6" rx="7" ry="9" fill="${O}" stroke="${K}" stroke-width="1.5"/><ellipse cx="32" cy="7" rx="4.5" ry="5.5" fill="${LP}"/><ellipse cx="54" cy="5" rx="7" ry="9" fill="${G}" stroke="${K}" stroke-width="1.5"/><ellipse cx="54" cy="6" rx="4.5" ry="5.5" fill="${LP}"/><line x1="38" y1="6" x2="40" y2="11" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><line x1="44" y1="5" x2="44" y2="10" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><line x1="50" y1="6" x2="48" y2="11" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="34" cy="18" rx="6" ry="5" fill="${O}" opacity=".7"/><ellipse cx="54" cy="17" rx="6" ry="5" fill="${G}" opacity=".6"/><circle cx="38" cy="18" r="6.5" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle cx="52" cy="17" r="6.5" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle class="pupil" data-bx="39" data-by="18" cx="39" cy="18" r="3.5" fill="${K}"/><circle class="pupil" data-bx="53" data-by="17" cx="53" cy="17" r="3.5" fill="${K}"/><circle class="shine" data-bx="41" data-by="16" cx="41" cy="16" r="1.8" fill="${W}"/><circle class="shine" data-bx="55" data-by="15" cx="55" cy="15" r="1.8" fill="${W}"/><ellipse cx="45" cy="23" rx="2.5" ry="2" fill="${P}"/><path d="M42,25 Q45,28 48,25" fill="none" stroke="${K}" stroke-width="1" stroke-linecap="round"/><line x1="24" y1="20" x2="34" y2="21" stroke="${K}" stroke-width=".6"/><line x1="56" y1="20" x2="66" y2="19" stroke="${K}" stroke-width=".6"/></svg>`},
+        {name:'跳跃',svg:`<svg viewBox="0 0 90 65"><g style="transform-origin:72px 28px;animation:tailWagFast 1.5s ease-in-out infinite"><path d="M72,28 Q82,18 78,8 Q74,2 80,0" fill="none" stroke="${K}" stroke-width="4.5" stroke-linecap="round"/><path d="M72,28 Q82,18 78,8 Q74,2 80,0" fill="none" stroke="${O}" stroke-width="3" stroke-linecap="round"/><ellipse cx="78" cy="8" rx="2.5" ry="2" fill="${G}"/></g><ellipse cx="42" cy="35" rx="24" ry="15" fill="${W}" stroke="${K}" stroke-width="1.8" transform="rotate(-5,42,35)"/><ellipse cx="48" cy="30" rx="12" ry="7" fill="${O}" opacity=".7"/><ellipse cx="68" cy="48" rx="7" ry="5" fill="${W}" stroke="${K}" stroke-width="1.3" transform="rotate(30,68,48)"/><ellipse cx="18" cy="32" rx="6" ry="5" fill="${W}" stroke="${K}" stroke-width="1.3" transform="rotate(-35,18,32)"/><ellipse cx="30" cy="30" rx="5" ry="4" fill="${W}" stroke="${K}" stroke-width="1.3" transform="rotate(-20,30,30)"/><path d="M28,24 Q38,30 48,24" fill="none" stroke="${P}" stroke-width="2.5" stroke-linecap="round"/><circle cx="38" cy="28" r="3" fill="${P}"/><ellipse cx="34" cy="18" rx="17" ry="15" fill="${W}" stroke="${K}" stroke-width="1.8"/><ellipse cx="22" cy="6" rx="7" ry="9" fill="${O}" stroke="${K}" stroke-width="1.3"/><ellipse cx="22" cy="7" rx="4.5" ry="5.5" fill="${LP}"/><ellipse cx="46" cy="5" rx="7" ry="9" fill="${G}" stroke="${K}" stroke-width="1.3"/><ellipse cx="46" cy="6" rx="4.5" ry="5.5" fill="${LP}"/><line x1="28" y1="6" x2="30" y2="11" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><line x1="34" y1="5" x2="34" y2="10" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><line x1="40" y1="6" x2="38" y2="11" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="24" cy="18" rx="6" ry="5" fill="${O}" opacity=".7"/><ellipse cx="44" cy="17" rx="6" ry="5" fill="${G}" opacity=".6"/><circle cx="28" cy="17" r="6.5" fill="${W}" stroke="${K}" stroke-width="1.3"/><circle cx="42" cy="16" r="6.5" fill="${W}" stroke="${K}" stroke-width="1.3"/><circle class="pupil" data-bx="29" data-by="17" cx="29" cy="17" r="3.5" fill="${K}"/><circle class="pupil" data-bx="43" data-by="16" cx="43" cy="16" r="3.5" fill="${K}"/><circle class="shine" data-bx="31" data-by="15" cx="31" cy="15" r="1.8" fill="${W}"/><circle class="shine" data-bx="45" data-by="14" cx="45" cy="14" r="1.8" fill="${W}"/><ellipse cx="35" cy="22" rx="2.5" ry="2" fill="${P}"/><path d="M32,24 Q35,27 38,24" fill="none" stroke="${K}" stroke-width="1" stroke-linecap="round"/><line x1="76" y1="42" x2="84" y2="40" stroke="${K}" stroke-width=".7" opacity=".3"/><line x1="74" y1="46" x2="83" y2="46" stroke="${K}" stroke-width=".7" opacity=".25"/><line x1="72" y1="50" x2="80" y2="52" stroke="${K}" stroke-width=".7" opacity=".2"/></svg>`}
+        ];
+        const stateNames=['趴着','伸懒腰','翻肚皮','跳跃'];
+        let current=0,isTransitioning=false;
+        const stage=document.getElementById('catStage'),label=document.getElementById('label'),dotsEl=document.getElementById('dots');
+        poses.forEach((_,i)=>{const d=document.createElement('div');d.className='cat-state-dot'+(i===0?' active':'');d.onclick=e=>{e.stopPropagation();goTo(i);};dotsEl.appendChild(d);});
+        stage.innerHTML=poses[0].svg;
+        function updateDots(){document.querySelectorAll('.cat-state-dot').forEach((d,j)=>d.classList.toggle('active',j===current));}
+        function animateJump(fromAway,toAway,onSwap,onDone){const duration=550,start=performance.now();const h1=document.querySelector('.intro-tagline h1');const jumpDist=-(h1?h1.offsetWidth+120:400);const kf=toAway?[{t:0,sx:1,sy:1,tx:0,ty:0,r:0},{t:.2,sx:1.1,sy:.9,tx:jumpDist*.15,ty:5,r:0},{t:.5,sx:.6,sy:.6,tx:jumpDist*.8,ty:-35,r:12},{t:1,sx:.5,sy:.5,tx:jumpDist,ty:-30,r:8}]:fromAway?[{t:0,sx:.5,sy:.5,tx:jumpDist,ty:-30,r:8},{t:.3,sx:.7,sy:.7,tx:jumpDist*.5,ty:-45,r:-5},{t:.6,sx:.9,sy:1.05,tx:jumpDist*.15,ty:-20,r:-3},{t:.85,sx:1.08,sy:.95,tx:0,ty:3,r:0},{t:1,sx:1,sy:1,tx:0,ty:0,r:0}]:[{t:0,sx:1,sy:1,tx:0,ty:0,r:0},{t:.15,sx:1.1,sy:.9,tx:0,ty:6,r:0},{t:.4,sx:.85,sy:1.15,tx:0,ty:-40,r:-8},{t:.55,sx:.8,sy:1.15,tx:0,ty:-42,r:-10},{t:.75,sx:.95,sy:1.05,tx:0,ty:-15,r:-4},{t:.9,sx:1.05,sy:.95,tx:0,ty:3,r:0},{t:1,sx:1,sy:1,tx:0,ty:0,r:0}];function lerp(a,b,t){return a+(b-a)*t;}function getVals(t){let i=0;while(i<kf.length-1&&kf[i+1].t<t)i++;const a=kf[i],b=kf[Math.min(i+1,kf.length-1)];const lt=(b.t-a.t)===0?0:(t-a.t)/(b.t-a.t);return{sx:lerp(a.sx,b.sx,lt),sy:lerp(a.sy,b.sy,lt),tx:lerp(a.tx,b.tx,lt),ty:lerp(a.ty,b.ty,lt),r:lerp(a.r,b.r,lt)};}let swapped=false;function frame(now){const t=Math.min((now-start)/duration,1);const v=getVals(t);stage.style.transform=`scale(${v.sx},${v.sy}) translate(${v.tx}px,${v.ty}px) rotate(${v.r}deg)`;if(t>=0.42&&!swapped){swapped=true;onSwap();}if(t<1)requestAnimationFrame(frame);else onDone();}requestAnimationFrame(frame);}
+        function goTo(idx){if(isTransitioning||idx===current)return;const fromAway=current===3,toAway=idx===3;current=idx;isTransitioning=true;animateJump(fromAway,toAway,()=>{stage.innerHTML=poses[current].svg;updateDots();label.textContent=current===3?'跳跃 · 点击唤回':stateNames[current];},()=>{isTransitioning=false;});}
+        document.getElementById('scene').addEventListener('click',e=>{if(e.target.closest('.cat-state-dot')||e.target.closest('.intro-nav'))return;goTo((current+1)%poses.length);});
+        document.addEventListener('mousemove',e=>{const pupils=stage.querySelectorAll('.pupil'),shines=stage.querySelectorAll('.shine');if(!pupils.length)return;const r=stage.getBoundingClientRect();const cx=r.left+r.width/2,cy=r.top+r.height/2;const a=Math.atan2(e.clientY-cy,e.clientX-cx);const d=Math.min(Math.hypot(e.clientX-cx,e.clientY-cy)/180,1);const dx=Math.cos(a)*2.5*d,dy=Math.sin(a)*2.5*d;pupils.forEach(p=>{p.setAttribute('cx',parseFloat(p.dataset.bx)+dx);p.setAttribute('cy',parseFloat(p.dataset.by)+dy);});shines.forEach(s=>{s.setAttribute('cx',parseFloat(s.dataset.bx)+dx);s.setAttribute('cy',parseFloat(s.dataset.by)+dy);});});
+        let yawnTimer,yawnEndTimer;function scheduleYawn(){yawnTimer=setTimeout(doYawn,10000);}
+        function doYawn(){if(current!==0){scheduleYawn();return;}const svg=stage.querySelector('svg');if(!svg)return;const eo=svg.querySelector('.eyes-open'),es=svg.querySelector('.eyes-sleepy'),mn=svg.querySelector('.mouth-normal'),my=svg.querySelector('.mouth-yawn');if(eo)eo.style.display='none';if(es)es.style.display='block';if(mn)mn.style.display='none';if(my)my.style.display='block';label.textContent='趴着 · *打哈欠*';yawnEndTimer=setTimeout(()=>{if(eo)eo.style.display='';if(es)es.style.display='none';if(mn)mn.style.display='';if(my)my.style.display='none';if(current===0)label.textContent=stateNames[0];yawnEndTimer=null;scheduleYawn();},3000);}
+        yawnTimer=setTimeout(doYawn,8000);
+        ['click','mousemove','keydown'].forEach(ev=>{document.addEventListener(ev,()=>{clearTimeout(yawnTimer);if(yawnEndTimer){clearTimeout(yawnEndTimer);yawnEndTimer=null;const svg=stage.querySelector('svg');if(svg){const eo=svg.querySelector('.eyes-open'),es=svg.querySelector('.eyes-sleepy'),mn=svg.querySelector('.mouth-normal'),my=svg.querySelector('.mouth-yawn');if(eo)eo.style.display='';if(es)es.style.display='none';if(mn)mn.style.display='';if(my)my.style.display='none';}if(current===0)label.textContent=stateNames[0];}scheduleYawn();},{passive:true});});
+        </script>
+      </section>
+
+      <!-- 主页部分 -->
+      <section id="home-page" class="page-section">
+        <div class="container">
+          <!-- 顶部个人信息横栏 -->
+          <div class="profile-center">
+            <img
+              class="avatar"
+              src="assets/avatar.jpg"
+              alt="朱冠宇头像"
+              data-i18n-alt="profile.avatarAlt"
+              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect width=%2280%22 height=%2280%22 fill=%22%23e8e5e0%22/%3E%3C/svg%3E'"
+            />
+            <h1 class="profile-name" data-i18n="profile.name">朱冠宇</h1>
+            <p class="profile-name-en" data-i18n="profile.nameEn">Guanyu Zhu</p>
+            <ul class="profile-meta">
+              <li data-i18n="profile.school">华南农业大学 · 电子工程学院</li>
+              <li data-i18n="profile.location">广州，中国</li>
+            </ul>
+            <div class="profile-tags">
+              <span class="profile-tag" data-i18n="profile.tag1">多模态LLM</span>
+              <span class="profile-tag" data-i18n="profile.tag2">AI4Science</span>
+              <span class="profile-tag" data-i18n="profile.tag3">强化学习</span>
+              <span class="profile-tag" data-i18n="profile.tag4">物理推理</span>
+            </div>
+            <div class="profile-links">
+              <a href="mailto:xiaoguanbx@gmail.com">Email</a>
+              <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a>
+              <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <!-- 单列内容区 -->
+          <div class="content">
+            <section id="about" class="section about">
+              <h2 class="section-title" data-i18n="section.about">关于我</h2>
+              <p data-i18n="about.body">
+                我目前就读于华南农业大学电子科学与技术专业，研究主要关注多模态大语言模型在复杂真实场景中的推理、决策与对齐问题。目前，我也在不断探索新的研究方向，例如 AI4Science，以及其他具有潜力的交叉领域。
+              </p>
+            </section>
+
+            <section id="education" class="section">
+              <h2 class="section-title" data-i18n="section.education">教育经历</h2>
+              <ul class="edu-list">
+                <li class="edu-item">
+                  <div class="edu-head">
+                    <div>
+                      <p class="entry-title" data-i18n="education.item1.title">华南农业大学 · 电子工程学院 · 电子科学与技术</p>
+                      <p class="entry-sub" data-i18n="education.item1.sub">本科在读</p>
+                    </div>
+                    <time class="entry-time" data-i18n="education.item1.time">2023.09 - 至今</time>
+                  </div>
+                </li>
+              </ul>
+            </section>
+
+            <section id="publications" class="section">
+              <h2 class="section-title" data-i18n="section.publications">论文成果</h2>
+              <ul class="pub-list timeline">
+                <li class="pub-item">
+                  <span class="timeline-time">2026</span>
+                  <p class="pub-title">On the Role of Language Representations in Auto-Bidding: Findings and Implications</p>
+                  <p class="pub-meta"><span class="pub-venue-tag">KDD 2026</span> · CCF-A · under review · <span data-i18n="publication.1.role">第一作者</span></p>
+                  <p class="pub-desc" data-i18n="publication.1.desc">
+                    研究语言表征在自动竞价系统中的作用机制，提出基于 LLM 的竞价策略优化框架。
+                  </p>
+                </li>
+
+                <li class="pub-item">
+                  <span class="timeline-time">2026</span>
+                  <p class="pub-title">
+                    <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">
+                      PhysicsMind: Sim and Real Mechanics Benchmarking for Physical Reasoning and Prediction in Foundational VLMs and World Models
+                    </a>
+                  </p>
+                  <p class="pub-meta"><span class="pub-venue-tag">ICML 2026</span> · CCF-A · under review · <span data-i18n="publication.2.role">共同第一作者</span></p>
+                  <p class="pub-desc" data-i18n="publication.2.desc">
+                    围绕物理推理与预测任务构建 Sim/Real 评测基准。
+                  </p>
+                  <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">arXiv</a>
+                  </div>
+                </li>
+
+                <li class="pub-item">
+                  <span class="timeline-time">2026</span>
+                  <p class="pub-title">Graph-Guided Attention Analysis: MATH-VANE for White-Box Novelty and Creativity Detection in LLMs</p>
+                  <p class="pub-meta"><span class="pub-venue-tag">ESWA</span> · 中科院一区 · under review · <span data-i18n="publication.3.role">共同第一作者</span></p>
+                  <p class="pub-desc" data-i18n="publication.3.desc">
+                    提出图引导注意力分析的白盒检测方法，用于评估大语言模型的新颖性与创造性。
+                  </p>
+                </li>
+
+                <li class="pub-item">
+                  <span class="timeline-time">2026</span>
+                  <p class="pub-title">Lychee-Bench: A Process-Level Vision Language Benchmark for Trustworthy Lychee Orchard Diagnosis</p>
+                  <p class="pub-meta"><span class="pub-venue-tag">Smart Agr. Tech.</span> · 中科院二区 · under review · <span data-i18n="publication.4.role">第一作者</span></p>
+                  <p class="pub-desc" data-i18n="publication.4.desc">
+                    构建农业多模态过程级推理基准数据集，用于可信诊断任务评测。
+                  </p>
+                </li>
+              </ul>
+            </section>
+
+            <section id="projects" class="section">
+              <h2 class="section-title" data-i18n="section.projects">科研经历</h2>
+              <ul class="project-list timeline">
+                <li class="project-item">
+                  <span class="timeline-time" data-i18n="project.1.time">2025.09 - 2025.12</span>
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title" data-i18n="project.1.title">PhysicsMind 物理推理评测项目</p>
+                      <p class="entry-sub" data-i18n="project.1.sub">多模态 · 物理推理 · Sim-to-Real · 北京大学合作</p>
+                    </div>
+                  </div>
+                  <ul class="project-points">
+                    <li data-i18n="project.1.point1">负责数据处理与评测管线搭建，完成核心指标实现、对比实验组织与误差分析。</li>
+                    <li data-i18n="project.1.point2">构建真实桌面实验与 2D 仿真配对数据，统一 benchmark 场景设置与评测协议。</li>
+                  </ul>
+                </li>
+
+                <li class="project-item">
+                  <span class="timeline-time" data-i18n="project.2.time">2025.05 - 2025.11</span>
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title" data-i18n="project.2.title">Lychee-Bench / Lychee-Mind 农业多模态推理</p>
+                      <p class="entry-sub" data-i18n="project.2.sub">多模态 · CoT 推理 · GRPO 对齐 · 华南农业大学</p>
+                    </div>
+                  </div>
+                  <ul class="project-points">
+                    <li data-i18n="project.2.point1">构建 6,553 张田间图像与 29,756 条 CoT-QA 样本，形成面向过程级推理的监督数据。</li>
+                    <li data-i18n="project.2.point2">基于 Qwen2.5-VL-7B 完成 SFT + GRPO 两阶段训练，提升模型推理稳定性与任务准确率。</li>
+                  </ul>
+                </li>
+
+                <li class="project-item">
+                  <span class="timeline-time" data-i18n="project.3.time">2026.01 - 2026.03</span>
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title" data-i18n="project.3.title">MATH-VANE 数学推理白盒检测</p>
+                      <p class="entry-sub" data-i18n="project.3.sub">LLM · 数学推理 · 可解释性 · 白盒分析</p>
+                    </div>
+                  </div>
+                  <ul class="project-points">
+                    <li data-i18n="project.3.point1">设计白盒可解释框架，用于区分数学推理中的有效创新路径与幻觉内容。</li>
+                    <li data-i18n="project.3.point2">在多个 SOTA 模型与数据集上完成验证，并取得更优的 Macro-F1 表现。</li>
+                  </ul>
+                </li>
+
+                <li class="project-item">
+                  <span class="timeline-time" data-i18n="project.4.time">2025.10 - 2026.02</span>
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title" data-i18n="project.4.title">SemState 语义状态增强决策</p>
+                      <p class="entry-sub" data-i18n="project.4.sub">
+                        LLM · 强化学习 · Decision Transformer · 香港城市大学合作
+                      </p>
+                    </div>
+                  </div>
+                  <ul class="project-points">
+                    <li data-i18n="project.4.point1">
+                      构建 Task/History/Strategy 语义状态表示，并与数值状态进行联合建模。
+                    </li>
+                    <li data-i18n="project.4.point2">
+                      实现 LLM embedding 与数值状态的注意力融合模块，并集成到 Decision Transformer。
+                    </li>
+                    <li data-i18n="project.4.point3">
+                      在相同设置下，SemState 相比 Decision Transformer 提升 70.4%，较最佳已有方法提升 4.8%。
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="project-item">
+                  <span class="timeline-time" data-i18n="project.5.time">2024.11 - 2025.04</span>
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title" data-i18n="project.5.title">基于 YOLOv8 的金属缺陷识别方法</p>
+                      <p class="entry-sub" data-i18n="project.5.sub">CV · YOLO · 缺陷检测 · 专利</p>
+                    </div>
+                  </div>
+                  <ul class="project-points">
+                    <li data-i18n="project.5.point1">围绕检测性能优化，引入 BiFPN、GCNECA、TransformerSE/MultiScaleLSTMSimAM 等模块。</li>
+                    <li data-i18n="project.5.point2">将 mAP50 提升至 92.3%（+5.8%），小缺陷召回率提升 12.5%。</li>
+                  </ul>
+                </li>
+
+                <li class="project-item">
+                  <span class="timeline-time" data-i18n="project.6.time">2024.05 - 2025.05</span>
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title" data-i18n="project.6.title">智能柚园机器人</p>
+                      <p class="entry-sub" data-i18n="project.6.sub">CV · YOLOv8s · 农业机器人 · 算法负责人</p>
+                    </div>
+                  </div>
+                  <ul class="project-points">
+                    <li data-i18n="project.6.point1">面向果园场景对 YOLOv8s 进行结构增强，引入 DBB、RCS-OSA 与 LSKA 检测头注意力。</li>
+                  </ul>
+                </li>
+              </ul>
+            </section>
+
+            <section id="awards" class="section">
+              <h2 class="section-title" data-i18n="section.awards">奖励荣誉</h2>
+              <ul class="award-list">
+                <li class="award-item" data-i18n="award.1">国家奖学金（2025）· Top 1%</li>
+                <li class="award-item" data-i18n="award.2">全国大学生集成电路创新创业大赛 · 全国二等奖</li>
+                <li class="award-item" data-i18n="award.3">全国大学生数学建模竞赛（省二等奖）</li>
+                <li class="award-item" data-i18n="award.4">优秀学生干部（2025）</li>
+                <li class="award-item" data-i18n="award.5">学风建设先进个人（2024、2025）</li>
+              </ul>
+            </section>
+
+            <section id="contact" class="section">
+              <h2 class="section-title" data-i18n="section.contact">联系方式</h2>
+              <ul class="contact-list">
+                <li class="contact-item">
+                  <span data-i18n="contact.emailLabel">邮箱：</span><a href="mailto:xiaoguanbx@gmail.com">xiaoguanbx@gmail.com</a>
+                </li>
+                <li class="contact-item">
+                  <span data-i18n="contact.scholarLabel">学术主页：</span>
+                  <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- 博客列表页面 -->
+      <section id="blog-page" class="page-section">
+        <div class="container blog-container" id="blog-list-view">
+          <div class="blog-header">
+            <h1 class="blog-title" data-i18n="blog.title">博客分享</h1>
+          </div>
+
+          <div class="blog-list" id="blog-list">
+            <!-- 由 JS 动态渲染博客卡片 -->
+          </div>
+        </div>
+
+        <!-- 博客详情视图（动态内容） -->
+        <div class="container blog-detail" id="blog-detail-view">
+          <a class="back-btn" onclick="backToBlogList()" data-i18n="blog.back">← 返回博客列表</a>
+          <div class="blog-detail-layout">
+            <nav class="blog-toc" id="blog-toc"></nav>
+            <article id="blog-content">
+              <!-- 动态插入内容 -->
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="blog-posts/post-003-icml-2026-review.js"></script>
+    <script src="blog-posts/post-002-kdd-review.js"></script>
+    <script src="blog-posts/post-001-ai-agent-experience.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
