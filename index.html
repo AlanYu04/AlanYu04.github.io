@@ -7,12 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Lato:wght@300;400;700&family=LXGW+WenKai+TC:wght@300;400;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/scrapbook.css" />
   </head>
-  <body>
+  <body class="scrapbook-theme">
     <header class="site-header">
       <div class="container header-inner">
         <div class="nav-brand">
@@ -61,32 +62,56 @@
         <div class="container">
           <!-- 顶部个人信息横栏 -->
           <div class="profile-center">
-            <div class="cat-stage" id="catStage"></div>
-            <img
-              class="avatar"
-              src="assets/avatar.jpg"
-              alt="朱冠宇头像"
-              data-i18n-alt="profile.avatarAlt"
-              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect width=%2280%22 height=%2280%22 fill=%22%23e8e5e0%22/%3E%3C/svg%3E'"
-            />
-            <h1 class="profile-name" data-i18n="profile.name">朱冠宇</h1>
-            <p class="profile-name-en" data-i18n="profile.nameEn">Guanyu Zhu</p>
-            <ul class="profile-meta">
-              <li data-i18n="profile.school">华南农业大学 · 电子工程学院</li>
-              <li data-i18n="profile.location">广州，中国</li>
-            </ul>
-            <div class="profile-tags">
-              <span class="profile-tag" data-i18n="profile.tag1">多模态LLM</span>
-              <span class="profile-tag" data-i18n="profile.tag2">AI4Science</span>
-              <span class="profile-tag" data-i18n="profile.tag3">强化学习</span>
-              <span class="profile-tag" data-i18n="profile.tag4">物理推理</span>
+            <div class="journal-kawaii-stickers" aria-hidden="true">
+              <span class="sticker-flower"></span>
+              <span class="sticker-heart"></span>
+              <span class="sticker-sparkle"></span>
             </div>
-            <div class="profile-links">
-              <a href="mailto:xiaoguanbx@gmail.com">Email</a>
-              <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a>
-              <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+            <div class="profile-kawaii-layout">
+              <div class="anime-sticker-scene" aria-hidden="true">
+                <img class="anime-girl-sticker" src="assets/icecream-cat.png" alt="" />
+                <span class="anime-ribbon-sticker"></span>
+                <span class="anime-star-sticker"></span>
+              </div>
+              <div class="profile-main">
+                <div class="cat-stage" id="catStage"></div>
+                <img
+                  class="avatar"
+                  src="assets/avatar.jpg"
+                  alt="朱冠宇头像"
+                  data-i18n-alt="profile.avatarAlt"
+                  onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect width=%2280%22 height=%2280%22 fill=%22%23e8e5e0%22/%3E%3C/svg%3E'"
+                />
+                <h1 class="profile-name" data-i18n="profile.name">朱冠宇</h1>
+                <p class="profile-name-en" data-i18n="profile.nameEn">Guanyu Zhu</p>
+                <ul class="profile-meta">
+                  <li data-i18n="profile.school">华南农业大学 · 电子工程学院</li>
+                  <li data-i18n="profile.location">广州，中国</li>
+                </ul>
+                <div class="profile-tags">
+                  <span class="profile-tag" data-scrapbook-key="tagEmbodied">Embodied AI</span>
+                  <span class="profile-tag" data-scrapbook-key="tagRL">Reinforcement Learning</span>
+                  <span class="profile-tag" data-scrapbook-key="tagMLLM">Multimodal LLMs</span>
+                </div>
+                <div class="profile-links">
+                  <a href="mailto:xiaoguanbx@gmail.com">Email</a>
+                  <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a>
+                  <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+                </div>
+              </div>
             </div>
+            <p class="journal-note" data-scrapbook-key="noteBody">
+              A scrapbook page for multimodal reasoning, decision-making, and the small questions that keep the research moving.
+            </p>
           </div>
+
+          <nav class="journal-index" aria-label="Homepage sections">
+            <a href="#about" data-scrapbook-key="tabAbout">About</a>
+            <a href="#publications" data-scrapbook-key="tabPapers">Papers</a>
+            <a href="#projects" data-scrapbook-key="tabProjects">Projects</a>
+            <a href="#awards" data-scrapbook-key="tabAwards">Awards</a>
+            <a href="#contact" data-scrapbook-key="tabContact">Contact</a>
+          </nav>
 
           <!-- 单列内容区 -->
           <div class="content">
@@ -335,6 +360,45 @@
       p.forEach(function(el){el.setAttribute('cx',parseFloat(el.dataset.bx)+dx);el.setAttribute('cy',parseFloat(el.dataset.by)+dy);});
       s.forEach(function(el){el.setAttribute('cx',parseFloat(el.dataset.bx)+dx);el.setAttribute('cy',parseFloat(el.dataset.by)+dy);});
     });
+    })();
+    (function(){
+      var scrapbookCopy = {
+        zh: {
+          noteBody: '让感知走向行动，让行动沉淀为理解。',
+          tagEmbodied: '具身智能',
+          tagRL: '强化学习',
+          tagMLLM: '多模态大模型',
+          tabAbout: '关于',
+          tabPapers: '论文',
+          tabProjects: '科研',
+          tabAwards: '荣誉',
+          tabContact: '联系'
+        },
+        en: {
+          noteBody: 'Let perception become action, and let action return as understanding.',
+          tagEmbodied: 'Embodied AI',
+          tagRL: 'Reinforcement Learning',
+          tagMLLM: 'Multimodal LLMs',
+          tabAbout: 'About',
+          tabPapers: 'Papers',
+          tabProjects: 'Projects',
+          tabAwards: 'Awards',
+          tabContact: 'Contact'
+        }
+      };
+      function applyScrapbookCopy(lang){
+        var pack = scrapbookCopy[lang] || scrapbookCopy.en;
+        document.querySelectorAll('[data-scrapbook-key]').forEach(function(el){
+          var value = pack[el.dataset.scrapbookKey];
+          if(value) el.textContent = value;
+        });
+      }
+      document.querySelectorAll('[data-lang-switch]').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          setTimeout(function(){ applyScrapbookCopy(btn.dataset.langSwitch); }, 0);
+        });
+      });
+      applyScrapbookCopy(document.documentElement.lang === 'zh-CN' ? 'zh' : 'en');
     })();
     // Ensure home page is shown by default
     showPage('home');
