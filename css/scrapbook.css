@@ -414,9 +414,9 @@ body.scrapbook-theme * {
   max-width: 700px;
   margin: 24px auto 0;
   color: #44504c;
-  font-size: 1.08rem;
-  font-family: var(--serif);
-  font-weight: 600;
+  font-size: 1.14rem;
+  font-family: var(--sans);
+  font-weight: 700;
   color: #4a4147;
   line-height: 1.75;
   text-align: center;
@@ -509,8 +509,10 @@ body.scrapbook-theme * {
   border-radius: 8px;
   box-shadow: var(--shadow-sm);
   color: #44504c;
-  font-family: var(--readable);
-  font-size: 0.98rem;
+  font-family: var(--sans);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.9;
 }
 
 .scrapbook-theme .edu-item,
