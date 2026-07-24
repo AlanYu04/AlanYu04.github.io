@@ -11,8 +11,11 @@ body.scrapbook-theme {
   --container: 1040px;
   --radius: 8px;
   --serif: "Noto Serif SC", Georgia, "Times New Roman", serif;
-  --sans: "Klee One", "LXGW WenKai TC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --readable: "Lato", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --sans: "Fredoka", "LXGW WenKai TC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --script: "Caveat", "Klee One", "LXGW WenKai TC", "Bradley Hand", "Apple Chancery", cursive;
+  --readable: "Fredoka", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --script-zh: "Ma Shan Zheng", "Klee One", "LXGW WenKai TC", "STKaiti", cursive;
+  --readable-zh: "LXGW WenKai TC", "Klee One", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --journal-blue: #82b7cf;
   --journal-green: #9ccfa5;
   --journal-lilac: #b6a5dc;
@@ -34,6 +37,12 @@ body.scrapbook-theme * {
   letter-spacing: 0;
 }
 
+html[lang^="zh"] body.scrapbook-theme {
+  --sans: "LXGW WenKai TC", "Klee One", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --readable: "LXGW WenKai TC", "Klee One", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--readable-zh);
+}
+
 .scrapbook-theme a {
   color: var(--link);
 }
@@ -53,11 +62,34 @@ body.scrapbook-theme * {
 .scrapbook-theme .section-title,
 .scrapbook-theme .blog-title,
 .scrapbook-theme .blog-card-title {
-  font-family: var(--sans);
+  font-family: var(--script-zh);
 }
 
 .scrapbook-theme .pub-title {
   font-family: var(--serif);
+}
+
+html[lang="en"] .scrapbook-theme .site-name,
+html[lang="en"] .scrapbook-theme .profile-name,
+html[lang="en"] .scrapbook-theme .section-title,
+html[lang="en"] .scrapbook-theme .blog-title {
+  font-family: var(--script);
+  letter-spacing: 0.04em;
+}
+
+html[lang="en"] .scrapbook-theme .site-name,
+html[lang="en"] .scrapbook-theme .section-title,
+html[lang="en"] .scrapbook-theme .blog-title {
+  font-weight: 700;
+}
+
+html[lang^="zh"] .scrapbook-theme .site-name,
+html[lang^="zh"] .scrapbook-theme .profile-name,
+html[lang^="zh"] .scrapbook-theme .section-title,
+html[lang^="zh"] .scrapbook-theme .blog-title {
+  font-family: var(--script-zh);
+  font-weight: 400;
+  letter-spacing: 0.06em;
 }
 
 .scrapbook-theme .site-name {
@@ -311,6 +343,16 @@ body.scrapbook-theme * {
   font-weight: 600;
 }
 
+html[lang="en"] .scrapbook-theme .profile-name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+html[lang^="zh"] .scrapbook-theme .profile-name {
+  font-size: 3.85rem;
+}
+
 .scrapbook-theme .profile-name-en {
   color: #9a6ebb;
   font-family: var(--sans);
@@ -483,6 +525,18 @@ body.scrapbook-theme * {
   color: var(--text);
   font-size: 1.28rem;
   align-items: center;
+}
+
+html[lang="en"] .scrapbook-theme .section-title,
+html[lang="en"] .scrapbook-theme .blog-title {
+  font-size: 1.65rem;
+  line-height: 1.15;
+}
+
+html[lang^="zh"] .scrapbook-theme .section-title,
+html[lang^="zh"] .scrapbook-theme .blog-title {
+  font-size: 1.5rem;
+  line-height: 1.2;
 }
 
 .scrapbook-theme .section-title::before {
@@ -712,6 +766,14 @@ body.scrapbook-theme * {
     font-size: 3.2rem;
   }
 
+  html[lang="en"] .scrapbook-theme .profile-name {
+    font-size: 3rem;
+  }
+
+  html[lang^="zh"] .scrapbook-theme .profile-name {
+    font-size: 3.35rem;
+  }
+
   .scrapbook-theme .anime-sticker-scene {
     display: none;
   }
@@ -782,6 +844,14 @@ body.scrapbook-theme * {
 
   .scrapbook-theme .profile-name {
     font-size: 2.6rem;
+  }
+
+  html[lang="en"] .scrapbook-theme .profile-name {
+    font-size: 2.65rem;
+  }
+
+  html[lang^="zh"] .scrapbook-theme .profile-name {
+    font-size: 2.8rem;
   }
 
   .scrapbook-theme .profile-meta {
