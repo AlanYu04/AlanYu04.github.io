@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="meta.title">朱冠宇 | 学术主页与博客</title>
+    <title>朱冠宇 | 学术主页</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600&family=Klee+One:wght@400;600&family=Lato:wght@300;400;700&family=LXGW+WenKai+TC:wght@300;400;700&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/main.css" />
@@ -15,129 +15,83 @@
   </head>
   <body class="scrapbook-theme">
     <header class="site-header">
+      <img class="header-sticker" src="assets/sticker-phone.gif" alt="看手机的鹿野表情" />
       <div class="container header-inner">
-        <div class="nav-brand">
-          <img
-            src="assets/avatar.jpg"
-            alt="朱冠宇"
-            class="avatar-small"
-            data-i18n-alt="brand.avatarAlt"
-            onerror="this.style.display='none'"
-          />
-          <a class="site-name" href="#" onclick="showPage('home'); return false;" data-i18n="brand.name">朱冠宇</a>
-        </div>
+        <a class="site-name" href="index.html">Guanyu Zhu</a>
         <nav class="top-nav" id="top-nav" aria-label="主导航" data-i18n-aria-label="nav.aria">
-          <a
-            class="nav-link active"
-            data-page="home"
-            href="#"
-            onclick="showPage('home', this); return false;"
-            data-i18n="nav.home"
-            >主页</a
-          >
-          <a
-            class="nav-link"
-            data-page="blog"
-            href="#"
-            onclick="showPage('blog', this); return false;"
-            data-i18n="nav.blog"
-            >博客分享</a
-          >
+          <a href="#about" data-scrapbook-key="tabAbout">关于</a>
+          <a href="#publications" data-scrapbook-key="tabPapers">论文</a>
+          <a href="#news" data-scrapbook-key="tabNews">动态</a>
+          <a href="assets/Guanyu-Zhu-CV.pdf" target="_blank" rel="noreferrer" data-scrapbook-key="tabCv">简历</a>
         </nav>
-        <div class="header-actions">
-          <div class="lang-switch" role="group" aria-label="语言切换" data-i18n-aria-label="lang.aria">
-            <button class="lang-btn" type="button" data-lang-switch="zh" aria-pressed="false">中</button>
-            <button class="lang-btn active" type="button" data-lang-switch="en" aria-pressed="true">EN</button>
-          </div>
-          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="top-nav" data-i18n="menu.toggle">
-            菜单
-          </button>
-        </div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="top-nav" data-i18n="menu.toggle">菜单</button>
       </div>
     </header>
 
     <main>
-      <!-- 主页部分 -->
       <section id="home-page" class="page-section active">
-        <div class="container">
-          <!-- 顶部个人信息横栏 -->
-          <div class="profile-center">
-            <div class="journal-kawaii-stickers" aria-hidden="true">
-              <span class="sticker-flower"></span>
-              <span class="sticker-heart"></span>
-              <span class="sticker-sparkle"></span>
-            </div>
-            <div class="profile-kawaii-layout">
-              <div class="anime-sticker-scene" aria-hidden="true">
-                <img class="anime-girl-sticker" src="assets/icecream-cat.png" alt="" />
-                <span class="anime-ribbon-sticker"></span>
-                <span class="anime-star-sticker"></span>
-              </div>
-              <div class="profile-main">
-                <div class="cat-stage" id="catStage"></div>
-                <img
-                  class="avatar"
-                  src="assets/avatar.jpg"
-                  alt="朱冠宇头像"
-                  data-i18n-alt="profile.avatarAlt"
-                  onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect width=%2280%22 height=%2280%22 fill=%22%23e8e5e0%22/%3E%3C/svg%3E'"
-                />
-                <h1 class="profile-name" data-i18n="profile.name">朱冠宇</h1>
-                <p class="profile-name-en" data-i18n="profile.nameEn">Guanyu Zhu</p>
-                <ul class="profile-meta">
-                  <li data-i18n="profile.school">华南农业大学 · 电子工程学院</li>
-                  <li data-i18n="profile.location">广州，中国</li>
-                </ul>
-                <div class="profile-tags">
-                  <span class="profile-tag" data-scrapbook-key="tagEmbodied">Embodied AI</span>
-                  <span class="profile-tag" data-scrapbook-key="tagRL">Reinforcement Learning</span>
-                  <span class="profile-tag" data-scrapbook-key="tagMLLM">Multimodal LLMs</span>
-                </div>
-                <div class="profile-links">
-                  <a href="mailto:xiaoguanbx@gmail.com">Email</a>
-                  <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a>
-                  <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-                </div>
-              </div>
-            </div>
-            <p class="journal-note" data-scrapbook-key="noteBody">
-              A scrapbook page for multimodal reasoning, decision-making, and the small questions that keep the research moving.
-            </p>
-          </div>
+        <div class="container academic-layout">
+          <aside class="profile-sidebar" aria-label="个人信息">
+            <img class="avatar" src="assets/avatar.jpg" alt="朱冠宇" onerror="this.style.display='none'" />
+            <h1 class="profile-name">Guanyu Zhu</h1>
+            <p class="sidebar-role" data-scrapbook-key="identity">SCAU</p>
+            <ul class="profile-links" aria-label="外部链接">
+              <li class="profile-email">xiaoguanbx@gmail.com</li>
+              <li><a href="https://scholar.google.com/citations?user=tQETugYAAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">Google Scholar</a></li>
+              <li><a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a></li>
+              <li class="github-link"><a href="https://github.com/AlanYu04" target="_blank" rel="noreferrer">GitHub</a></li>
+            </ul>
+            <img class="sidebar-sticker sidebar-sticker-bottom" src="assets/sticker-peek.gif" alt="探头表情" />
+          </aside>
 
-          <nav class="journal-index" aria-label="Homepage sections">
-            <a href="#about" data-scrapbook-key="tabAbout">About</a>
-            <a href="#publications" data-scrapbook-key="tabPapers">Papers</a>
-            <a href="#projects" data-scrapbook-key="tabProjects">Projects</a>
-            <a href="#awards" data-scrapbook-key="tabAwards">Awards</a>
-            <a href="#contact" data-scrapbook-key="tabContact">Contact</a>
-          </nav>
-
-          <!-- 单列内容区 -->
-          <div class="content">
+          <div class="content academic-content">
             <section id="about" class="section about">
               <h2 class="section-title" data-i18n="section.about">关于我</h2>
-              <p data-i18n="about.body">
-                我目前就读于华南农业大学电子科学与技术专业，研究主要关注多模态大语言模型在复杂真实场景中的推理、决策与对齐问题。目前，我也在不断探索新的研究方向，例如 AI4Science，以及其他具有潜力的交叉领域。
-              </p>
+              <div class="about-shell">
+                <div class="about-art" aria-label="插画装饰">
+                  <figure class="icecream-card">
+                    <img src="assets/icecream-cat.png" alt="吃冰淇淋的猫咪插画" />
+                  </figure>
+                  <img class="sleepy-cat" src="assets/original-black-cat-mascot.png" alt="原创黑猫插画" />
+                </div>
+                <div class="about-copy">
+                  <p data-scrapbook-key="aboutIntro">我目前是华南农业大学电子工程学院电子科学与技术专业的本科生，现于广州学习和生活。</p>
+                  <p data-scrapbook-key="aboutResearch">过去一段时间里，我在<strong>香港城市大学</strong>开展研究实习，也参与了华南农业大学的<strong>农业大模型</strong>合作研究。我的工作涉及自动竞价、农业视觉、物理推理与临床决策等问题；这些经历让我更加在意模型是否真正理解了所处场景，并能在现实约束下作出有用的判断。</p>
+                  <p data-scrapbook-key="aboutFocus">我目前关注 <strong>world models</strong>、<strong>world language models</strong> 与 <strong>Vision-Language-Action（VLA）</strong> 相关问题，尤其希望理解模型如何将对环境的表征转化为长期、可执行的决策。我也正在寻找这一方向的研究实习机会，期待与有相近兴趣的研究者合作。</p>
+                  <p class="about-aside" data-scrapbook-key="aboutAside">闲暇时也会看<strong>《罗小黑战记》</strong>；真心希望它能快点更新。</p>
+                </div>
+              </div>
             </section>
 
-            <section id="education" class="section">
-              <h2 class="section-title" data-i18n="section.education">教育经历</h2>
-              <ul class="edu-list">
-                <li class="edu-item">
-                  <div class="edu-head">
-                    <div>
-                      <p class="entry-title" data-i18n="education.item1.title">华南农业大学 · 电子工程学院 · 电子科学与技术</p>
-                      <p class="entry-sub" data-i18n="education.item1.sub">本科在读</p>
-                    </div>
-                    <time class="entry-time" data-i18n="education.item1.time">2023.09 - 至今</time>
+            <section id="news" class="section news">
+              <div class="section-heading">
+                <h2 class="section-title" data-scrapbook-key="newsTitle">最新动态</h2>
+              </div>
+              <ul class="news-list">
+                <li class="news-item">
+                  <time datetime="2026-08" class="news-date">2026.08</time>
+                  <div class="news-copy">
+                    <div class="news-accepted-line"><strong>🎉 两篇论文被 CIKM 2026 接收！</strong><img class="news-celebrate" src="assets/celebrate-accepted.gif" alt="庆祝" /></div>
+                    <p><em>On the Role of Language Representations in Auto-Bidding: Findings and Implications</em> and <em>ClinSDT: LLM-Encoded Clinical Semantic Guidance for Sepsis Treatment via Decision Transformer</em>.</p>
                   </div>
+                </li>
+                <li class="news-item">
+                  <time datetime="2026-07" class="news-date">2026.07</time>
+                  <p><em>Latent Reward Steering</em> 的 OpenReview 平均分为 3.17，Meta Review 评分为 3；希望最终能够入选 Findings。</p>
+                </li>
+                <li class="news-item">
+                  <time datetime="2026-05" class="news-date">2026.05</time>
+                  <p><em>On the Role of Language Representations in Auto-Bidding: Findings and Implications</em> 已发布于 arXiv。</p>
+                </li>
+                <li class="news-item">
+                  <time datetime="2026-01" class="news-date">2026.01</time>
+                  <p><em>PhysicsMind</em> 已发布于 arXiv。</p>
                 </li>
               </ul>
             </section>
 
             <section id="publications" class="section">
+              <img class="section-sticker publication-sticker" src="assets/sticker-curious.gif" alt="好奇表情" />
               <h2 class="section-title" data-i18n="section.publications">论文成果</h2>
               <p class="pub-caption">(* equal contribution · † corresponding author)</p>
 
@@ -145,15 +99,12 @@
                 <img src="images/sembid.png" class="publogo" alt="SemBid teaser" onerror="this.style.display='none'">
                 <div class="pub-content">
                   <p class="pub-title">On the Role of Language Representations in Auto-Bidding: Findings and Implications</p>
-                  <!-- <div class="pub-venue">CIKM 2026 · CCF-B · under review</div> -->
+                  <div class="pub-venue pub-accepted"><span aria-hidden="true">🎉</span> 已被 CIKM 2026 接收</div>
                   <div class="pub-authors">
                     <strong class="author-highlight">Guanyu Zhu</strong>, Jining Luan, Hanwen Du, Xinyu Fang, Sibo Xu,
                     Ersheng Ni, Hongji Li, Jincheng Fang, Ronghao Chen, Huacan Wang,
                     Xuanqi Lan, Yongxin Ni, Yiqi Sun, Youhua Li†
                   </div>
-                  <p class="pub-desc" data-i18n="publication.1.desc">
-                    研究语言表征在自动竞价系统中的作用机制，提出基于 LLM 的竞价策略优化框架。
-                  </p>
                   <div class="pub-links">
                     <a href="https://arxiv.org/abs/2605.05833" target="_blank" rel="noreferrer">arXiv</a>
                     <a href="https://github.com/AlanYu04/SemBid-KDD2026" target="_blank" rel="noreferrer">Code</a>
@@ -162,67 +113,9 @@
               </div>
 
               <div class="publication">
-                <img src="images/physicsmind.png" class="publogo" alt="PhysicsMind teaser" onerror="this.style.display='none'">
-                <div class="pub-content">
-                  <a class="pub-title" href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">
-                    PhysicsMind: Sim and Real Mechanics Benchmarking for Physical Reasoning and Prediction in Foundational VLMs and World Models
-                  </a>
-                  <!-- <div class="pub-venue">ACMMM 2026 · CCF-A · under review</div> -->
-                  <div class="pub-authors">
-                    Chak-Wing Mak*, <strong class="author-highlight">Guanyu Zhu*</strong>, Boyi Zhang*, Hongji Li,
-                    Xiaowei Chi, Kevin Zhang, Yichen Wu, Yangfan He, Chun-Kai Fan,
-                    Wentao Lu, Kuangzhi Ge, Xinyu Fang, Hongyang He, Kuan Lu, Tianxiang Xu,
-                    Li Zhang, Yongxin Ni, Youhua Li, Shanghang Zhang†
-                  </div>
-                  <p class="pub-desc" data-i18n="publication.2.desc">
-                    围绕物理推理与预测任务构建 Sim/Real 评测基准。
-                  </p>
-                  <div class="pub-links">
-                    <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">arXiv</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="publication">
-                <img src="images/beyond-uniform-alignment.png" class="publogo" alt="Beyond Uniform Alignment teaser" onerror="this.style.display='none'">
-                <div class="pub-content">
-                  <p class="pub-title">Beyond Uniform Alignment: LLM-based Recommendation</p>
-                  <!-- <div class="pub-venue">ACM TOIS · CCF-A · under review</div> -->
-                  <div class="pub-authors">
-                    Zichen Yuan*, Yichen Wu*, <strong class="author-highlight">Guanyu Zhu</strong>, Jiacheng Liu, Xinyu Fang,
-                    Lifan Sun, Hanwen Du, Xinyuan Song, Joemon M. Jose, Junchen Fu†, Youhua Li†, Yongxin Ni
-                  </div>
-                  <p class="pub-desc" data-i18n="publication.3.desc">
-                    探索超越均匀对齐的 LLM 推荐方法。
-                  </p>
-                  <div class="pub-links">
-                    <a href="Publications/LLM-based Recommendation.pdf" target="_blank" rel="noreferrer">PDF</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="publication">
-                <img src="images/lycheebench.png" class="publogo" alt="Lychee-Bench teaser" onerror="this.style.display='none'">
-                <div class="pub-content">
-                  <p class="pub-title">Lychee-Bench: A Process-Level Vision Language Benchmark for Trustworthy Lychee Orchard Diagnosis</p>
-                  <!-- <div class="pub-venue">Smart Agr. Tech. · 中科院二区 · under review</div> -->
-                  <div class="pub-authors">
-                    <strong class="author-highlight">Guanyu Zhu</strong>, Kunming Lv, Hanbing Liu, Fengqi Yu, Lin Hu,
-                    Ersheng Ni, Meiyi Lu, Weixing Wang, Jiaxing Xie*
-                  </div>
-                  <p class="pub-desc" data-i18n="publication.4.desc">
-                    构建农业多模态过程级推理基准数据集，用于可信诊断任务评测。
-                  </p>
-                  <div class="pub-links">
-                    <a href="Publications/Lychee-Bench.pdf" target="_blank" rel="noreferrer">PDF</a>
-                  </div>
-                </div>
-              </div>
-              <div class="publication">
                 <img src="images/latent-reward.png" class="publogo" alt="Latent Reward Steering teaser" onerror="this.style.display='none'">
                 <div class="pub-content">
                   <p class="pub-title">Latent Reward Steering: An Adaptive Inference-Time Framework that Implicitly Promotes Cognitive Behaviors in Reasoning LLMs</p>
-                  <!-- <div class="pub-venue">EMNLP 2026 · under review</div> -->
                   <div class="pub-authors">
                     Jiakang Li*, <strong class="author-highlight">Guanyu Zhu*</strong>, Can Jin, Chenxi Huang, Dexu Yu, Ronghao Chen, Yang Zhou, Hongwu Peng, Xuanqi Lan, Dimitris N. Metaxas, Youhua Li†
                   </div>
@@ -233,10 +126,54 @@
               </div>
 
               <div class="publication">
+                <img src="images/physicsmind.png" class="publogo" alt="PhysicsMind teaser" onerror="this.style.display='none'">
+                <div class="pub-content">
+                  <p class="pub-title">PhysicsMind: Sim and Real Mechanics Benchmarking for Physical Reasoning and Prediction in Foundational VLMs and World Models</p>
+                  <div class="pub-authors">
+                    Chak-Wing Mak*, <strong class="author-highlight">Guanyu Zhu*</strong>, Boyi Zhang*, Hongji Li,
+                    Xiaowei Chi, Kevin Zhang, Yichen Wu, Yangfan He, Chun-Kai Fan,
+                    Wentao Lu, Kuangzhi Ge, Xinyu Fang, Hongyang He, Kuan Lu, Tianxiang Xu,
+                    Li Zhang, Yongxin Ni, Youhua Li, Shanghang Zhang†
+                  </div>
+                  <div class="pub-links">
+                    <a href="https://arxiv.org/abs/2601.16007" target="_blank" rel="noreferrer">arXiv</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="publication">
+                <img src="images/beyond-uniform-alignment.png" class="publogo" alt="Beyond Uniform Alignment teaser" onerror="this.style.display='none'">
+                <div class="pub-content">
+                  <p class="pub-title">Beyond Uniform Alignment: LLM-based Recommendation</p>
+                  <div class="pub-authors">
+                    Zichen Yuan*, Yichen Wu*, <strong class="author-highlight">Guanyu Zhu</strong>, Jiacheng Liu, Xinyu Fang,
+                    Lifan Sun, Hanwen Du, Xinyuan Song, Joemon M. Jose, Junchen Fu†, Youhua Li†, Yongxin Ni
+                  </div>
+                  <div class="pub-links">
+                    <a href="Publications/LLM-based Recommendation.pdf" target="_blank" rel="noreferrer">PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="publication">
+                <img src="images/lycheebench.png" class="publogo" alt="Lychee-Bench teaser" onerror="this.style.display='none'">
+                <div class="pub-content">
+                  <p class="pub-title">Lychee-Bench: A Process-Level Vision Language Benchmark for Trustworthy Lychee Orchard Diagnosis</p>
+                  <div class="pub-authors">
+                    <strong class="author-highlight">Guanyu Zhu</strong>, Kunming Lv, Hanbing Liu, Fengqi Yu, Lin Hu,
+                    Ersheng Ni, Meiyi Lu, Weixing Wang, Jiaxing Xie*
+                  </div>
+                  <div class="pub-links">
+                    <a href="Publications/Lychee-Bench.pdf" target="_blank" rel="noreferrer">PDF</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="publication">
                 <img src="images/clinsedt.png" class="publogo" alt="ClinSDT teaser" onerror="this.style.display='none'">
                 <div class="pub-content">
                   <p class="pub-title">ClinSDT: LLM-Encoded Clinical Semantic Guidance for Sepsis Treatment via Decision Transformer</p>
-                  <!-- <div class="pub-venue">CIKM 2026 · CCF-B · under review</div> -->
+                  <div class="pub-venue pub-accepted"><span aria-hidden="true">🎉</span> 已被 CIKM 2026 接收</div>
                   <div class="pub-authors">
                     Yanyan Wu*, <strong class="author-highlight">Guanyu Zhu*</strong>, Changbin Zhao, Jin Zhang, Dexu Yu, Tianmin Sun, Jining Luan, Chunxiao Li, Hanwen Du, Youhua Li†
                   </div>
@@ -245,32 +182,33 @@
             </section>
 
             <section id="projects" class="section">
+              <img class="section-sticker project-sticker" src="assets/sticker-tired.gif" alt="努力科研表情" />
               <h2 class="section-title" data-i18n="section.projects">科研经历</h2>
               <ul class="project-list timeline">
                 <li class="project-item">
-                  <span class="timeline-time" data-i18n="project.1.time">2025.11 - 2026.05</span>
+                  <span class="timeline-time" data-scrapbook-key="project3time">2026.06 - Present</span>
                   <div class="project-head">
                     <div>
-                      <p class="entry-title" data-i18n="project.1.title">香港城市大学实习</p>
-                      <p class="entry-sub" data-i18n="project.1.sub">导师：李佑华博士</p>
+                      <p class="entry-title" data-scrapbook-key="project3title">中山大学 HCP 实验室科研实习</p>
+                      <p class="entry-sub" data-scrapbook-key="project3sub">导师：<a href="https://scholar.google.com/citations?user=voxznZAAAAAJ&amp;hl=zh-CN" target="_blank" rel="noreferrer">梁晓丹教授</a></p>
                     </div>
                   </div>
                 </li>
                 <li class="project-item">
-                  <span class="timeline-time" data-i18n="project.2.time">2025.05 - 2025.11</span>
+                  <span class="timeline-time" data-scrapbook-key="project1time">2025.11 - 2026.05</span>
                   <div class="project-head">
                     <div>
-                      <p class="entry-title" data-i18n="project.2.title">农业大模型合作研究</p>
-                      <p class="entry-sub" data-i18n="project.2.sub">农业大模型 · 兰玉彬实验室 · 华南农业大学</p>
+                      <p class="entry-title" data-scrapbook-key="project1title">香港城市大学科研实习</p>
+                      <p class="entry-sub" data-scrapbook-key="project1sub">导师：<a href="https://scholar.google.com/citations?user=VL0tW7YAAAAJ&amp;hl=zh-CN" target="_blank" rel="noreferrer">李佑华博士</a></p>
                     </div>
                   </div>
                 </li>
                 <li class="project-item">
-                  <span class="timeline-time" data-i18n="project.3.time">2025.11 - 2026.02</span>
+                  <span class="timeline-time" data-scrapbook-key="project2time">2025.05 - 2025.11</span>
                   <div class="project-head">
                     <div>
-                      <p class="entry-title" data-i18n="project.3.title">PhysicsMind 物理推理评测项目</p>
-                      <p class="entry-sub" data-i18n="project.3.sub">多模态 · 物理推理 · Sim-to-Real · 北京大学合作</p>
+                      <p class="entry-title" data-scrapbook-key="project2title">农业大模型合作研究</p>
+                      <p class="entry-sub" data-scrapbook-key="project2sub">农业大模型 · <a href="https://scholar.google.com/citations?user=bxcsWC0AAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">兰玉彬教授</a> · 华南农业大学</p>
                     </div>
                   </div>
                 </li>
@@ -278,6 +216,7 @@
             </section>
 
             <section id="awards" class="section">
+              <img class="section-sticker award-sticker" src="assets/sticker-math.gif" alt="鹿野思考动画" />
               <h2 class="section-title" data-i18n="section.awards">奖励荣誉</h2>
               <ul class="award-list">
                 <li class="award-item" data-i18n="award.1">国家奖学金（2025）· Top 1%</li>
@@ -288,122 +227,110 @@
               </ul>
             </section>
 
-            <section id="contact" class="section">
-              <h2 class="section-title" data-i18n="section.contact">联系方式</h2>
-              <ul class="contact-list">
-                <li class="contact-item">
-                  <span data-i18n="contact.emailLabel">邮箱：</span><a href="mailto:xiaoguanbx@gmail.com">xiaoguanbx@gmail.com</a>
-                </li>
-                <li class="contact-item">
-                  <span data-i18n="contact.scholarLabel">学术主页：</span>
-                  <a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a>
-                </li>
-              </ul>
-            </section>
-          </div>
-        </div>
-      </section>
-
-      <!-- 博客列表页面 -->
-      <section id="blog-page" class="page-section">
-        <div class="container blog-container" id="blog-list-view">
-          <div class="blog-header">
-            <h1 class="blog-title" data-i18n="blog.title">博客分享</h1>
-          </div>
-
-          <div class="blog-list" id="blog-list">
-            <!-- 由 JS 动态渲染博客卡片 -->
-          </div>
-        </div>
-
-        <!-- 博客详情视图（动态内容） -->
-        <div class="container blog-detail" id="blog-detail-view">
-          <a class="back-btn" onclick="backToBlogList()" data-i18n="blog.back">← 返回博客列表</a>
-          <div class="blog-detail-layout">
-            <nav class="blog-toc" id="blog-toc"></nav>
-            <article id="blog-content">
-              <!-- 动态插入内容 -->
-            </article>
           </div>
         </div>
       </section>
     </main>
 
-    <script src="blog-posts/post-003-icml-2026-review.js"></script>
-    <script src="blog-posts/post-002-kdd-review.js"></script>
-    <script src="blog-posts/post-001-ai-agent-experience.js"></script>
     <script src="js/main.js"></script>
     <script>
-    // Cat animation (profile corner)
-    (function(){
-    var W='#FFFFFF',O='#FFB347',G='#B8B8B8',DG='#8B8B8B',K='#333333',P='#FFB6C1',LP='#FFD1DC';
-    var poses=[
-    `<svg viewBox="0 0 100 70"><g style="transform-origin:85px 42px;animation:tailWag 2.5s ease-in-out infinite"><path d="M85,42 Q95,35 92,25 Q90,18 94,12" fill="none" stroke="${K}" stroke-width="5" stroke-linecap="round"/><path d="M85,42 Q95,35 92,25 Q90,18 94,12" fill="none" stroke="${O}" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="92" cy="25" rx="3" ry="2.5" fill="${G}"/><ellipse cx="94" cy="16" rx="2.5" ry="2" fill="${G}"/></g><ellipse cx="50" cy="45" rx="26" ry="12" fill="${W}" stroke="${K}" stroke-width="2"/><ellipse cx="36" cy="40" rx="8" ry="6" fill="${O}" opacity=".8"/><ellipse cx="64" cy="42" rx="7" ry="5" fill="${G}" opacity=".6"/><ellipse cx="74" cy="54" rx="5" ry="4" fill="${W}" stroke="${K}" stroke-width="1.5"/><ellipse cx="28" cy="56" rx="6" ry="4.5" fill="${W}" stroke="${K}" stroke-width="1.5"/><ellipse cx="42" cy="57" rx="6" ry="4.5" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle cx="26" cy="57" r="1.3" fill="${P}"/><circle cx="30" cy="57" r="1.3" fill="${P}"/><circle cx="40" cy="58" r="1.3" fill="${P}"/><circle cx="44" cy="58" r="1.3" fill="${P}"/><path d="M28,32 Q40,40 52,32" fill="none" stroke="${P}" stroke-width="2.8" stroke-linecap="round"/><circle cx="40" cy="37" r="3" fill="${P}"/><ellipse cx="42" cy="22" rx="20" ry="18" fill="${W}" stroke="${K}" stroke-width="2"/><ellipse cx="26" cy="8" rx="8" ry="10" fill="${O}" stroke="${K}" stroke-width="1.5"/><ellipse cx="26" cy="9" rx="5" ry="6" fill="${LP}"/><ellipse cx="58" cy="7" rx="8" ry="10" fill="${G}" stroke="${K}" stroke-width="1.5"/><ellipse cx="58" cy="8" rx="5" ry="6" fill="${LP}"/><line x1="36" y1="8" x2="38" y2="14" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><line x1="42" y1="6" x2="42" y2="13" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><line x1="48" y1="8" x2="46" y2="14" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><ellipse cx="30" cy="24" rx="7" ry="6" fill="${O}" opacity=".7"/><ellipse cx="54" cy="23" rx="7" ry="6" fill="${G}" opacity=".6"/><line x1="28" y1="26" x2="24" y2="30" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><line x1="56" y1="25" x2="60" y2="29" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><circle cx="34" cy="22" r="7" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle cx="50" cy="21" r="7" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle class="pupil" data-bx="35" data-by="22" cx="35" cy="22" r="4" fill="${K}"/><circle class="pupil" data-bx="51" data-by="21" cx="51" cy="21" r="4" fill="${K}"/><circle class="shine" data-bx="37" data-by="20" cx="37" cy="20" r="2" fill="${W}"/><circle class="shine" data-bx="53" data-by="19" cx="53" cy="19" r="2" fill="${W}"/><ellipse cx="42" cy="28" rx="3" ry="2.5" fill="${P}"/><path d="M38,31 Q42,35 46,31" fill="none" stroke="${K}" stroke-width="1.2" stroke-linecap="round"/><line x1="18" y1="26" x2="30" y2="27" stroke="${K}" stroke-width=".7"/><line x1="18" y1="31" x2="30" y2="29" stroke="${K}" stroke-width=".7"/><line x1="54" y1="27" x2="66" y2="26" stroke="${K}" stroke-width=".7"/><line x1="54" y1="29" x2="66" y2="31" stroke="${K}" stroke-width=".7"/></svg>`,
-    `<svg viewBox="0 0 115 70"><g style="transform-origin:100px 38px;animation:tailWag 2s ease-in-out infinite"><path d="M100,38 Q112,28 108,16 Q104,8 110,4" fill="none" stroke="${K}" stroke-width="5" stroke-linecap="round"/><path d="M100,38 Q112,28 108,16 Q104,8 110,4" fill="none" stroke="${O}" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="108" cy="16" rx="3" ry="2.5" fill="${G}"/></g><path d="M28,50 Q28,34 55,28 Q76,22 90,36 Q96,40 94,48 Q92,52 86,54 Q60,58 40,56 Q28,52 28,50Z" fill="${W}" stroke="${K}" stroke-width="2"/><path d="M55,28 Q72,22 84,32 Q72,24 56,28Z" fill="${O}" opacity=".7"/><ellipse cx="88" cy="56" rx="7" ry="5" fill="${W}" stroke="${K}" stroke-width="1.5"/><ellipse cx="10" cy="54" rx="8" ry="5" fill="${W}" stroke="${K}" stroke-width="1.5"/><ellipse cx="25" cy="52" rx="7" ry="5" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle cx="8" cy="55" r="1.5" fill="${P}"/><circle cx="12" cy="55" r="1.5" fill="${P}"/><circle cx="23" cy="53" r="1.5" fill="${P}"/><circle cx="27" cy="53" r="1.5" fill="${P}"/><path d="M28,30 Q40,38 52,28" fill="none" stroke="${P}" stroke-width="3" stroke-linecap="round"/><circle cx="40" cy="34" r="3.5" fill="${P}"/><ellipse cx="40" cy="22" rx="19" ry="17" fill="${W}" stroke="${K}" stroke-width="2"/><ellipse cx="25" cy="8" rx="8" ry="10" fill="${O}" stroke="${K}" stroke-width="1.5"/><ellipse cx="25" cy="9" rx="5" ry="6" fill="${LP}"/><ellipse cx="55" cy="7" rx="8" ry="10" fill="${G}" stroke="${K}" stroke-width="1.5"/><ellipse cx="55" cy="8" rx="5" ry="6" fill="${LP}"/><line x1="34" y1="8" x2="36" y2="14" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><line x1="40" y1="6" x2="40" y2="13" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><line x1="46" y1="8" x2="44" y2="14" stroke="${DG}" stroke-width="2" stroke-linecap="round"/><ellipse cx="28" cy="24" rx="7" ry="6" fill="${O}" opacity=".7"/><ellipse cx="52" cy="23" rx="7" ry="6" fill="${G}" opacity=".6"/><circle cx="32" cy="22" r="7" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle cx="48" cy="21" r="7" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle class="pupil" data-bx="33" data-by="22" cx="33" cy="22" r="4" fill="${K}"/><circle class="pupil" data-bx="49" data-by="21" cx="49" cy="21" r="4" fill="${K}"/><circle class="shine" data-bx="35" data-by="20" cx="35" cy="20" r="2" fill="${W}"/><circle class="shine" data-bx="51" data-by="19" cx="51" cy="19" r="2" fill="${W}"/><ellipse cx="40" cy="28" rx="3" ry="2.5" fill="${P}"/><path d="M36,31 Q40,35 44,31" fill="none" stroke="${K}" stroke-width="1.2" stroke-linecap="round"/><line x1="16" y1="26" x2="28" y2="27" stroke="${K}" stroke-width=".7"/><line x1="16" y1="31" x2="28" y2="29" stroke="${K}" stroke-width=".7"/><line x1="52" y1="27" x2="64" y2="26" stroke="${K}" stroke-width=".7"/><line x1="52" y1="29" x2="64" y2="31" stroke="${K}" stroke-width=".7"/></svg>`,
-    `<svg viewBox="0 0 100 75"><g style="transform-origin:82px 45px;animation:tailWag 2s ease-in-out infinite"><path d="M82,45 Q92,36 88,26 Q84,18 90,12" fill="none" stroke="${K}" stroke-width="5" stroke-linecap="round"/><path d="M82,45 Q92,36 88,26 Q84,18 90,12" fill="none" stroke="${O}" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="88" cy="26" rx="3" ry="2.5" fill="${G}"/></g><ellipse cx="50" cy="45" rx="28" ry="16" fill="${W}" stroke="${K}" stroke-width="2"/><ellipse cx="55" cy="48" rx="12" ry="8" fill="${O}" opacity=".6"/><ellipse cx="74" cy="32" rx="6" ry="8" fill="${W}" stroke="${K}" stroke-width="1.5" transform="rotate(20,74,32)"/><ellipse cx="86" cy="36" rx="6" ry="8" fill="${W}" stroke="${K}" stroke-width="1.5" transform="rotate(35,86,36)"/><ellipse cx="22" cy="34" rx="6" ry="7" fill="${W}" stroke="${K}" stroke-width="1.5" transform="rotate(-25,22,34)"/><ellipse cx="36" cy="30" rx="6" ry="7" fill="${W}" stroke="${K}" stroke-width="1.5" transform="rotate(-15,36,30)"/><circle cx="74" cy="28" r="1.5" fill="${P}"/><circle cx="86" cy="32" r="1.5" fill="${P}"/><circle cx="20" cy="30" r="1.5" fill="${P}"/><circle cx="34" cy="26" r="1.5" fill="${P}"/><path d="M34,22 Q44,28 54,22" fill="none" stroke="${P}" stroke-width="2.5" stroke-linecap="round"/><circle cx="44" cy="26" r="3" fill="${P}"/><ellipse cx="44" cy="18" rx="17" ry="15" fill="${W}" stroke="${K}" stroke-width="2" transform="rotate(-10,44,18)"/><ellipse cx="32" cy="6" rx="7" ry="9" fill="${O}" stroke="${K}" stroke-width="1.5"/><ellipse cx="32" cy="7" rx="4.5" ry="5.5" fill="${LP}"/><ellipse cx="54" cy="5" rx="7" ry="9" fill="${G}" stroke="${K}" stroke-width="1.5"/><ellipse cx="54" cy="6" rx="4.5" ry="5.5" fill="${LP}"/><line x1="38" y1="6" x2="40" y2="11" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><line x1="44" y1="5" x2="44" y2="10" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><line x1="50" y1="6" x2="48" y2="11" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="34" cy="18" rx="6" ry="5" fill="${O}" opacity=".7"/><ellipse cx="54" cy="17" rx="6" ry="5" fill="${G}" opacity=".6"/><circle cx="38" cy="18" r="6.5" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle cx="52" cy="17" r="6.5" fill="${W}" stroke="${K}" stroke-width="1.5"/><circle class="pupil" data-bx="39" data-by="18" cx="39" cy="18" r="3.5" fill="${K}"/><circle class="pupil" data-bx="53" data-by="17" cx="53" cy="17" r="3.5" fill="${K}"/><circle class="shine" data-bx="41" data-by="16" cx="41" cy="16" r="1.8" fill="${W}"/><circle class="shine" data-bx="55" data-by="15" cx="55" cy="15" r="1.8" fill="${W}"/><ellipse cx="45" cy="23" rx="2.5" ry="2" fill="${P}"/><path d="M42,25 Q45,28 48,25" fill="none" stroke="${K}" stroke-width="1" stroke-linecap="round"/><line x1="24" y1="20" x2="34" y2="21" stroke="${K}" stroke-width=".6"/><line x1="56" y1="20" x2="66" y2="19" stroke="${K}" stroke-width=".6"/></svg>`,
-    `<svg viewBox="0 0 90 65"><g style="transform-origin:72px 28px;animation:tailWagFast 1.5s ease-in-out infinite"><path d="M72,28 Q82,18 78,8 Q74,2 80,0" fill="none" stroke="${K}" stroke-width="4.5" stroke-linecap="round"/><path d="M72,28 Q82,18 78,8 Q74,2 80,0" fill="none" stroke="${O}" stroke-width="3" stroke-linecap="round"/><ellipse cx="78" cy="8" rx="2.5" ry="2" fill="${G}"/></g><ellipse cx="42" cy="35" rx="24" ry="15" fill="${W}" stroke="${K}" stroke-width="1.8" transform="rotate(-5,42,35)"/><ellipse cx="48" cy="30" rx="12" ry="7" fill="${O}" opacity=".7"/><ellipse cx="68" cy="48" rx="7" ry="5" fill="${W}" stroke="${K}" stroke-width="1.3" transform="rotate(30,68,48)"/><ellipse cx="18" cy="32" rx="6" ry="5" fill="${W}" stroke="${K}" stroke-width="1.3" transform="rotate(-35,18,32)"/><ellipse cx="30" cy="30" rx="5" ry="4" fill="${W}" stroke="${K}" stroke-width="1.3" transform="rotate(-20,30,30)"/><path d="M28,24 Q38,30 48,24" fill="none" stroke="${P}" stroke-width="2.5" stroke-linecap="round"/><circle cx="38" cy="28" r="3" fill="${P}"/><ellipse cx="34" cy="18" rx="17" ry="15" fill="${W}" stroke="${K}" stroke-width="1.8"/><ellipse cx="22" cy="6" rx="7" ry="9" fill="${O}" stroke="${K}" stroke-width="1.3"/><ellipse cx="22" cy="7" rx="4.5" ry="5.5" fill="${LP}"/><ellipse cx="46" cy="5" rx="7" ry="9" fill="${G}" stroke="${K}" stroke-width="1.3"/><ellipse cx="46" cy="6" rx="4.5" ry="5.5" fill="${LP}"/><line x1="28" y1="6" x2="30" y2="11" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><line x1="34" y1="5" x2="34" y2="10" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><line x1="40" y1="6" x2="38" y2="11" stroke="${DG}" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="24" cy="18" rx="6" ry="5" fill="${O}" opacity=".7"/><ellipse cx="44" cy="17" rx="6" ry="5" fill="${G}" opacity=".6"/><circle cx="28" cy="17" r="6.5" fill="${W}" stroke="${K}" stroke-width="1.3"/><circle cx="42" cy="16" r="6.5" fill="${W}" stroke="${K}" stroke-width="1.3"/><circle class="pupil" data-bx="29" data-by="17" cx="29" cy="17" r="3.5" fill="${K}"/><circle class="pupil" data-bx="43" data-by="16" cx="43" cy="16" r="3.5" fill="${K}"/><circle class="shine" data-bx="31" data-by="15" cx="31" cy="15" r="1.8" fill="${W}"/><circle class="shine" data-bx="45" data-by="14" cx="45" cy="14" r="1.8" fill="${W}"/><ellipse cx="35" cy="22" rx="2.5" ry="2" fill="${P}"/><path d="M32,24 Q35,27 38,24" fill="none" stroke="${K}" stroke-width="1" stroke-linecap="round"/><line x1="76" y1="42" x2="84" y2="40" stroke="${K}" stroke-width=".7" opacity=".3"/><line x1="74" y1="46" x2="83" y2="46" stroke="${K}" stroke-width=".7" opacity=".25"/><line x1="72" y1="50" x2="80" y2="52" stroke="${K}" stroke-width=".7" opacity=".2"/></svg>`
-    ];
-    var current=0,stage=document.getElementById('catStage');
-    if(!stage)return;
-    stage.innerHTML=poses[0];
-    stage.addEventListener('click',function(e){
-      e.stopPropagation();
-      current=(current+1)%poses.length;
-      stage.innerHTML=poses[current];
-    });
-    document.addEventListener('mousemove',function(e){
-      var p=stage.querySelectorAll('.pupil'),s=stage.querySelectorAll('.shine');
-      if(!p.length)return;
-      var r=stage.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
-      var a=Math.atan2(e.clientY-cy,e.clientX-cx),d=Math.min(Math.hypot(e.clientX-cx,e.clientY-cy)/180,1);
-      var dx=Math.cos(a)*2.5*d,dy=Math.sin(a)*2.5*d;
-      p.forEach(function(el){el.setAttribute('cx',parseFloat(el.dataset.bx)+dx);el.setAttribute('cy',parseFloat(el.dataset.by)+dy);});
-      s.forEach(function(el){el.setAttribute('cx',parseFloat(el.dataset.bx)+dx);el.setAttribute('cy',parseFloat(el.dataset.by)+dy);});
-    });
-    })();
     (function(){
       var scrapbookCopy = {
         zh: {
-          noteBody: '让感知走向行动，让行动沉淀为理解。',
-          tagEmbodied: '具身智能',
-          tagRL: '强化学习',
-          tagMLLM: '多模态大模型',
+          identity: 'SCAU',
+          location: '广州，中国',
+          aboutIntro: '我目前是华南农业大学电子工程学院电子科学与技术专业的本科生，现于广州学习和生活。',
+          aboutResearch: '过去一段时间里，我在<strong>香港城市大学</strong>开展研究实习，也参与了华南农业大学的<strong>农业大模型</strong>合作研究。我的工作涉及自动竞价、农业视觉、物理推理与临床决策等问题；这些经历让我更加在意模型是否真正理解了所处场景，并能在现实约束下作出有用的判断。',
+          aboutFocus: '我目前关注 <strong>world models</strong>、<strong>world language models</strong> 与 <strong>Vision-Language-Action（VLA）</strong> 相关问题，尤其希望理解模型如何将对环境的表征转化为长期、可执行的决策。我也正在寻找这一方向的研究实习机会，期待与有相近兴趣的研究者合作。',
+          aboutAside: '闲暇时也会看<strong>《罗小黑战记》</strong>；真心希望它能快点更新。',
+          affiliation: '华南农业大学<br />电子工程学院 · 电子科学与技术',
+          degree: '本科在读 · 2023.09 至今',
+          educationLabel: '教育',
+          contactLabel: '联系',
           tabAbout: '关于',
+          tabNews: '动态',
           tabPapers: '论文',
           tabProjects: '科研',
           tabAwards: '荣誉',
-          tabContact: '联系'
+          tabCv: '简历',
+          newsTitle: '最新动态',
+          newsNote: 'News',
+          project1time: '2025.11 - 2026.05',
+          project1title: '香港城市大学科研实习',
+          project1sub: '导师：<a href="https://scholar.google.com/citations?user=VL0tW7YAAAAJ&amp;hl=zh-CN" target="_blank" rel="noreferrer">李佑华博士</a>',
+          project2time: '2025.05 - 2025.11',
+          project2title: '农业大模型合作研究',
+          project2sub: '农业大模型 · <a href="https://scholar.google.com/citations?user=bxcsWC0AAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">兰玉彬教授</a> · 华南农业大学',
+          project3time: '2026.06 - 至今',
+          project3title: '中山大学 HCP 实验室科研实习',
+          project3sub: '导师：<a href="https://scholar.google.com/citations?user=voxznZAAAAAJ&amp;hl=zh-CN" target="_blank" rel="noreferrer">梁晓丹教授</a>'
         },
         en: {
-          noteBody: 'Let perception become action, and let action return as understanding.',
-          tagEmbodied: 'Embodied AI',
-          tagRL: 'Reinforcement Learning',
-          tagMLLM: 'Multimodal LLMs',
+          identity: 'SCAU',
+          location: 'Guangzhou, China',
+          aboutIntro: 'I am an undergraduate student at South China Agricultural University, currently based in Guangzhou.',
+          aboutResearch: 'I have conducted research as an intern at <strong>City University of Hong Kong</strong> and contributed to collaborative work on <strong>agricultural foundation models</strong> at South China Agricultural University. My recent projects have covered auto-bidding, agricultural vision, physical reasoning, and clinical decision-making. These experiences have made me value a simple question: does a model actually understand the situation it is placed in?',
+          aboutFocus: 'I am currently interested in <strong>world models</strong>, <strong>world language models</strong>, and <strong>Vision-Language-Action (VLA)</strong>, especially how representations of an environment can support long-horizon, executable decisions. I am also seeking research internship opportunities in these areas and welcome potential collaborations.',
+          aboutAside: 'Outside research, I also enjoy <strong>The Legend of Hei</strong> and sincerely hope for its next update.',
+          affiliation: 'South China Agricultural University<br />College of Electronic Engineering · Electronic Science and Technology',
+          degree: 'B.Eng. candidate · Sep. 2023 – Present',
+          educationLabel: 'Education',
+          contactLabel: 'Contact',
           tabAbout: 'About',
-          tabPapers: 'Papers',
-          tabProjects: 'Projects',
+          tabNews: 'News',
+          tabPapers: 'Publications',
+          tabProjects: 'Research',
           tabAwards: 'Awards',
-          tabContact: 'Contact'
+          tabCv: 'CV',
+          newsTitle: 'News',
+          newsNote: 'Updates',
+          project1time: 'Nov. 2025 – May 2026',
+          project1title: 'Research Internship, City University of Hong Kong',
+          project1sub: 'Mentor: <a href="https://scholar.google.com/citations?user=VL0tW7YAAAAJ&amp;hl=zh-CN" target="_blank" rel="noreferrer">Dr. Youhua Li</a>',
+          project2time: 'May 2025 – Nov. 2025',
+          project2title: 'Collaborative Research on Agricultural Foundation Models',
+          project2sub: 'Agricultural foundation models · <a href="https://scholar.google.com/citations?user=bxcsWC0AAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">Prof. Yubin Lan</a> · South China Agricultural University',
+          project3time: 'Jun. 2026 – Present',
+          project3title: 'Research Internship, SYSU HCP Lab',
+          project3sub: 'Mentor: <a href="https://scholar.google.com/citations?user=voxznZAAAAAJ&amp;hl=zh-CN" target="_blank" rel="noreferrer">Prof. Xiaodan Liang</a>'
         }
       };
       function applyScrapbookCopy(lang){
         var pack = scrapbookCopy[lang] || scrapbookCopy.en;
         document.querySelectorAll('[data-scrapbook-key]').forEach(function(el){
           var value = pack[el.dataset.scrapbookKey];
-          if(value) el.textContent = value;
+          if(value) el.innerHTML = value;
         });
+      }
+      function applyAcademicTitle(lang){
+        document.title = (lang === 'zh') ? '朱冠宇 | 学术主页' : 'Guanyu Zhu | Academic Homepage';
+      }
+      function closeMobileMenu(){
+        var nav = document.getElementById('top-nav');
+        var toggle = document.querySelector('.menu-toggle');
+        if(nav) nav.classList.remove('open');
+        if(toggle) toggle.setAttribute('aria-expanded', 'false');
       }
       document.querySelectorAll('[data-lang-switch]').forEach(function(btn){
         btn.addEventListener('click', function(){
-          setTimeout(function(){ applyScrapbookCopy(btn.dataset.langSwitch); }, 0);
+          var lang = btn.dataset.langSwitch;
+          setTimeout(function(){
+            applyScrapbookCopy(lang);
+            applyAcademicTitle(lang);
+          }, 0);
         });
       });
-      applyScrapbookCopy(document.documentElement.lang === 'zh-CN' ? 'zh' : 'en');
+      document.querySelectorAll('.top-nav a').forEach(function(a){
+        a.addEventListener('click', closeMobileMenu);
+      });
+      var initLang = 'zh';
+      applyScrapbookCopy(initLang);
+      applyAcademicTitle(initLang);
     })();
     // Ensure home page is shown by default
     showPage('home');
-    // Default to English
-    document.querySelector('[data-lang-switch="en"]').click();
+    // 中文为主页的固定默认展示语言。
+    if (typeof setLanguage === 'function') setLanguage('zh');
     </script>
   </body>
 </html>
