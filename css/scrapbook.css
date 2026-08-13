@@ -867,6 +867,14 @@ body.scrapbook-theme::before {
   padding: 0 .08em;
 }
 
+.scrapbook-theme .academic-content .about p del {
+  color: #8c7771;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: #b66d61;
+  background: rgba(246, 226, 218, .56);
+  padding: 0 .08em;
+}
+
 .scrapbook-theme .academic-content .about .about-aside {
   color: #6b7477;
   font-size: .88rem;
