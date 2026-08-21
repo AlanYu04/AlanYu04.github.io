@@ -865,6 +865,30 @@ body.scrapbook-theme::before {
   position: relative;
 }
 
+.scrapbook-theme .about-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 16px;
+  padding: 0 0 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.scrapbook-theme .about-heading .section-title {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.scrapbook-theme .about-title-status {
+  color: #8c7771;
+  font-size: .78rem;
+  font-weight: 500;
+  text-decoration-color: #b66d61;
+  text-decoration-thickness: 1.5px;
+}
+
 .scrapbook-theme .about-shell {
   display: flow-root;
 }
