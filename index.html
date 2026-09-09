@@ -21,6 +21,7 @@
         <nav class="top-nav" id="top-nav" aria-label="主导航" data-i18n-aria-label="nav.aria">
           <a href="#about" data-scrapbook-key="tabAbout">关于</a>
           <a href="#publications" data-scrapbook-key="tabPapers">论文</a>
+          <a href="#internships" data-scrapbook-key="tabInternships">实习</a>
           <a href="#news" data-scrapbook-key="tabNews">动态</a>
         </nav>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="top-nav" data-i18n="menu.toggle">菜单</button>
@@ -225,6 +226,39 @@
               </ul>
             </section>
 
+            <section id="internships" class="section">
+              <img class="section-sticker project-sticker" src="assets/sticker-curious.gif" alt="探索实践表情" />
+              <h2 class="section-title" data-scrapbook-key="internshipsTitle">实习经历</h2>
+              <ul class="project-list timeline">
+                <li class="project-item">
+                  <span class="timeline-time">2026.08 - 至今</span>
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title">北京莫刻机器人技术有限公司</p>
+                      <p class="entry-sub">科研实习生 · 具身智能 / VLA</p>
+                    </div>
+                  </div>
+                  <ul class="project-points">
+                    <li>负责 π0.5、Fast-WAM 等 VLA / WAM 模型在 JengaBench（双臂协作、长时序、接触丰富操作）上的训练与评测。</li>
+                    <li>参与 Real2Sim 数据对齐及真机轨迹预处理，完成按 LeRobot 格式的数据清洗、转换与交付。</li>
+                  </ul>
+                </li>
+                <li class="project-item">
+                  <span class="timeline-time">2026.05 - 2026.08</span>
+                  <div class="project-head">
+                    <div>
+                      <p class="entry-title">中山大学 HCP 实验室</p>
+                      <p class="entry-sub">科研实习生 · 触觉感知与世界模型</p>
+                    </div>
+                  </div>
+                  <ul class="project-points">
+                    <li>调研 UniVTAC、ManiFeel、ContactWorld、JEPA-WAM 等 10 余项触觉模型与世界模型，总结触觉 RGB、形变图、力场、marker 位移、六维力/力矩五类表示的建模方式。</li>
+                    <li>采集触觉数据并提出基于 JEPA 式未来触觉 latent 预测的初步方案：以 frozen 触觉 encoder 编码当前接触观测，预测未来触觉 latent 目标，为后续表征学习实验提供方案基础。</li>
+                  </ul>
+                </li>
+              </ul>
+            </section>
+
             <section id="awards" class="section">
               <img class="section-sticker award-sticker" src="assets/sticker-math.gif" alt="鹿野思考动画" />
               <h2 class="section-title" data-i18n="section.awards">奖励荣誉</h2>
@@ -260,6 +294,8 @@
           tabAbout: '关于',
           tabNews: '动态',
           tabPapers: '论文',
+          tabInternships: '实习',
+          internshipsTitle: '实习经历',
           tabProjects: '科研',
           tabAwards: '荣誉',
           newsTitle: '最新动态',
@@ -285,6 +321,8 @@
           tabAbout: 'About',
           tabNews: 'News',
           tabPapers: 'Publications',
+          tabInternships: 'Internships',
+          internshipsTitle: 'Internships',
           tabProjects: 'Research',
           tabAwards: 'Awards',
           newsTitle: 'News',
