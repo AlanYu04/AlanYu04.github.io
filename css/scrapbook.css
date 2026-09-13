@@ -972,6 +972,12 @@ body.scrapbook-theme::before {
   background: #f3f8f3;
 }
 
+.scrapbook-theme .route-stop-future {
+  border-style: dashed;
+  border-color: #b7cdbd;
+  background: rgba(247, 251, 247, .72);
+}
+
 .scrapbook-theme .route-stop b {
   color: #3d515a;
   font-size: .84rem;
