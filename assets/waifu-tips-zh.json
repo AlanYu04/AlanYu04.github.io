@@ -1,6 +1,6 @@
 {
   "mouseover": [
-    { "selector": ".site-name", "text": "这是冠宇的学术主页哦~" },
+    { "selector": ".site-name", "text": "欢迎来到冠宇的个人网站哦~" },
     { "selector": ".nav-link[data-page='intro']", "text": "回到封面页看看那只可爱的猫咪吧~" },
     { "selector": ".nav-link[data-page='home']", "text": "这里展示了冠宇的学术经历和研究成果~" },
     { "selector": ".nav-link[data-page='blog']", "text": "博客里记录了一些技术思考和研究笔记~" },
@@ -33,7 +33,7 @@
     { "hour": 22, "text": "夜深了，早点休息吧，熬夜对身体不好~" }
   ],
   "message": {
-    "default": "欢迎来到冠宇的学术主页~",
+    "default": "欢迎来到冠宇的个人网站~",
     "console": "嘿，你打开了控制台，是同行吧？欢迎交流~",
     "copy": "复制了什么呢？要注意版权哦~",
     "visibilitychange": "你离开了一下，我还以为你走了呢~",

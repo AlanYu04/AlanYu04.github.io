@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>朱冠宇 | 学术主页</title>
+    <title>Guanyu Zhu | Personal Website</title>
+    <meta name="description" content="Guanyu Zhu's personal website. Research interests include embodied AI, vision-language-action models, and world models." />
+    <meta name="author" content="Guanyu Zhu" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Guanyu Zhu | Personal Website" />
+    <meta property="og:description" content="Research in embodied AI, vision-language-action models, and world models." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Guanyu Zhu | Personal Website" />
+    <meta name="twitter:description" content="Research in embodied AI, vision-language-action models, and world models." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,114 +23,120 @@
   </head>
   <body class="scrapbook-theme">
     <header class="site-header">
-      <img class="header-sticker" src="assets/sticker-phone.gif" alt="看手机的鹿野表情" />
+      <img class="header-sticker" src="assets/sticker-phone.gif" alt="Deer character looking at a phone" data-scrapbook-alt-key="headerStickerAlt" />
       <div class="container header-inner">
         <a class="site-name" href="index.html">Guanyu Zhu</a>
-        <nav class="top-nav" id="top-nav" aria-label="主导航" data-i18n-aria-label="nav.aria">
-          <a href="#about" data-scrapbook-key="tabAbout">关于</a>
-          <a href="#publications" data-scrapbook-key="tabPapers">论文</a>
-          <a href="#internships" data-scrapbook-key="tabInternships">实习</a>
-          <a href="#news" data-scrapbook-key="tabNews">动态</a>
+        <nav class="top-nav" id="top-nav" aria-label="Main navigation" data-i18n-aria-label="nav.aria">
+          <a href="#about" data-scrapbook-key="tabAbout">About</a>
+          <a href="#publications" data-scrapbook-key="tabPapers">Publications</a>
+          <a href="#internships" data-scrapbook-key="tabInternships">Internships</a>
+          <a href="#news" data-scrapbook-key="tabNews">News</a>
         </nav>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="top-nav" data-i18n="menu.toggle">菜单</button>
+        <div class="header-actions">
+          <div class="lang-switch" role="group" aria-label="Language" data-scrapbook-aria-key="languageLabel">
+            <button class="lang-btn active" type="button" data-lang-switch="en" aria-pressed="true">EN</button>
+            <button class="lang-btn" type="button" data-lang-switch="zh" aria-pressed="false">中文</button>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="top-nav" data-i18n="menu.toggle">Menu</button>
+        </div>
       </div>
     </header>
 
     <main>
       <section id="home-page" class="page-section active">
         <div class="container academic-layout">
-          <aside class="profile-sidebar" aria-label="个人信息">
-            <img class="avatar" src="assets/avatar.jpg" alt="朱冠宇" onerror="this.style.display='none'" />
+          <aside class="profile-sidebar" aria-label="Profile" data-scrapbook-aria-key="profileLabel">
+            <img class="avatar" src="assets/avatar.jpg" alt="Guanyu Zhu" data-scrapbook-alt-key="avatarAlt" onerror="this.style.display='none'" />
             <h1 class="profile-name">Guanyu Zhu</h1>
             <p class="sidebar-role" data-scrapbook-key="identity">SCAU</p>
-            <ul class="profile-links" aria-label="外部链接">
+            <ul class="profile-links" aria-label="External links" data-scrapbook-aria-key="externalLinksLabel">
               <li class="profile-email">xiaoguanbx@gmail.com</li>
               <li><a href="https://scholar.google.com/citations?user=tQETugYAAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">Google Scholar</a></li>
               <li><a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a></li>
               <li class="github-link"><a href="https://github.com/AlanYu04" target="_blank" rel="noreferrer">GitHub</a></li>
             </ul>
-            <img class="sidebar-sticker sidebar-sticker-bottom" src="assets/sticker-peek.gif" alt="探头表情" />
+            <img class="sidebar-sticker sidebar-sticker-bottom" src="assets/sticker-peek.gif" alt="Peeking deer character" data-scrapbook-alt-key="peekStickerAlt" />
           </aside>
 
           <div class="content academic-content">
             <section id="about" class="section about">
               <div class="about-heading">
-                <h2 class="section-title" data-i18n="section.about">关于我</h2>
-                <del class="about-title-status">目前可能还活着</del>
+                <h2 class="section-title" data-i18n="section.about">About</h2>
+                <del class="about-title-status" data-scrapbook-key="aboutStatus">Possibly still alive</del>
               </div>
               <div class="about-shell">
-                <div class="about-art" aria-label="插画装饰">
+                <div class="about-art" aria-label="Illustrations" data-scrapbook-aria-key="illustrationsLabel">
                   <figure class="icecream-card">
-                    <img src="assets/icecream-cat.png" alt="吃冰淇淋的猫咪插画" />
+                    <img src="assets/icecream-cat.png" alt="Illustration of a cat eating ice cream" data-scrapbook-alt-key="icecreamAlt" />
                   </figure>
-                  <img class="sleepy-cat" src="assets/original-black-cat-mascot.png" alt="原创黑猫插画" />
+                  <img class="sleepy-cat" src="assets/original-black-cat-mascot.png" alt="Original black cat illustration" data-scrapbook-alt-key="sleepyCatAlt" />
                 </div>
                 <div class="about-copy">
-                  <p data-scrapbook-key="aboutIntro">我目前是华南农业大学电子科学与技术专业的本科生，最近在做具身智能相关研究，关注 <strong>VLA</strong> 和 <strong>world models（WM）</strong>。<del>我已经完全掌握了如何平衡科研与生活。</del> 这句话先划掉，等以后真能做到再放回来。现在先把电脑合上五分钟，算作阶段性胜利。</p>
-                  <p data-scrapbook-key="aboutResearch">过去一年，我先在<strong>华南农业大学兰玉彬教授实验室</strong>参与农业大模型研究，围绕真实荔枝果园完成田间图像采集、多模态问答数据构建，参与 <strong>Lychee-Bench / Lychee-Mind</strong> 的设计，并进行基于 Qwen2.5-VL-7B 的 SFT 与 GRPO 训练。之后在<strong>香港城市大学</strong>开展科研实习，参与 SemBid，研究语言表征如何进入自动出价决策；参与 PhysicsMind，构建真实—仿真统一的物理推理评测；参与 Latent Reward Steering，探索推理过程中的隐状态引导。随后，我在<strong>中山大学 HCP 实验室</strong>开展触觉感知与世界模型研究（本来想继续深造，结果推免被学院拒了——好气，先记一笔）。接下来，我将进入<strong>复旦大学</strong>，在<a href="https://roxie62.github.io/" target="_blank" rel="noreferrer"><strong>姜若曦老师</strong></a>指导下继续学习与研究。</p>
-                  <div class="academic-route" aria-label="学术迁徙路线">
-                    <span class="route-label">学术迁徙路线</span>
+                  <p data-scrapbook-key="aboutIntro">I am an undergraduate student in Electronic Science and Technology at South China Agricultural University, based in Guangzhou. My recent work focuses on embodied AI, especially <strong>vision-language-action (VLA)</strong> systems and <strong>world models</strong>. <del>I have completely mastered the art of balancing research and life.</del> Let me strike that out until it is true. For now, closing my laptop for five minutes counts as progress.</p>
+                  <p data-scrapbook-key="aboutResearch">Over the past year, I worked on agricultural foundation models in <strong>Professor Yubin Lan's lab at South China Agricultural University</strong>, collecting field images in lychee orchards, building multimodal question-answering data, helping design <strong>Lychee-Bench / Lychee-Mind</strong>, and training Qwen2.5-VL-7B with SFT and GRPO. I then interned at <strong>City University of Hong Kong</strong>, contributing to SemBid on language representations for auto-bidding, PhysicsMind for unified real-and-simulated physical reasoning evaluation, and Latent Reward Steering for inference-time reasoning guidance. Later, I joined the <strong>HCP Lab at Sun Yat-sen University</strong> to study tactile perception and world models. I will next join <strong>Fudan University</strong> to continue my studies and research under the supervision of <a href="https://roxie62.github.io/" target="_blank" rel="noreferrer"><strong>Professor Ruoxi Jiang</strong></a>.</p>
+                <div class="academic-route" aria-label="Research journey" data-scrapbook-aria-key="routeLabel">
+                    <span class="route-label" data-scrapbook-key="routeLabel">Research journey</span>
                     <div class="route-stops">
-                      <span class="route-stop"><b>华南农业大学</b><small>农业大模型</small></span>
+                      <span class="route-stop"><b data-scrapbook-key="routeSchool1">South China Agricultural University</b><small data-scrapbook-key="routeFocus1">Agricultural foundation models</small></span>
                       <span class="route-arrow" aria-hidden="true">→</span>
-                      <span class="route-stop"><b>香港城市大学</b><small>多方向探索</small></span>
+                      <span class="route-stop"><b data-scrapbook-key="routeSchool2">City University of Hong Kong</b><small data-scrapbook-key="routeFocus2">Exploring research directions</small></span>
                       <span class="route-arrow" aria-hidden="true">→</span>
-                      <span class="route-stop"><b>中山大学</b><small>触觉与世界模型</small></span>
+                      <span class="route-stop"><b data-scrapbook-key="routeSchool3">Sun Yat-sen University</b><small data-scrapbook-key="routeFocus3">Tactile sensing and world models</small></span>
                       <span class="route-arrow" aria-hidden="true">→</span>
-                      <span class="route-stop route-stop-future"><b>复旦大学</b><small>下一站</small></span>
+                      <span class="route-stop route-stop-future"><b data-scrapbook-key="routeSchool4">Fudan University</b><small data-scrapbook-key="routeFocus4">Next stop</small></span>
                     </div>
                   </div>
-                  <p data-scrapbook-key="aboutFocus">我目前关注具身智能中的 <strong>VLA</strong> 与 <strong>world models（WM）</strong>。</p>
-                  <p class="about-aside" data-scrapbook-key="aboutAside">闲暇时会继续追<strong>《罗小黑战记》更新日记</strong>：目前最新进度是“希望它快点更新”，发布日期暂未公布。<span class="leisure-stickers" aria-hidden="true"><img src="assets/sticker-wave.gif" alt="" /><img src="assets/sticker-flowers.gif" alt="" /></span></p>
+                  <p data-scrapbook-key="aboutFocus">My current interests include <strong>VLA</strong> and <strong>world models</strong> for embodied AI.</p>
+                  <p class="about-aside" data-scrapbook-key="aboutAside">In my free time, I keep up with <strong><em>The Legend of Hei</em></strong> and hope the next update arrives soon.<span class="leisure-stickers" aria-hidden="true"><img src="assets/sticker-wave.gif" alt="" /><img src="assets/sticker-flowers.gif" alt="" /></span></p>
                 </div>
               </div>
             </section>
 
             <section id="news" class="section news">
               <div class="section-heading">
-                <h2 class="section-title" data-scrapbook-key="newsTitle">最新动态</h2>
+                <h2 class="section-title" data-scrapbook-key="newsTitle">News</h2>
               </div>
               <ul class="news-list">
                 <li class="news-item">
                   <time datetime="2026-08-21" class="news-date">2026.08.21</time>
                   <div class="news-copy">
-                    <div class="news-accepted-line"><strong>🎉 <em>Latent Reward Steering</em> 被 EMNLP 2026 接收！</strong><img class="news-celebrate" src="assets/celebrate-accepted.gif" alt="庆祝" /></div>
+                    <div class="news-accepted-line"><strong data-scrapbook-key="news1">🎉 <em>Latent Reward Steering</em> accepted at EMNLP 2026!</strong><img class="news-celebrate" src="assets/celebrate-accepted.gif" alt="Celebration" data-scrapbook-alt-key="celebrationAlt" /></div>
                   </div>
                 </li>
                 <li class="news-item">
                   <time datetime="2026-08-21" class="news-date">2026.08.21</time>
                   <div class="news-copy">
-                    <div class="news-accepted-line"><strong>🎤 两篇 CIKM 2026 论文入选 Oral Presentation！</strong></div>
+                    <div class="news-accepted-line"><strong data-scrapbook-key="news2">🎤 Two papers selected for oral presentation at CIKM 2026!</strong></div>
                   </div>
                 </li>
                 <li class="news-item">
                   <time datetime="2026-08" class="news-date">2026.08</time>
                   <div class="news-copy">
-                    <div class="news-accepted-line"><strong>🎉 两篇论文被 CIKM 2026 接收！</strong><img class="news-celebrate" src="assets/celebrate-accepted.gif" alt="庆祝" /></div>
-                    <p><em>On the Role of Language Representations in Auto-Bidding: Findings and Implications</em> 和 <em>ClinSDT: LLM-Encoded Clinical Semantic Guidance for Sepsis Treatment via Decision Transformer</em>。</p>
+                    <div class="news-accepted-line"><strong data-scrapbook-key="news3">🎉 Two papers accepted at CIKM 2026!</strong><img class="news-celebrate" src="assets/celebrate-accepted.gif" alt="Celebration" data-scrapbook-alt-key="celebrationAlt" /></div>
+                    <p data-scrapbook-key="news3Details"><em>On the Role of Language Representations in Auto-Bidding: Findings and Implications</em> and <em>ClinSDT: LLM-Encoded Clinical Semantic Guidance for Sepsis Treatment via Decision Transformer</em>.</p>
                   </div>
                 </li>
                 <li class="news-item">
                   <time datetime="2026-05" class="news-date">2026.05</time>
-                  <p><em>On the Role of Language Representations in Auto-Bidding: Findings and Implications</em> 已发布于 arXiv。</p>
+                  <p data-scrapbook-key="news4"><em>On the Role of Language Representations in Auto-Bidding: Findings and Implications</em> published on arXiv.</p>
                 </li>
                 <li class="news-item">
                   <time datetime="2026-01" class="news-date">2026.01</time>
-                  <p><em>PhysicsMind</em> 已发布于 arXiv。</p>
+                  <p data-scrapbook-key="news5"><em>PhysicsMind</em> published on arXiv.</p>
                 </li>
               </ul>
             </section>
 
             <section id="publications" class="section">
-              <img class="section-sticker publication-sticker" src="assets/sticker-curious.gif" alt="好奇表情" />
-              <h2 class="section-title" data-i18n="section.publications">论文成果</h2>
+              <img class="section-sticker publication-sticker" src="assets/sticker-curious.gif" alt="Curious deer character" data-scrapbook-alt-key="publicationStickerAlt" />
+              <h2 class="section-title" data-i18n="section.publications">Publications</h2>
               <p class="pub-caption">(* equal contribution · † corresponding author)</p>
 
               <div class="publication">
                 <img src="images/sembid.png" class="publogo" alt="SemBid teaser" onerror="this.style.display='none'">
                 <div class="pub-content">
                   <p class="pub-title">On the Role of Language Representations in Auto-Bidding: Findings and Implications</p>
-                  <div class="pub-venue pub-accepted"><span aria-hidden="true">🎤</span> 已被 CIKM 2026 接收 · Oral Presentation</div>
+                  <div class="pub-venue pub-accepted"><span aria-hidden="true">🎤</span> <span data-scrapbook-key="cikmOral">Accepted at CIKM 2026 · Oral Presentation</span></div>
                   <div class="pub-authors">
                     <strong class="author-highlight">Guanyu Zhu</strong>, Jining Luan, Hanwen Du, Xinyu Fang, Sibo Xu,
                     Ersheng Ni, Hongji Li, Jincheng Fang, Ronghao Chen, Huacan Wang,
@@ -139,7 +153,7 @@
                 <img src="images/latent-reward.png" class="publogo" alt="Latent Reward Steering teaser" onerror="this.style.display='none'">
                 <div class="pub-content">
                   <p class="pub-title">Latent Reward Steering: An Adaptive Inference-Time Framework that Implicitly Promotes Cognitive Behaviors in Reasoning LLMs</p>
-                  <div class="pub-venue pub-accepted"><span aria-hidden="true">🎉</span> 已被 EMNLP 2026 接收</div>
+                  <div class="pub-venue pub-accepted"><span aria-hidden="true">🎉</span> <span data-scrapbook-key="emnlpAccepted">Accepted at EMNLP 2026</span></div>
                   <div class="pub-authors">
                     Jiakang Li*, <strong class="author-highlight">Guanyu Zhu*</strong>, Can Jin, Chenxi Huang, Dexu Yu, Ronghao Chen, Yang Zhou, Hongwu Peng, Xuanqi Lan, Dimitris N. Metaxas, Youhua Li†
                   </div>
@@ -197,7 +211,7 @@
                 <img src="images/clinsedt.png" class="publogo" alt="ClinSDT teaser" onerror="this.style.display='none'">
                 <div class="pub-content">
                   <p class="pub-title">ClinSDT: LLM-Encoded Clinical Semantic Guidance for Sepsis Treatment via Decision Transformer</p>
-                  <div class="pub-venue pub-accepted"><span aria-hidden="true">🎤</span> 已被 CIKM 2026 接收 · Oral Presentation</div>
+                  <div class="pub-venue pub-accepted"><span aria-hidden="true">🎤</span> <span data-scrapbook-key="cikmOral">Accepted at CIKM 2026 · Oral Presentation</span></div>
                   <div class="pub-authors">
                     Yanyan Wu*, <strong class="author-highlight">Guanyu Zhu*</strong>, Changbin Zhao, Jin Zhang, Dexu Yu, Tianmin Sun, Jining Luan, Chunxiao Li, Hanwen Du, Youhua Li†
                   </div>
@@ -206,15 +220,15 @@
             </section>
 
             <section id="projects" class="section">
-              <img class="section-sticker project-sticker" src="assets/sticker-tired.gif" alt="努力科研表情" />
-              <h2 class="section-title" data-i18n="section.projects">科研经历</h2>
+              <img class="section-sticker project-sticker" src="assets/sticker-tired.gif" alt="Deer character working hard" data-scrapbook-alt-key="projectStickerAlt" />
+              <h2 class="section-title" data-i18n="section.projects">Research Experience</h2>
               <ul class="project-list timeline">
                 <li class="project-item">
                   <span class="timeline-time" data-scrapbook-key="project1time">2025.11 - 2026.05</span>
                   <div class="project-head">
                     <div>
-                      <p class="entry-title" data-scrapbook-key="project1title">香港城市大学科研实习</p>
-                      <p class="entry-sub" data-scrapbook-key="project1sub">导师：<a href="https://scholar.google.com/citations?user=VL0tW7YAAAAJ&amp;hl=zh-CN" target="_blank" rel="noreferrer">李佑华博士</a></p>
+                      <p class="entry-title" data-scrapbook-key="project1title">Research Internship, City University of Hong Kong</p>
+                      <p class="entry-sub" data-scrapbook-key="project1sub">Mentor: <a href="https://scholar.google.com/citations?user=VL0tW7YAAAAJ&amp;hl=zh-CN" target="_blank" rel="noreferrer">Dr. Youhua Li</a></p>
                     </div>
                   </div>
                 </li>
@@ -222,8 +236,8 @@
                   <span class="timeline-time" data-scrapbook-key="project2time">2025.05 - 2025.11</span>
                   <div class="project-head">
                     <div>
-                      <p class="entry-title" data-scrapbook-key="project2title">农业大模型合作研究</p>
-                      <p class="entry-sub" data-scrapbook-key="project2sub">农业大模型 · <a href="https://scholar.google.com/citations?user=bxcsWC0AAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">兰玉彬教授</a> · 华南农业大学</p>
+                      <p class="entry-title" data-scrapbook-key="project2title">Collaborative Research on Agricultural Foundation Models</p>
+                      <p class="entry-sub" data-scrapbook-key="project2sub">Agricultural foundation models · <a href="https://scholar.google.com/citations?user=bxcsWC0AAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">Prof. Yubin Lan</a> · South China Agricultural University</p>
                     </div>
                   </div>
                 </li>
@@ -231,24 +245,24 @@
             </section>
 
             <section id="internships" class="section">
-              <img class="section-sticker project-sticker" src="assets/sticker-curious.gif" alt="探索实践表情" />
-              <h2 class="section-title" data-scrapbook-key="internshipsTitle">实习经历</h2>
+              <img class="section-sticker project-sticker" src="assets/sticker-curious.gif" alt="Deer character exploring" data-scrapbook-alt-key="internshipStickerAlt" />
+              <h2 class="section-title" data-scrapbook-key="internshipsTitle">Internships</h2>
               <ul class="project-list timeline">
                 <li class="project-item">
-                  <span class="timeline-time">2026.08 - 至今</span>
+                  <span class="timeline-time" data-scrapbook-key="internship1time">Aug. 2026 – Present</span>
                   <div class="project-head">
                     <div>
-                      <p class="entry-title">北京莫刻机器人技术有限公司</p>
-                      <p class="entry-sub">科研实习生 · 具身智能 / VLA</p>
+                      <p class="entry-title" data-scrapbook-key="internship1title">Beijing MoKe Robotics Technology Co., Ltd.</p>
+                      <p class="entry-sub" data-scrapbook-key="internship1sub">Research Intern · Embodied AI / VLA</p>
                     </div>
                   </div>
                 </li>
                 <li class="project-item">
-                  <span class="timeline-time">2026.05 - 2026.08</span>
+                  <span class="timeline-time" data-scrapbook-key="internship2time">May 2026 – Aug. 2026</span>
                   <div class="project-head">
                     <div>
-                      <p class="entry-title">中山大学 HCP 实验室</p>
-                      <p class="entry-sub">科研实习生 · 触觉感知与世界模型</p>
+                      <p class="entry-title" data-scrapbook-key="internship2title">HCP Lab, Sun Yat-sen University</p>
+                      <p class="entry-sub" data-scrapbook-key="internship2sub">Research Intern · Tactile Perception and World Models</p>
                     </div>
                   </div>
                 </li>
@@ -256,14 +270,14 @@
             </section>
 
             <section id="awards" class="section">
-              <img class="section-sticker award-sticker" src="assets/sticker-math.gif" alt="鹿野思考动画" />
-              <h2 class="section-title" data-i18n="section.awards">奖励荣誉</h2>
+              <img class="section-sticker award-sticker" src="assets/sticker-math.gif" alt="Deer character thinking" data-scrapbook-alt-key="awardStickerAlt" />
+              <h2 class="section-title" data-i18n="section.awards">Awards</h2>
               <ul class="award-list">
-                <li class="award-item" data-i18n="award.1">国家奖学金（2025）· Top 1%</li>
-                <li class="award-item" data-i18n="award.2">全国大学生集成电路创新创业大赛 · 全国二等奖</li>
-                <li class="award-item" data-i18n="award.3">全国大学生数学建模竞赛（省二等奖）</li>
-                <li class="award-item" data-i18n="award.4">优秀学生干部（2025）</li>
-                <li class="award-item" data-i18n="award.5">学风建设先进个人（2024、2025）</li>
+                <li class="award-item" data-i18n="award.1">National Scholarship (2025) · Top 1%</li>
+                <li class="award-item" data-i18n="award.2">National Undergraduate IC Innovation and Entrepreneurship Competition · Second Prize</li>
+                <li class="award-item" data-i18n="award.3">China Undergraduate Mathematical Contest in Modeling · Provincial Second Prize</li>
+                <li class="award-item" data-i18n="award.4">Outstanding Student Leader (2025)</li>
+                <li class="award-item" data-i18n="award.5">Outstanding Academic Conduct Award (2024, 2025)</li>
               </ul>
             </section>
 
@@ -280,7 +294,7 @@
           identity: 'SCAU',
           location: '广州，中国',
           aboutIntro: '我目前是华南农业大学电子科学与技术专业的本科生，最近在做具身智能相关研究，关注 <strong>VLA</strong> 和 <strong>world models（WM）</strong>。<del>我已经完全掌握了如何平衡科研与生活。</del> 这句话先划掉，等以后真能做到再放回来。现在先把电脑合上五分钟，算作阶段性胜利。',
-          aboutResearch: '过去一年，我先在<strong>华南农业大学兰玉彬教授实验室</strong>参与农业大模型研究，围绕真实荔枝果园完成田间图像采集、多模态问答数据构建，参与 <strong>Lychee-Bench / Lychee-Mind</strong> 的设计，并进行基于 Qwen2.5-VL-7B 的 SFT 与 GRPO 训练。之后在<strong>香港城市大学</strong>开展科研实习，参与 SemBid，研究语言表征如何进入自动出价决策；参与 PhysicsMind，构建真实—仿真统一的物理推理评测；参与 Latent Reward Steering，探索推理过程中的隐状态引导。随后，我在<strong>中山大学 HCP 实验室</strong>开展触觉感知与世界模型研究（本来想继续深造，结果推免被学院拒了——好气，先记一笔）。接下来，我将进入<strong>复旦大学</strong>，在<a href="https://roxie62.github.io/" target="_blank" rel="noreferrer"><strong>姜若曦老师</strong></a>指导下继续学习与研究。',
+          aboutResearch: '过去一年，我先在<strong>华南农业大学兰玉彬教授实验室</strong>参与农业大模型研究，围绕真实荔枝果园完成田间图像采集、多模态问答数据构建，参与 <strong>Lychee-Bench / Lychee-Mind</strong> 的设计，并进行基于 Qwen2.5-VL-7B 的 SFT 与 GRPO 训练。之后在<strong>香港城市大学</strong>开展科研实习，参与 SemBid，研究语言表征如何进入自动出价决策；参与 PhysicsMind，构建真实—仿真统一的物理推理评测；参与 Latent Reward Steering，探索推理过程中的隐状态引导。随后，我在<strong>中山大学 HCP 实验室</strong>开展触觉感知与世界模型研究（本来想继续深造，结果推免被学院拒了——好气，先记一笔）。接下来，我将进入<strong>复旦大学</strong>，在<a href="https://roxie62.github.io/" target="_blank" rel="noreferrer"><strong>姜若曦教授</strong></a>指导下继续学习与研究。',
           aboutFocus: '我目前关注具身智能中的 <strong>VLA</strong> 与 <strong>world models（WM）</strong>。',
           aboutAside: '闲暇时会继续追<strong>《罗小黑战记》更新日记</strong>：目前最新进度是“希望它快点更新”，发布日期暂未公布。<span class="leisure-stickers" aria-hidden="true"><img src="assets/sticker-wave.gif" alt="" /><img src="assets/sticker-flowers.gif" alt="" /></span>',
           affiliation: '华南农业大学<br />电子工程学院 · 电子科学与技术',
@@ -301,7 +315,31 @@
           project1sub: '导师：<a href="https://scholar.google.com/citations?user=VL0tW7YAAAAJ&amp;hl=zh-CN" target="_blank" rel="noreferrer">李佑华博士</a>',
           project2time: '2025.05 - 2025.11',
           project2title: '农业大模型合作研究',
-          project2sub: '农业大模型 · <a href="https://scholar.google.com/citations?user=bxcsWC0AAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">兰玉彬教授</a> · 华南农业大学'
+          project2sub: '农业大模型 · <a href="https://scholar.google.com/citations?user=bxcsWC0AAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">兰玉彬教授</a> · 华南农业大学',
+          aboutStatus: '目前可能还活着',
+          routeLabel: '学术迁徙路线',
+          routeSchool1: '华南农业大学', routeFocus1: '农业大模型',
+          routeSchool2: '香港城市大学', routeFocus2: '多方向探索',
+          routeSchool3: '中山大学', routeFocus3: '触觉与世界模型',
+          routeSchool4: '复旦大学', routeFocus4: '下一站',
+          news1: '🎉 <em>Latent Reward Steering</em> 被 EMNLP 2026 接收！',
+          news2: '🎤 两篇 CIKM 2026 论文入选 Oral Presentation！',
+          news3: '🎉 两篇论文被 CIKM 2026 接收！',
+          news3Details: '<em>On the Role of Language Representations in Auto-Bidding: Findings and Implications</em> 和 <em>ClinSDT: LLM-Encoded Clinical Semantic Guidance for Sepsis Treatment via Decision Transformer</em>。',
+          news4: '<em>On the Role of Language Representations in Auto-Bidding: Findings and Implications</em> 已发布于 arXiv。',
+          news5: '<em>PhysicsMind</em> 已发布于 arXiv。',
+          cikmOral: '已被 CIKM 2026 接收 · Oral Presentation',
+          emnlpAccepted: '已被 EMNLP 2026 接收',
+          internship1time: '2026.08 - 至今', internship1title: '北京莫刻机器人技术有限公司',
+          internship1sub: '科研实习生 · 具身智能 / VLA',
+          internship2time: '2026.05 - 2026.08', internship2title: '中山大学 HCP 实验室',
+          internship2sub: '科研实习生 · 触觉感知与世界模型',
+          headerStickerAlt: '看手机的鹿野表情', avatarAlt: '朱冠宇', peekStickerAlt: '探头表情',
+          icecreamAlt: '吃冰淇淋的猫咪插画', sleepyCatAlt: '原创黑猫插画',
+          celebrationAlt: '庆祝', publicationStickerAlt: '好奇表情', projectStickerAlt: '努力科研表情',
+          internshipStickerAlt: '探索实践表情', awardStickerAlt: '鹿野思考动画',
+          externalLinksLabel: '外部链接', illustrationsLabel: '插画装饰',
+          profileLabel: '个人信息', languageLabel: '语言'
         },
         en: {
           identity: 'SCAU',
@@ -328,7 +366,32 @@
           project1sub: 'Mentor: <a href="https://scholar.google.com/citations?user=VL0tW7YAAAAJ&amp;hl=zh-CN" target="_blank" rel="noreferrer">Dr. Youhua Li</a>',
           project2time: 'May 2025 – Nov. 2025',
           project2title: 'Collaborative Research on Agricultural Foundation Models',
-          project2sub: 'Agricultural foundation models · <a href="https://scholar.google.com/citations?user=bxcsWC0AAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">Prof. Yubin Lan</a> · South China Agricultural University'
+          project2sub: 'Agricultural foundation models · <a href="https://scholar.google.com/citations?user=bxcsWC0AAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">Prof. Yubin Lan</a> · South China Agricultural University',
+          aboutStatus: 'Possibly still alive',
+          routeLabel: 'Research journey',
+          routeSchool1: 'South China Agricultural University', routeFocus1: 'Agricultural foundation models',
+          routeSchool2: 'City University of Hong Kong', routeFocus2: 'Exploring research directions',
+          routeSchool3: 'Sun Yat-sen University', routeFocus3: 'Tactile sensing and world models',
+          routeSchool4: 'Fudan University', routeFocus4: 'Next stop',
+          news1: '🎉 <em>Latent Reward Steering</em> accepted at EMNLP 2026!',
+          news2: '🎤 Two papers selected for oral presentation at CIKM 2026!',
+          news3: '🎉 Two papers accepted at CIKM 2026!',
+          news3Details: '<em>On the Role of Language Representations in Auto-Bidding: Findings and Implications</em> and <em>ClinSDT: LLM-Encoded Clinical Semantic Guidance for Sepsis Treatment via Decision Transformer</em>.',
+          news4: '<em>On the Role of Language Representations in Auto-Bidding: Findings and Implications</em> published on arXiv.',
+          news5: '<em>PhysicsMind</em> published on arXiv.',
+          cikmOral: 'Accepted at CIKM 2026 · Oral Presentation',
+          emnlpAccepted: 'Accepted at EMNLP 2026',
+          internship1time: 'Aug. 2026 – Present', internship1title: 'Beijing MoKe Robotics Technology Co., Ltd.',
+          internship1sub: 'Research Intern · Embodied AI / VLA',
+          internship2time: 'May 2026 – Aug. 2026', internship2title: 'HCP Lab, Sun Yat-sen University',
+          internship2sub: 'Research Intern · Tactile Perception and World Models',
+          headerStickerAlt: 'Deer character looking at a phone', avatarAlt: 'Portrait of Guanyu Zhu',
+          peekStickerAlt: 'Peeking deer character', icecreamAlt: 'Illustration of a cat eating ice cream',
+          sleepyCatAlt: 'Original black cat illustration', celebrationAlt: 'Celebration',
+          publicationStickerAlt: 'Curious deer character', projectStickerAlt: 'Deer character working hard',
+          internshipStickerAlt: 'Deer character exploring', awardStickerAlt: 'Deer character thinking',
+          externalLinksLabel: 'External links', illustrationsLabel: 'Illustrations',
+          profileLabel: 'Profile', languageLabel: 'Language'
         }
       };
       function applyScrapbookCopy(lang){
@@ -337,9 +400,29 @@
           var value = pack[el.dataset.scrapbookKey];
           if(value) el.innerHTML = value;
         });
+        document.querySelectorAll('[data-scrapbook-alt-key]').forEach(function(el){
+          var value = pack[el.dataset.scrapbookAltKey];
+          if(value) el.alt = value;
+        });
+        document.querySelectorAll('[data-scrapbook-aria-key]').forEach(function(el){
+          var value = pack[el.dataset.scrapbookAriaKey];
+          if(value) el.setAttribute('aria-label', value);
+        });
+        document.querySelectorAll('[data-lang-switch]').forEach(function(btn){
+          var active = btn.dataset.langSwitch === lang;
+          btn.classList.toggle('active', active);
+          btn.setAttribute('aria-pressed', String(active));
+        });
       }
       function applyAcademicTitle(lang){
-        document.title = (lang === 'zh') ? '朱冠宇 | 学术主页' : 'Guanyu Zhu | Academic Homepage';
+        document.title = (lang === 'zh') ? '朱冠宇 | 个人网站' : 'Guanyu Zhu | Personal Website';
+      }
+      function getPreferredLanguage(){
+        try {
+          var preference = localStorage.getItem('guanyu-site-language');
+          if(preference === 'zh' || preference === 'en') return preference;
+        } catch(error) {}
+        return 'en';
       }
       function closeMobileMenu(){
         var nav = document.getElementById('top-nav');
@@ -350,6 +433,8 @@
       document.querySelectorAll('[data-lang-switch]').forEach(function(btn){
         btn.addEventListener('click', function(){
           var lang = btn.dataset.langSwitch;
+          try { localStorage.setItem('guanyu-site-language', lang); } catch(error) {}
+          if(typeof setLanguage === 'function') setLanguage(lang);
           setTimeout(function(){
             applyScrapbookCopy(lang);
             applyAcademicTitle(lang);
@@ -359,14 +444,14 @@
       document.querySelectorAll('.top-nav a').forEach(function(a){
         a.addEventListener('click', closeMobileMenu);
       });
-      var initLang = 'zh';
+      var initLang = getPreferredLanguage();
+      if(typeof setLanguage === 'function') setLanguage(initLang);
       applyScrapbookCopy(initLang);
       applyAcademicTitle(initLang);
     })();
     // Ensure home page is shown by default
     showPage('home');
-    // 中文为主页的固定默认展示语言。
-    if (typeof setLanguage === 'function') setLanguage('zh');
+    // English is the default language; the language switch can still select Chinese.
     </script>
   </body>
 </html>

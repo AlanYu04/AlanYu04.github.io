@@ -1,6 +1,6 @@
 {
   "mouseover": [
-    { "selector": ".site-name", "text": "Welcome to Guanyu's academic homepage~" },
+    { "selector": ".site-name", "text": "Welcome to Guanyu's personal website~" },
     { "selector": ".nav-link[data-page='intro']", "text": "Go back to the cover page and see that cute cat~" },
     { "selector": ".nav-link[data-page='home']", "text": "Here you'll find Guanyu's academic journey and research~" },
     { "selector": ".nav-link[data-page='blog']", "text": "The blog contains technical insights and research notes~" },
@@ -33,7 +33,7 @@
     { "hour": 22, "text": "Getting late... don't stay up too late~" }
   ],
   "message": {
-    "default": "Welcome to Guanyu's academic homepage~",
+    "default": "Welcome to Guanyu's personal website~",
     "console": "Hey, you opened the console! A fellow developer? Nice to meet you~",
     "copy": "Copied something? Mind the copyright~",
     "visibilitychange": "You left for a moment, I thought you were gone~",
