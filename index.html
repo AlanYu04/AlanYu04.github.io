@@ -3,15 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guanyu Zhu | Personal Website</title>
+    <title>Guanyu Zhu</title>
     <meta name="description" content="Guanyu Zhu's personal website. Research interests include embodied AI, vision-language-action models, and world models." />
     <meta name="author" content="Guanyu Zhu" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Guanyu Zhu | Personal Website" />
+    <link rel="canonical" href="https://alanyu04.github.io/" />
+    <meta property="og:title" content="Guanyu Zhu" />
+    <meta property="og:site_name" content="Guanyu Zhu" />
+    <meta property="og:url" content="https://alanyu04.github.io/" />
     <meta property="og:description" content="Research in embodied AI, vision-language-action models, and world models." />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Guanyu Zhu | Personal Website" />
+    <meta name="twitter:title" content="Guanyu Zhu" />
     <meta name="twitter:description" content="Research in embodied AI, vision-language-action models, and world models." />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Guanyu Zhu",
+        "url": "https://alanyu04.github.io/"
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -48,12 +59,14 @@
           <aside class="profile-sidebar" aria-label="Profile" data-scrapbook-aria-key="profileLabel">
             <img class="avatar" src="assets/avatar.jpg" alt="Guanyu Zhu" data-scrapbook-alt-key="avatarAlt" onerror="this.style.display='none'" />
             <h1 class="profile-name">Guanyu Zhu</h1>
-            <p class="sidebar-role" data-scrapbook-key="identity">SCAU</p>
+            <p class="sidebar-role" data-scrapbook-key="identity">Undergraduate @ SCAU</p>
+            <p class="sidebar-role sidebar-incoming" data-scrapbook-key="incoming">Incoming M.S. @<br /><strong>Fudan University '27</strong></p>
+            <p class="sidebar-interests">World Models · VLA<br /><span>Embodied AI</span></p>
             <ul class="profile-links" aria-label="External links" data-scrapbook-aria-key="externalLinksLabel">
-              <li class="profile-email">xiaoguanbx@gmail.com</li>
-              <li><a href="https://scholar.google.com/citations?user=tQETugYAAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer">Google Scholar</a></li>
-              <li><a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer">ORCID</a></li>
-              <li class="github-link"><a href="https://github.com/AlanYu04" target="_blank" rel="noreferrer">GitHub</a></li>
+              <li class="profile-email"><a href="mailto:xiaoguanbx@gmail.com" title="xiaoguanbx@gmail.com"><span class="profile-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></svg></span><span data-scrapbook-key="emailLabel">Email</span></a></li>
+              <li><a href="https://scholar.google.com/citations?user=tQETugYAAAAJ&amp;hl=zh-CN&amp;oi=sra" target="_blank" rel="noreferrer"><span class="profile-link-icon scholar-icon" aria-hidden="true">g</span>Google Scholar</a></li>
+              <li class="github-link"><a href="https://github.com/AlanYu04" target="_blank" rel="noreferrer"><span class="profile-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 1.72 2.64 1.22 3.28.93.1-.73.39-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .94-.3 3.09 1.16a10.77 10.77 0 0 1 5.62 0c2.15-1.46 3.09-1.16 3.09-1.16.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.28-5.14 5.56.4.35.76 1.04.76 2.1v3.08c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z" /></svg></span>GitHub</a></li>
+              <li><a href="https://orcid.org/0009-0008-3403-0124" target="_blank" rel="noreferrer"><span class="profile-link-icon orcid-icon" aria-hidden="true">iD</span>ORCID</a></li>
             </ul>
           </aside>
 
@@ -290,9 +303,17 @@
     <script src="js/main.js"></script>
     <script>
     (function(){
+      // Keep the legacy language script from restoring an outdated page title.
+      if(typeof translations !== 'undefined') {
+        Object.keys(translations).forEach(function(lang){
+          translations[lang]['meta.title'] = 'Guanyu Zhu';
+        });
+      }
       var scrapbookCopy = {
         zh: {
-          identity: 'SCAU',
+          identity: '本科生 @ 华南农业大学',
+          incoming: '即将入读硕士 @<br /><strong>复旦大学 · 2027</strong>',
+          emailLabel: '邮箱',
           location: '广州，中国',
           aboutIntro: '我目前是华南农业大学电子科学与技术专业的本科生，最近在做具身智能相关研究，关注 <strong>VLA</strong> 和 <strong>world models（WM）</strong>。<del>我已经完全掌握了如何平衡科研与生活。</del> 这句话先划掉，等以后真能做到再放回来。现在先把电脑合上五分钟，算作阶段性胜利。',
           aboutResearch: '过去一年，我先在<strong>华南农业大学兰玉彬教授实验室</strong>参与农业大模型研究，围绕真实荔枝果园完成田间图像采集、多模态问答数据构建，参与 <strong>Lychee-Bench / Lychee-Mind</strong> 的设计，并进行基于 Qwen2.5-VL-7B 的 SFT 与 GRPO 训练。之后在<strong>香港城市大学</strong>开展科研实习，参与 SemBid，研究语言表征如何进入自动出价决策；参与 PhysicsMind，构建真实—仿真统一的物理推理评测；参与 Latent Reward Steering，探索推理过程中的隐状态引导。此后，我还开展了触觉感知与世界模型研究。接下来，我将进入<strong>复旦大学</strong>，在<a href="https://roxie62.github.io/" target="_blank" rel="noreferrer"><strong>姜若曦教授</strong></a>指导下继续学习与研究。',
@@ -344,7 +365,9 @@
           profileLabel: '个人信息', languageLabel: '语言'
         },
         en: {
-          identity: 'SCAU',
+          identity: 'Undergraduate @ SCAU',
+          incoming: 'Incoming M.S. @<br /><strong>Fudan University \'27</strong>',
+          emailLabel: 'Email',
           location: 'Guangzhou, China',
           aboutIntro: 'I am an undergraduate student at South China Agricultural University, currently based in Guangzhou.',
           aboutResearch: 'I have conducted research at <strong>City University of Hong Kong</strong> and contributed to work on <strong>agricultural foundation models</strong> at South China Agricultural University. My projects have covered auto-bidding, agricultural vision, physical reasoning, and clinical decision-making. I later worked on tactile perception and world models. I will next join <strong>Fudan University</strong> and continue my study and research under the supervision of <a href="https://roxie62.github.io/" target="_blank" rel="noreferrer"><strong>Ruoxi Jiang</strong></a>.',
@@ -417,8 +440,8 @@
           btn.setAttribute('aria-pressed', String(active));
         });
       }
-      function applyAcademicTitle(lang){
-        document.title = (lang === 'zh') ? '朱冠宇 | 个人网站' : 'Guanyu Zhu | Personal Website';
+      function applySiteTitle(){
+        document.title = 'Guanyu Zhu';
       }
       function getPreferredLanguage(){
         try {
@@ -440,7 +463,7 @@
           if(typeof setLanguage === 'function') setLanguage(lang);
           setTimeout(function(){
             applyScrapbookCopy(lang);
-            applyAcademicTitle(lang);
+            applySiteTitle();
           }, 0);
         });
       });
@@ -450,7 +473,7 @@
       var initLang = getPreferredLanguage();
       if(typeof setLanguage === 'function') setLanguage(initLang);
       applyScrapbookCopy(initLang);
-      applyAcademicTitle(initLang);
+      applySiteTitle();
     })();
     // Ensure home page is shown by default
     showPage('home');

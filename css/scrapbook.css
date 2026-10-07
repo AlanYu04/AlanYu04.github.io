@@ -768,40 +768,73 @@ body.scrapbook-theme * {
   line-height: 1.55;
 }
 
+.scrapbook-theme .sidebar-incoming {
+  margin-top: 8px;
+}
+
+.scrapbook-theme .sidebar-incoming strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.scrapbook-theme .sidebar-interests {
+  margin: 18px 0 0;
+  color: var(--text);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.scrapbook-theme .sidebar-interests span {
+  color: var(--muted);
+}
+
 .scrapbook-theme .profile-links {
   display: grid;
-  gap: 12px;
-  margin: 26px 0 0;
+  justify-content: start;
+  gap: 8px;
+  margin: 20px 0 0;
   padding: 0;
   list-style: none;
 }
 
 .scrapbook-theme .profile-links li {
-  display: grid;
-  grid-template-columns: 21px minmax(0, 1fr);
-  align-items: center;
+  display: block;
   min-height: 20px;
   color: var(--text);
   font-size: .95rem;
 }
 
 .scrapbook-theme .profile-links li::before {
-  color: #555c61;
-  font-size: 1.05rem;
-  font-weight: 600;
-  text-align: left;
+  content: none;
 }
 
-.scrapbook-theme .profile-links .profile-email::before { content: "✉"; }
-.scrapbook-theme .profile-links li:nth-child(2)::before { content: "g"; font-family: Georgia, serif; font-weight: 700; }
-.scrapbook-theme .profile-links li:nth-child(3)::before { content: "◎"; color: #a6ce39; }
-.scrapbook-theme .profile-links .github-link::before {
-  content: "";
+.scrapbook-theme .profile-link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--muted);
+}
+
+.scrapbook-theme .profile-link-icon svg {
+  display: block;
   width: 16px;
   height: 16px;
-  border: 1.5px solid #1f2328;
+}
+
+.scrapbook-theme .scholar-icon {
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.scrapbook-theme .orcid-icon {
+  border: 1px solid currentColor;
   border-radius: 50%;
-  background: #ffffff url("https://github.githubassets.com/favicons/favicon.svg") center / 12px 12px no-repeat;
+  font-size: .65rem;
+  font-weight: 600;
 }
 
 /* ---------- Gentle illustrated details ---------- */
@@ -1132,13 +1165,21 @@ body.scrapbook-theme::before {
 }
 
 .scrapbook-theme .profile-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--text);
   font-size: .95rem;
 }
 
 .scrapbook-theme .profile-links a:hover {
+  background: transparent;
   color: var(--link-hover);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .scrapbook-theme .academic-content {
